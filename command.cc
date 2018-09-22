@@ -151,7 +151,7 @@ void Command::execute() {
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
 
 			} else if (ret < 0) {
-				perror("fork")
+				perror("fork");
 				return;
 
 			}
