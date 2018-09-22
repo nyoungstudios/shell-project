@@ -99,7 +99,7 @@ void Command::execute() {
     }
 	
 		//quit shell
-		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "exit") || !strcmp(_simplecommands[0]->c_str(), "quit")) {
+		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "exit") || !strcmp(_simpleCommands[0]->c_str(), "quit")) {
 			exit(1);
 		}
 
