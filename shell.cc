@@ -24,7 +24,7 @@ void controlC(int sig) {
 }
 
 void zombie(int sig) {
-	while (waitpid(-1, NULL, WNOHANG) > );
+	while (waitpid(-1, NULL, WNOHANG) > 0);
 }
 
 
