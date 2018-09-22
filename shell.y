@@ -118,6 +118,14 @@ iomodifier_opt:
   | /* can be empty */ 
   ;
 
+background_optional:
+	AMP {
+		Shell::_currentCommand._background = 1;
+	}
+	|
+	;
+
+
 %%
 
 void
