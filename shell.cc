@@ -16,14 +16,14 @@ void Shell::prompt() {
 	}
 }
 
-void controlC() {
+void controlC(int sig) {
 	printf("\n");
 	Shell::_currentCommand.clear();
 	Shell::prompt();
 	
 }
 
-void zombie() {
+void zombie(int sig) {
 	while (waitpid(-1, NULL, WNOHANG) > 0);
 }
 
