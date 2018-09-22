@@ -59,7 +59,9 @@ simple_command:
     printf("   Yacc: Execute command\n");
     Shell::_currentCommand.execute();
   }
-  | NEWLINE 
+  | NEWLINE {
+		Shell::_currentCommand.execute();
+	} 
   | error NEWLINE { yyerrok; }
   ;
 
