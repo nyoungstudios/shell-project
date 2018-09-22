@@ -166,7 +166,9 @@ void Command::execute() {
 		close(defaultout);
 		close(defaulterr);
 
-		
+		if (!_background) {
+			waitpid(ret, NULL, 0);
+		}
 
 
     // Clear to prepare for next command
