@@ -30,8 +30,8 @@ void myunputc(int c) {
   /* Discard spaces and tabs */
 }
 
-">" {
-  return GREAT;
+">>&" {
+	return GREATGREATAMP;
 }
 
 ">>" {
@@ -46,8 +46,8 @@ void myunputc(int c) {
 	return GREATAMP;
 }
 
-">>&" {
-	return GREATGREATAMP;
+">" {
+  return GREAT;
 }
 
 "&" {
