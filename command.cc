@@ -137,7 +137,7 @@ void Command::execute() {
 
 
 		for (int i = 0; i < _numberOfSimpleCommands; i++) {
-			ret = fork():
+			ret = fork();
 			if (ret == 0) {
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), _simpleCommands[i]->arguments);
 
