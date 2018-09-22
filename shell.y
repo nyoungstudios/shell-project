@@ -118,7 +118,7 @@ iomodifier_opt:
   | /* can be empty */ 
   ;
 
-iomodifier_lsit:
+iomodifier_list:
 	iomodifier_list iomodifier_opt
 	| /* can be empty */
 	;
