@@ -159,6 +159,16 @@ void Command::execute() {
 		}
 
 
+		dup2(defaultin, 0);
+		dup2(defaultout, 1);
+		dup2(defaulterr, 2);
+		close(defaultin);
+		close(defaultout);
+		close(defaulterr);
+
+		
+
+
     // Clear to prepare for next command
     clear();
 
