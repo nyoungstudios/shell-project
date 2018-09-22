@@ -104,7 +104,7 @@ void Command::execute() {
 		}
 
 		//clear
-		if (!strcmp(_simpleCommands[0]->_arugments[0]->c_str(), "clear")) {
+		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "clear")) {
 			std::system("clear");
 			clear();
 			Shell::prompt();
