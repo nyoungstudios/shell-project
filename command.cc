@@ -24,6 +24,9 @@
 #include "string.h"
 #include <unistd.h>
 #include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/signal.h>
+#include <sys/wait.h>
 
 Command::Command() {
     // Initialize a new vector of Simple Commands
