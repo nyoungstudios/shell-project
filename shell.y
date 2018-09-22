@@ -97,23 +97,23 @@ iomodifier_opt:
   }
 	| GREATGREAT WORD {
 		Shell::_currentCommand._outFile = $2;
-		Shell::_currentCommand._append = 1;
-		Shell::_currentCommand._outCounter++;
+		//Shell::_currentCommand._append = 1;
+		//Shell::_currentCommand._outCounter++;
 	}
 	| GREATGREATAMP WORD {
 		Shell::_currentCommand._outFile = $2;
 		Shell::_currentCommand._errFile = $2;
-		Shell::_currentCommand._outCounter++;
-		Shell::_currentCommand._append = 1;
+		//Shell::_currentCommand._outCounter++;
+		//Shell::_currentCommand._append = 1;
 	}
 	| GREATAMP WORD {
 		Shell::_currentCommand._outFile = $2;
 		Shell::_currentCommand._errFile = $2;
-		Shell::_currentcommand._outCounter++;
+		//Shell::_currentCommand._outCounter++;
 	}	
 	| LESS WORD {
 		Shell::_currentCommand._inFile = $2;
-		Shell::_currentcommand._inCounter++;
+		//Shell::_currentCommand._inCounter++;
 	}
   | /* can be empty */ 
   ;
