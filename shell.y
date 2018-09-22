@@ -115,6 +115,9 @@ iomodifier_opt:
 		Shell::_currentCommand._inFile = $2;
 		//Shell::_currentCommand._inCounter++;
 	}
+	| TWOGREAT WORD {
+		Shell::_currentCommand._errFile = $2;
+	}
   /*| /* can be empty */ 
   ;
 
