@@ -97,6 +97,20 @@ void Command::execute() {
         Shell::prompt();
         return;
     }
+	
+		//quit shell
+		if (!strcmp(_simpleCommands[0]->arguments[0]->c_str(), "exit") || !strcmp(_simplecommands[0]->c_str(), "quit")) {
+			exit(1);
+		}
+
+		//clear
+		if (!strcmp(_simpleCommands[0]->arugments[0]->c_str(), "clear")) {
+			std::system("clear");
+			clear();
+			Shell::prompt();
+			return;
+		}
+
 
     // Print contents of Command data structure
     print();
