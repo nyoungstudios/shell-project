@@ -120,7 +120,6 @@ iomodifier_opt:
 
 iomodifier_list:
 	iomodifier_list iomodifier_opt
-	| /* can be empty */
 	;
 
 background_optional:
