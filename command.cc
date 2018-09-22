@@ -142,7 +142,8 @@ void Command::execute() {
 				
 				//convert to char** from vector
 				char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
-				for (unsigned int j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
+				unsigned int j;
+				for (j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
 					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
 				}
 				cargument[j] = NULL;
