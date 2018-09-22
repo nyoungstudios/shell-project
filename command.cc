@@ -131,7 +131,7 @@ void Command::execute() {
 		int fderr;
 
 
-		int _numberOfSimpleCommands = (int) _currentSimpleCommand->_argument.size();
+		int _numberOfSimpleCommands = (int) _currentSimpleCommand->_arguments.size();
 
 		int ret;
 
