@@ -55,7 +55,7 @@ command: simple_command
        ;
 
 simple_command:	
-  command_and_args iomodifier_opt background_optional NEWLINE {
+  command_and_args iomodifier_list background_optional NEWLINE {
     printf("   Yacc: Execute command\n");
     Shell::_currentCommand.execute();
   }
@@ -115,12 +115,12 @@ iomodifier_opt:
 		Shell::_currentCommand._inFile = $2;
 		//Shell::_currentCommand._inCounter++;
 	}
-  | /* can be empty */ 
+  /*| /* can be empty */ 
   ;
 
 iomodifier_list:
 	iomodifier_list iomodifier_opt
-	| iomodifier_opt
+	|
 	;
 
 background_optional:
