@@ -131,7 +131,23 @@ void Command::execute() {
 		int fderr;
 
 
+		int _numberOfSimpleCommands = (int) _currentSimpleCommand->_argument.size();
 
+		int ret;
+
+
+		for (int i = 0; i < _numberOfSimpleCommands; i++) {
+			ret = fork():
+			if (ret == 0) {
+				execvp(_simpleCommands[i]->_arguments[0]->c_str(), _simpleCommands[i]->arguments);
+
+			} else if (ret < 0) {
+				perror("fork")
+				return;
+
+			}
+
+		}
 
 
     // Clear to prepare for next command
