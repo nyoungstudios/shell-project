@@ -22,6 +22,7 @@
 #include "command.hh"
 #include "shell.hh"
 #include "string.h"
+#include <unistd.h>
 #include <fcntl.h>
 
 Command::Command() {
