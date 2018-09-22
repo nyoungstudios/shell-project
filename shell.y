@@ -131,7 +131,6 @@ iomodifier_opt:
 
 iomodifier_list:
 	iomodifier_list iomodifier_opt
-	| iodmodifier_opt
 	|
 	;
 
