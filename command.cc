@@ -139,7 +139,16 @@ void Command::execute() {
 		for (int i = 0; i < _numberOfSimpleCommands; i++) {
 			ret = fork();
 			if (ret == 0) {
-				execvp(_simpleCommands[i]->_arguments[0]->c_str(), _simpleCommands[i]->_arguments);
+				
+				//convert to char** from vector
+				char * const * cargument = new char const[_simpleCommands[i]->_arguments.size()];
+				for (unsigned int j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
+					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j].c_str());
+
+
+				}
+
+				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
 
 			} else if (ret < 0) {
 				perror("fork")
