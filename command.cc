@@ -144,9 +144,8 @@ void Command::execute() {
 				char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
 				for (unsigned int j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
 					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
-
-
 				}
+				cargument[j] = NULL;
 
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
 
