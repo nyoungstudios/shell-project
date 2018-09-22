@@ -55,13 +55,19 @@ command: simple_command
        ;
 
 simple_command:	
-  command_and_args iomodifier_list background_optional NEWLINE {
+  pipe_list iomodifier_list background_optional NEWLINE {
     printf("   Yacc: Execute command\n");
     Shell::_currentCommand.execute();
   }
   | NEWLINE 
   | error NEWLINE { yyerrok; }
   ;
+
+pipe_list:
+	pipe_list PIPE command_and_args
+	| command_and_args
+	;
+
 
 command_and_args:
   command_word argument_list {
