@@ -134,7 +134,7 @@ void Command::execute() {
 		int fderr;
 
 		if (_inFile) {
-			fdin = open(_infile->c_str(), O_RDONLY, 0664);
+			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
 		} else {
 			fdin = dup(defaultin);
 		}
