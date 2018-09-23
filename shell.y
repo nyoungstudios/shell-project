@@ -56,7 +56,7 @@ command: simple_command
 
 simple_command:	
   pipe_list iomodifier_list background_optional NEWLINE {
-    printf("   Yacc: Execute command\n");
+    //printf("   Yacc: Execute command\n");
     Shell::_currentCommand.execute();
   }
   | NEWLINE {
@@ -85,7 +85,7 @@ argument_list:
 
 argument:
   WORD {
-    printf("   Yacc: insert argument \"%s\"\n", $1->c_str());
+    //printf("   Yacc: insert argument \"%s\"\n", $1->c_str());
     Command::_currentSimpleCommand->insertArgument( $1 );\
   }
   ;
