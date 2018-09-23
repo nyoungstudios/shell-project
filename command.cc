@@ -132,6 +132,8 @@ void Command::execute() {
 		int fdin;
 		int fdout;
 		int fderr;
+		
+		/*
 
 		if (_inFile) {
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
@@ -151,7 +153,7 @@ void Command::execute() {
 
 		dup2(fderr, 2);
 		close(fderr);
-
+		*/
 
 		int _numberOfSimpleCommands = (int) _currentSimpleCommand->_arguments.size();
 
@@ -159,6 +161,7 @@ void Command::execute() {
 
 
 		for (int i = 0; i < _numberOfSimpleCommands; i++) {
+			/*
 			dup2(fdin, 0);
 			close(fdin);
 
@@ -204,8 +207,8 @@ void Command::execute() {
 			dup2(fdout, 1);
 			close(fdout);
 
-
-
+			*/
+			
 
 			ret = fork();
 			if (ret == 0) {
