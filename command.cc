@@ -150,7 +150,7 @@ void Command::execute() {
 					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
 					printf("%s\n", cargument[j]);
 				}
-				cargument[j] = NULL;
+				//cargument[j] = NULL;
 
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
 
