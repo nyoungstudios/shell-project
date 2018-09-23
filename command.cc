@@ -69,6 +69,9 @@ void Command::clear() {
     _errFile = NULL;
 
     _background = false;
+
+		_append = 0;		
+
 }
 
 void Command::print() {
