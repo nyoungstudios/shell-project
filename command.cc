@@ -216,7 +216,6 @@ void Command::execute() {
 			ret = fork();
 			if (ret == 0) {
 			
-				printf("hi\n");
 	
 				//convert to char** from vector
 				char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
@@ -227,7 +226,7 @@ void Command::execute() {
 				cargument[j] = NULL;
 
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
-				_exit(1);
+
 
 			} else if (ret < 0) {
 				perror("fork");
