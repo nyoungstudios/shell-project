@@ -66,6 +66,7 @@ simple_command:
   | error NEWLINE { 
 		yyerrok;
 		Shell::_currentCommand.clear();
+		printf("\n");
 		Shell::prompt();
 	}
   ;
