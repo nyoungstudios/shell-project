@@ -254,6 +254,7 @@ void Command::execute() {
 
     // Print new prompt
     Shell::prompt();
+		printf("hi\n");
 }
 
 SimpleCommand * Command::_currentSimpleCommand;
