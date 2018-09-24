@@ -246,6 +246,7 @@ void Command::execute() {
 
 		if (!_background) {
 			waitpid(ret, NULL, 0);
+			printf("hi\n");
 		}
 
 
@@ -254,7 +255,6 @@ void Command::execute() {
 
     // Print new prompt
     Shell::prompt();
-		printf("hi\n");
 }
 
 SimpleCommand * Command::_currentSimpleCommand;
