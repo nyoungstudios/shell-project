@@ -226,7 +226,7 @@ void Command::execute() {
 				}
 				cargument[j] = NULL;
 
-				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
+				execvp(_simpleCommands[0]->_arguments[0]->c_str(), cargument);
 
 			} else if (ret < 0) {
 				perror("fork");
