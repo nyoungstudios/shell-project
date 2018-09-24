@@ -137,7 +137,7 @@ void Command::execute() {
     // Setup i/o redirection
     // and call exec
 
-		/*
+		
 		int defaultin = dup(0);
 		int defaultout = dup(1);
 		int defaulterr = dup(2);
@@ -146,7 +146,7 @@ void Command::execute() {
 		int fdout;
 		int fderr;
 		
-		
+		/*
 
 		if (_inFile) {
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
@@ -166,7 +166,7 @@ void Command::execute() {
 
 		dup2(fderr, 2);
 		close(fderr);
-		
+		*/
 
 		int _numberOfSimpleCommands = (int) _currentSimpleCommand->_arguments.size();
 
@@ -174,7 +174,8 @@ void Command::execute() {
 
 
 		for (int i = 0; i < _numberOfSimpleCommands; i++) {
-			
+	
+			/*		
 			dup2(fdin, 0);
 			close(fdin);
 
@@ -220,7 +221,7 @@ void Command::execute() {
 			dup2(fdout, 1);
 			close(fdout);
 
-			
+			*/
 			
 
 			ret = fork();
@@ -257,7 +258,7 @@ void Command::execute() {
 		if (!_background) {
 			waitpid(ret, NULL, 0);
 		}
-		*/
+		
 
     // Clear to prepare for next command
     clear();
