@@ -65,7 +65,7 @@ simple_command:
 	} 
   | error NEWLINE { 
 		yyerrok;
-		Shell::clear();
+		Shell::_currentCommand.clear();
 		Shell::prompt();
 	}
   ;
