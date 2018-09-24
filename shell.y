@@ -60,7 +60,7 @@ simple_command:
     Shell::_currentCommand.execute();
   }
   | NEWLINE {
-		Shell:prompt();
+		Shell::prompt();
 		//Shell::_currentCommand.execute();
 	} 
   | error NEWLINE { yyerrok; }
