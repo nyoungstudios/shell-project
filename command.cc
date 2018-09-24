@@ -121,7 +121,7 @@ void Command::execute() {
 
 
     // Print contents of Command data structure
-    print();
+    //print();
 
     // Add execution here
     // For every simple command fork a new process
@@ -221,7 +221,6 @@ void Command::execute() {
 				unsigned int j;
 				for (j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
 					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
-					printf("%s", cargument[j]);
 				}
 				cargument[j] = NULL;
 
