@@ -63,7 +63,11 @@ simple_command:
 		Shell::prompt();
 		//Shell::_currentCommand.execute();
 	} 
-  | error NEWLINE { yyerrok; }
+  | error NEWLINE { 
+		yyerrok;
+		Shell::clear();
+		Shell::prompt();
+	}
   ;
 
 pipe_list:
