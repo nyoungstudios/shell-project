@@ -58,6 +58,7 @@ void Command::clear() {
 					delete _outFile;
 			}
 			_outFile = NULL;
+			_errFile = NULL;
 
 		} else {
 			if ( _outFile ) {
