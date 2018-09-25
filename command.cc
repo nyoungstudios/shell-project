@@ -192,6 +192,7 @@ void Command::execute() {
 					if (_append) {
 						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					} else {
+						remove(_outFile->c_str());
 						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
 					}
 
