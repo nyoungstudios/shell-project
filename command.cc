@@ -238,7 +238,7 @@ void Command::execute() {
 
 
 		if (_inCounter > 1 || _outCounter > 1) {
-			fprintf("Ambiguous output redirect.\n");
+			fprintf(stderr, "Ambiguous output redirect.\n");
 		}	
 		
 		//sets in file
