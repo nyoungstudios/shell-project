@@ -134,7 +134,7 @@ void Command::execute() {
 
 		//setenv
 		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "setenv")) {
-			int error = setenv(_simpleCommands[0]->arguments[1]->c_str(), _simpleCommands[0]->_arguments[2]->c_str(), 1);
+			int error = setenv(_simpleCommands[0]->_arguments[1]->c_str(), _simpleCommands[0]->_arguments[2]->c_str(), 1);
 			if (error < 0) {
 				perror("setenv");
 			}
@@ -165,7 +165,7 @@ void Command::execute() {
 
 
 			if (error < 0) {
-				fprintf(stderr, "cd: can't cd to %s\n", _simpleCommands[0]->arguments[1]->c_str());
+				fprintf(stderr, "cd: can't cd to %s\n", _simpleCommands[0]->_arguments[1]->c_str());
 			}
 			clear();
 			Shell::prompt();
