@@ -232,6 +232,7 @@ void Command::execute() {
 		if (_inFile) {
 			if (_inCounter > 1) {
 				for (auto inList : _inList) {
+					printf("%s\n", inList->c_str());
 					fdin = open(inList->c_str(), O_RDONLY, 0664);
 				}
 			}
