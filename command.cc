@@ -179,7 +179,7 @@ void Command::execute() {
 			dup2(fdin, 0);
 			close(fdin);
 
-			
+			/*
 			if (i == _numberOfSimpleCommands - 1) {
 				if (_outFile) {
 					if (_append) {
@@ -221,7 +221,7 @@ void Command::execute() {
 			dup2(fdout, 1);
 			close(fdout);
 
-			
+			*/
 			
 
 			ret = fork();
