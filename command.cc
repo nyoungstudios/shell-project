@@ -168,10 +168,10 @@ void Command::execute() {
 		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "cd")) {
 			int error;
 			if (_simpleCommands[0]->_arguments.size() == 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
-				std::string pwd = "PWD=";
-				std::string oldpwd = getenv("PWD");
+				char * pwd = "PWD=";
+				char * oldpwd = getenv("PWD");
 				pwd.append(oldpwd);
-				putenv(const_cast<char *>(pwd));
+				putenv(pwd);
 				error = chdir(getenv("HOME"));
 			} else if(_simpleCommands[0]->_arguments.size()== 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
 				error = chdir(getenv("OLDPWD"));
