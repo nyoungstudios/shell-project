@@ -179,7 +179,8 @@ void Command::execute() {
 			dup2(fdin, 0);
 			close(fdin);
 
-			//setup output	
+			//setup output
+			printf("this is i: %d\n", i);	
 			if (i == _numberOfSimpleCommands - 1) {
 				if (_outFile) {
 					if (_append) {
