@@ -248,7 +248,16 @@ void Command::execute() {
 					fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);	
 					
+					if (fdout < 0) {
+						perror("outFile open error");
+						exit(1);
+					}
 
+					if (fderr < 0) {
+						perror("errFile open error");
+						exit(1);
+					}
+	
 				} else if (_outFile) {  //if just out is redirected
 					if (_append) {
 						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
