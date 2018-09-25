@@ -154,6 +154,7 @@ void Command::execute() {
 			return;
 		}
 
+
 		//cd
 		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "cd")) {
 			int error;
