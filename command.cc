@@ -171,7 +171,7 @@ void Command::execute() {
 				std::string pwd = "PWD=";
 				std::string oldpwd = getenv("PWD");
 				pwd.append(oldpwd);
-				putenv(pwd);
+				putenv(pwd->c_str());
 				error = chdir(getenv("HOME"));
 			} else if(_simpleCommands[0]->_arguments.size()== 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
 				error = chdir(getenv("OLDPWD"));
