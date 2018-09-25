@@ -14,8 +14,8 @@ struct Command {
 	int _append;
 	int _inCounter;
 	int _outCounter;
-	std::vector<string *> _inList;
-	std::vector<string *> _outList;
+	std::vector<std::string *> _inList;
+	std::vector<std::string *> _outList;
 
   Command();
   void insertSimpleCommand( SimpleCommand * simpleCommand );

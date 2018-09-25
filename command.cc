@@ -40,8 +40,8 @@ Command::Command() {
 		_inCounter = 0;
 		_outCounter = 0;
 
-		_inList = std::vector<string *>();
-		_outList = std::vector<string *>();	
+		_inList = std::vector<std::string *>();
+		_outList = std::vector<std::string *>();	
 }
 
 void Command::insertSimpleCommand( SimpleCommand * simpleCommand ) {
