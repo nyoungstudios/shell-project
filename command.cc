@@ -255,7 +255,7 @@ void Command::execute() {
 		
 		//gets number of simple commands
 		int _numberOfSimpleCommands = (int) _simpleCommands.size();
-		printf("this is the number of simple commands: %d\n", _numberOfSimpleCommands);
+		//printf("this is the number of simple commands: %d\n", _numberOfSimpleCommands);
 
 
 		//variable for forking
