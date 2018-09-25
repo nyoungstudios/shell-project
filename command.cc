@@ -146,14 +146,15 @@ void Command::execute() {
 		int fdout;
 		int fderr;
 		
-		/*
+		
 
 		if (_inFile) {
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
+			printf("%s\n", _inFile->c_str());
 		} else {
 			fdin = dup(defaultin);
 		}
-		
+		/*
 		if (_errFile) {
 			if (_append) {
 				fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
