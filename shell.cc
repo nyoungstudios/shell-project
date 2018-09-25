@@ -68,17 +68,9 @@ int main() {
 		exit(1);
 	}
 
-	FILE* fd = fopen(".shellrc", "r");
-	if (fd) {
-		yyrestart(fd);
-		yyparse();
-		yyrestart(stdin);
-		fclose(fd);
-	} else {
 
 
-	  Shell::prompt();
-	}
+  Shell::prompt();
   yyparse();
 }
 
