@@ -172,12 +172,15 @@ void Command::execute() {
 				error = chdir(getenv("HOME"));
 				//std::string pwdString = "PWD=";
 				//std::string oldpwdString = "OLDPWD=";
-				//std::string pwd = getenv("PWD");
-				//std::string home = getenv("HOME");
+				std::string pwd = getenv("PWD");
+				std::string home = getenv("HOME");
 				//pwdString.append(home);
 				//putenv(const_cast<char *>(pwdString.c_str()));
 				//oldpwdString.append(pwd);
 				//putenv(const_cast<char *>(oldpwdString.c_str()));
+				setenv("PWD", home.c_str(), 1);
+				setenv("OLDPWD", pwd.c_str(), 1);
+
 
 			} /*else if(_simpleCommands[0]->_arguments.size()== 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
 				error = chdir(getenv("OLDPWD"));
@@ -192,17 +195,12 @@ void Command::execute() {
 
 			}*/else {
 				error = chdir(_simpleCommands[0]->_arguments[1]->c_str());
-				//std::string pwdString = "PWD=";
-				//std::string oldpwdString = "OLDPWD=";
 				std::string pwd = getenv("PWD");
 				std::string pwdString = pwd;
 				pwdString.append("/");
 				pwdString.append(_simpleCommands[0]->_arguments[1]->c_str());
 				setenv("PWD", pwdString.c_str(), 1);
 				setenv("OLDPWD", pwd.c_str(), 1);
-				//putenv(const_cast<char *>(pwdString.c_str()));
-				//oldpwdString.append(pwd);
-				//putenv(const_cast<char *>(oldpwdString.c_str()));
 			}
 
 
