@@ -180,9 +180,9 @@ void Command::execute() {
 			close(fdin);
 
 			//setup output
-			printf("this is num of simple commands: %d\n", _numberOfSimpleCommands);
 			if (i == _numberOfSimpleCommands - 1) {
 				if (_outFile) {
+					printf("this is num of simple commands: %d\n", _numberOfSimpleCommands);
 					if (_append) {
 						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					} else {
