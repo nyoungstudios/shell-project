@@ -179,7 +179,7 @@ void Command::execute() {
 			dup2(fdin, 0);
 			close(fdin);
 
-			/*
+			//setup output	
 			if (i == _numberOfSimpleCommands - 1) {
 				if (_outFile) {
 					if (_append) {
@@ -188,25 +188,27 @@ void Command::execute() {
 						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
 					}
 			
-
+					/*
 					if (fdout < 0) {
 						perror("outFile open error");
 						exit(1);
 					}
+					*/
 
-				} else if (_errFile) {
+				} /*else if (_errFile) {
 					if (_append) {
 						fdout = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					} else {
 						fdout = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
 					}
 			
-
+					
 					if (fdout < 0) {
 						perror("outFile open error");
 						exit(1);
-					}				
-				} else {
+					}	
+								
+				} */else {
 					fdout = dup(defaultout);
 				}
 
@@ -221,7 +223,7 @@ void Command::execute() {
 			dup2(fdout, 1);
 			close(fdout);
 
-			*/
+			
 			
 
 			ret = fork();
