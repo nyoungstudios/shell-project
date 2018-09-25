@@ -196,7 +196,7 @@ void Command::execute() {
 					}
 
 					
-					fdout = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
+					fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					
 					//fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
 					
