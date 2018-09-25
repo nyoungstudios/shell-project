@@ -40,7 +40,6 @@ void controlC(int sig) {
 }
 
 void zombie(int sig) {
-	int pid = wait3(0, 0, NULL);
 	while (waitpid(-1, NULL, WNOHANG) > 0);
 }
 
@@ -66,7 +65,7 @@ int main() {
 	error = sigaction(SIGCHLD, &sa2, NULL);
 	if (error == -1) {
 		perror("sigaction");
-		exit(1);
+		exit(-1);
 	}
 
 
