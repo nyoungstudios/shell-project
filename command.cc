@@ -230,12 +230,13 @@ void Command::execute() {
 		
 		//sets in file
 		if (_inFile) {
+			/*
 			if (_inCounter > 1) {
 				for (auto inList : _inList) {
 					printf("%s\n", inList->c_str());
 					fdin = open(inList->c_str(), O_RDONLY, 0664);
 				}
-			}
+			}*/
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
 			//fderr = fdin;
 			//dup2(fderr, 0);
