@@ -180,7 +180,7 @@ void Command::execute() {
 			close(fdin);
 
 			//setup output
-			printf("this is i: %d\n", i);	
+			printf("this is num of simple commands: %d\n", _numberOfSimpleCommands);
 			if (i == _numberOfSimpleCommands - 1) {
 				if (_outFile) {
 					if (_append) {
