@@ -79,7 +79,11 @@ void Command::clear() {
 
     _background = false;
 
-		_append = 0;		
+		_append = 0;	
+
+		_inCounter = 0;
+
+		_outCounter = 0;	
 
 }
 
@@ -127,6 +131,48 @@ void Command::execute() {
 			Shell::prompt();
 			return;
 		}
+
+		//setenv
+		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "setenv")) {
+			int error = setenv(_simpleCommands[0]->arguments[1]->c_str(), _simpleCommands[0]->_arguments[2]->c_str(), 1);
+			if (error < 0) {
+				perror("setenv");
+			}
+			clear();
+			Shell::prompt();
+			return;
+		}
+
+		//unsetenv
+		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "unsetenv")) {
+			int error = unsetenv(_simpleCommands[0]->_arguments[1]->c_str());
+			if (error < 0) {
+				perror("unsetenv");
+			}
+			clear();
+			Shell::prompt();
+			return;
+		}
+
+		//cd
+		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "cd")) {
+			int error;
+			if (_simpleCommands[0]->_arguments.size() == 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
+				error = chdir(getenv("HOME"));
+			} else {
+				error = chdir(_simpleCommands[0]->_arguments[1]->c_str());
+			}
+
+
+			if (error < 0) {
+				fprintf(stderr, "cd: can't cd to %s\n", _simpleCommands[0]->arguments[1]->c_str());
+			}
+			clear();
+			Shell::prompt();
+			return;
+		}
+
+
 
 
     // Print contents of Command data structure
