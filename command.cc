@@ -62,6 +62,11 @@ void Command::clear() {
 		if (_outFile == _errFile) {
 				if ( _outFile ) {
 					delete _outFile;
+					if (_outCounter > 1) {	
+						for (auto outList : _outList) {
+							delete outList;
+						}				
+					}
 			}
 			_outFile = NULL;
 			_errFile = NULL;
@@ -69,10 +74,22 @@ void Command::clear() {
 		} else {
 			if ( _outFile ) {
 					delete _outFile;
+					if (_outCounter > 1) {	
+						for (auto outList : _outList) {
+							delete outList;
+						}				
+					}
+
 			}
 			_outFile = NULL;
 			if ( _errFile ) {
 					delete _errFile;
+					if (_outCounter > 1) {	
+						for (auto outList : _outList) {
+							delete outList;
+						}				
+					}
+
 			}
 			_errFile = NULL;
 
@@ -80,6 +97,11 @@ void Command::clear() {
 
     if ( _inFile ) {
         delete _inFile;
+				if (_inCounter > 1) {
+					for (auto inList : _inList) {
+						delete inList;
+					}
+				}
     }
     _inFile = NULL;
 
@@ -91,13 +113,8 @@ void Command::clear() {
 
 		_outCounter = 0;
 
-		for (auto inList : _inList) {
-			delete inList;
-		}	
+	
 
-		for (auto outList : _outList) {
-			delete outList;
-		}
 
 
 
