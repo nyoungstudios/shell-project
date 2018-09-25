@@ -166,7 +166,7 @@ void Command::execute() {
 
 
 			if (error < 0) {
-				fprintf(stderr, "cd: %s: No such file or directory\n", _simpleCommands[0]->_arguments[1]->c_str());
+				fprintf(stderr, "cd: can't cd to %s\n", _simpleCommands[0]->_arguments[1]->c_str());
 			}
 			clear();
 			Shell::prompt();
