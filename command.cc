@@ -166,7 +166,7 @@ void Command::execute() {
 
 
 			if (error < 0) {
-				fprintf(stderr, "cd: can't cd to %s\n", _simpleCommands[0]->_arguments[1]->c_str());
+				fprintf(stderr, "/bin/sh: 1: cd: can't cd to %s\n", _simpleCommands[0]->_arguments[1]->c_str());
 			}
 			clear();
 			Shell::prompt();
