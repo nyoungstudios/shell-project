@@ -7,8 +7,8 @@ input_str=$'cd notfound\n/bin/pwd'
 #testing
 
 
-echo <(/bin/sh <<< "$input_str" 2>&1)
-echo <(../shell <<< "$input_str" 2>&1)
+#echo <(/bin/sh <<< "$input_str" 2>&1)
+#echo <(../shell <<< "$input_str" 2>&1)
 #testing
 
 
