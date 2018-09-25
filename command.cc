@@ -188,14 +188,14 @@ void Command::execute() {
 						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
 					}
 			
-					/*
+					
 					if (fdout < 0) {
 						perror("outFile open error");
 						exit(1);
 					}
-					*/
+					
 
-				} /*else if (_errFile) {
+				} else if (_errFile) {
 					if (_append) {
 						fdout = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					} else {
@@ -208,7 +208,7 @@ void Command::execute() {
 						exit(1);
 					}	
 								
-				} */else {
+				} else {
 					fdout = dup(defaultout);
 				}
 
