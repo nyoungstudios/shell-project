@@ -39,8 +39,7 @@ void controlC(int sig) {
 	
 }
 
-extern "C" void zombie(int sig) {
-	int pid = wait3(0, 0, NULL);
+void zombie(int sig) {
 	while (waitpid(-1, NULL, WNOHANG) > 0);
 }
 
@@ -64,9 +63,9 @@ int main() {
 	sa2.sa_flags = SA_RESTART;
 	sigemptyset(&sa2.sa_mask);
 	error = sigaction(SIGCHLD, &sa2, NULL);
-	if (error) {
+	if (error == -1) {
 		perror("sigaction");
-		exit(-1);
+		exit(1);
 	}
 
 

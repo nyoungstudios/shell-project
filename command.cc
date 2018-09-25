@@ -201,6 +201,7 @@ void Command::execute() {
 		//sets in file
 		if (_inFile) {
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
+			dup2(fderr, 0);
 		} else {
 			fdin = dup(defaultin);
 		}
