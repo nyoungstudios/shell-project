@@ -188,6 +188,7 @@ void Command::execute() {
 			//setup output
 			if (i == _numberOfSimpleCommands - 1) {
 				if (_outFile && _errFile) {
+					printf("test print out and err\n");
 					if (_append) {
 						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					} else {
