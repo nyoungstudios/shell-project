@@ -40,8 +40,8 @@ Command::Command() {
 		_inCounter = 0;
 		_outCounter = 0;
 
-		_inList = std::vector<std::string *>();
-		_outList = std::vector<std::string *>();	
+		//_inList = std::vector<std::string *>();
+		//_outList = std::vector<std::string *>();	
 }
 
 void Command::insertSimpleCommand( SimpleCommand * simpleCommand ) {
@@ -62,11 +62,13 @@ void Command::clear() {
 		if (_outFile == _errFile) {
 				if ( _outFile ) {
 					delete _outFile;
+					/*
 					if (_outCounter > 1) {	
 						for (auto outList : _outList) {
 							delete outList;
 						}				
 					}
+					*/
 			}
 			_outFile = NULL;
 			_errFile = NULL;
@@ -74,21 +76,25 @@ void Command::clear() {
 		} else {
 			if ( _outFile ) {
 					delete _outFile;
+					/*
 					if (_outCounter > 1) {	
 						for (auto outList : _outList) {
 							delete outList;
 						}				
 					}
+					*/
 
 			}
 			_outFile = NULL;
 			if ( _errFile ) {
 					delete _errFile;
+					/*
 					if (_outCounter > 1) {	
 						for (auto outList : _outList) {
 							delete outList;
 						}				
 					}
+					*/
 
 			}
 			_errFile = NULL;
@@ -97,11 +103,13 @@ void Command::clear() {
 
     if ( _inFile ) {
         delete _inFile;
+				/*
 				if (_inCounter > 1) {
 					for (auto inList : _inList) {
 						delete inList;
 					}
 				}
+				*/
     }
     _inFile = NULL;
 
@@ -243,23 +251,8 @@ void Command::execute() {
 		} else {
 			fdin = dup(defaultin);
 		}
+
 		
-		//sets error file
-		/*
-		if (_errFile) {
-			if (_append) {
-				fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
-			} else {
-				fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
-			}
-		} else {
-			fderr = dup(defaulterr);
-		}
-
-		dup2(fderr, 2);
-		close(fderr);
-		*/
-
 		//gets number of simple commands
 		int _numberOfSimpleCommands = (int) _simpleCommands.size();
 		printf("this is the number of simple commands: %d\n", _numberOfSimpleCommands);
