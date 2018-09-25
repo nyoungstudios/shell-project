@@ -196,8 +196,8 @@ void Command::execute() {
 				std::string oldpwdString = "OLDPWD=";
 				std::string pwd = getenv("PWD");
 				//pwdString.append(_simpleCommands[0]->_arguments[1]->c_str());
-				setenv("PWD", _simpleCommands[0]->_arguments[1]->c_str());
-				setenv("OLDPWD", pwd.c_str());
+				setenv("PWD", _simpleCommands[0]->_arguments[1]->c_str(), 1);
+				setenv("OLDPWD", pwd.c_str(), 1);
 				//putenv(const_cast<char *>(pwdString.c_str()));
 				//oldpwdString.append(pwd);
 				//putenv(const_cast<char *>(oldpwdString.c_str()));
