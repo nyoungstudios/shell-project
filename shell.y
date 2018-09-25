@@ -107,7 +107,11 @@ command_word:
 iomodifier_opt:
   GREAT WORD {
     //printf("   Yacc: insert output \"%s\"\n", $2->c_str());
-    Shell::_currentCommand._outFile = $2;
+		if (Shell::_currentCommand._outCounter > 0) {
+			Shell::_currentCommand._outList.push_back($2);
+		} else {
+			Shell::_currentCommand._outFile = $2;
+		}
 		Shell::_currentCommand._outCounter++;
   }
 	| GREATGREAT WORD {
@@ -127,7 +131,11 @@ iomodifier_opt:
 		Shell::_currentCommand._outCounter++;
 	}	
 	| LESS WORD {
-		Shell::_currentCommand._inFile = $2;
+		if (Shell::_currentCommand._inCounter > 0) {
+			Shell::_currentCommand._inList.push_back($2);
+		} else {
+			Shell::_currentCommand._inFile = $2;
+		}
 		Shell::_currentCommand._inCounter++;
 	}
 	| TWOGREAT WORD {

@@ -39,6 +39,9 @@ Command::Command() {
 		_append = 0;
 		_inCounter = 0;
 		_outCounter = 0;
+
+		_inList = std::vector<string *>();
+		_outList = std::vector<string *>();	
 }
 
 void Command::insertSimpleCommand( SimpleCommand * simpleCommand ) {
@@ -86,7 +89,17 @@ void Command::clear() {
 
 		_inCounter = 0;
 
-		_outCounter = 0;	
+		_outCounter = 0;
+
+		for (auto inList : _inList) {
+			delete inList;
+		}	
+
+		for (auto outList : _outList) {
+			delete outList;
+		}
+
+
 
 }
 
@@ -200,6 +213,11 @@ void Command::execute() {
 		
 		//sets in file
 		if (_inFile) {
+			if (_inCounter > 1) {
+				for (auto inList : _inList) {
+					fdin = open(inList->c_str(), O_RDONLY, 0664);
+				}
+			}
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
 			//fderr = fdin;
 			//dup2(fderr, 0);
