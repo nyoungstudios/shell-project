@@ -66,7 +66,7 @@ int main() {
 	error = sigaction(SIGCHLD, &sa2, NULL);
 	if (error) {
 		perror("sigaction");
-		exit(1);
+		exit(-1);
 	}
 
 
