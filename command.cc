@@ -150,7 +150,6 @@ void Command::execute() {
 
 		if (_inFile) {
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
-			printf("%s\n", _inFile->c_str());
 		} else {
 			fdin = dup(defaultin);
 		}
@@ -176,11 +175,11 @@ void Command::execute() {
 
 		for (int i = 0; i < _numberOfSimpleCommands; i++) {
 	
-			/*		
+					
 			dup2(fdin, 0);
 			close(fdin);
 
-			
+			/*
 			if (i == _numberOfSimpleCommands - 1) {
 				if (_outFile) {
 					if (_append) {
