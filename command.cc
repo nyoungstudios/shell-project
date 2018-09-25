@@ -156,6 +156,7 @@ void Command::execute() {
 		}
 		
 		//sets error file
+		/*
 		if (_errFile) {
 			if (_append) {
 				fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
@@ -168,7 +169,7 @@ void Command::execute() {
 
 		dup2(fderr, 2);
 		close(fderr);
-		
+		*/
 
 		//gets number of simple commands
 		int _numberOfSimpleCommands = (int) _simpleCommands.size();
@@ -186,7 +187,20 @@ void Command::execute() {
 
 			//setup output
 			if (i == _numberOfSimpleCommands - 1) {
-				if (_outFile) {
+				if (_outFile && _errFile) {
+					if (_append) {
+						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
+					} else {
+						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
+					}
+
+					if (_append) {
+						fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
+					} else {
+						fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
+					}
+
+				} else if (_outFile) {
 					if (_append) {
 						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					} else {
@@ -202,19 +216,20 @@ void Command::execute() {
 
 				} else if (_errFile) {
 					if (_append) {
-						fdout = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
+						fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					} else {
-						fdout = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
+						fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0664);
 					}
 			
 					
-					if (fdout < 0) {
-						perror("outFile open error");
+					if (fderr < 0) {
+						perror("errFile open error");
 						exit(1);
 					}	
 								
 				} else {
 					fdout = dup(defaultout);
+					fderr = dup(defaulterr);
 				}
 
 			} else {
@@ -228,6 +243,8 @@ void Command::execute() {
 
 			dup2(fdout, 1);
 			close(fdout);
+			dup2(fderr, 2);
+			close(fderr);
 
 			
 			
