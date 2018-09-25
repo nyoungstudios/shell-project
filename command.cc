@@ -182,7 +182,6 @@ void Command::execute() {
 			//setup output
 			if (i == _numberOfSimpleCommands - 1) {
 				if (_outFile) {
-					printf("this is num of simple commands: %d\n", _numberOfSimpleCommands);
 					if (_append) {
 						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					} else {
@@ -219,6 +218,7 @@ void Command::execute() {
 				fdout = fdPipe[1];
 				fdin = fdPipe[0];
 
+				printf("this is num of simple commands: %d\n", _numberOfSimpleCommands);
 			}
 
 			dup2(fdout, 1);
