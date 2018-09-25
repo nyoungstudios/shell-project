@@ -169,16 +169,16 @@ void Command::execute() {
 			int error;
 			if (_simpleCommands[0]->_arguments.size() == 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
 				error = chdir(getenv("HOME"));
-				std::string pwdString = "PWD=";
-				std::string oldpwdString = "OLDPWD=";
-				std::string pwd = getenv("PWD");
-				std::string home = getenv("HOME");
-				pwdString.append(home);
-				putenv(const_cast<char *>(pwdString.c_str()));
-				oldpwdString.append(pwd);
-				putenv(const_cast<char *>(oldpwdString.c_str()));
+				//std::string pwdString = "PWD=";
+				//std::string oldpwdString = "OLDPWD=";
+				//std::string pwd = getenv("PWD");
+				//std::string home = getenv("HOME");
+				//pwdString.append(home);
+				//putenv(const_cast<char *>(pwdString.c_str()));
+				//oldpwdString.append(pwd);
+				//putenv(const_cast<char *>(oldpwdString.c_str()));
 
-			} else if(_simpleCommands[0]->_arguments.size()== 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
+			} /*else if(_simpleCommands[0]->_arguments.size()== 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
 				error = chdir(getenv("OLDPWD"));
 				std::string pwdString = "PWD=";
 				std::string oldpwdString = "OLDPWD=";
@@ -189,15 +189,15 @@ void Command::execute() {
 				oldpwdString.append(pwd);
 				putenv(const_cast<char *>(oldpwdString.c_str()));
 
-			}else {
+			}*/else {
 				error = chdir(_simpleCommands[0]->_arguments[1]->c_str());
-				std::string pwdString = "PWD=";
-				std::string oldpwdString = "OLDPWD=";
-				std::string pwd = getenv("PWD");
-				pwdString.append(_simpleCommands[0]->_arguments[1]->c_str());
-				putenv(const_cast<char *>(pwdString.c_str()));
-				oldpwdString.append(pwd);
-				putenv(const_cast<char *>(oldpwdString.c_str()));
+				//std::string pwdString = "PWD=";
+				//std::string oldpwdString = "OLDPWD=";
+				//std::string pwd = getenv("PWD");
+				//pwdString.append(_simpleCommands[0]->_arguments[1]->c_str());
+				//putenv(const_cast<char *>(pwdString.c_str()));
+				//oldpwdString.append(pwd);
+				//putenv(const_cast<char *>(oldpwdString.c_str()));
 			}
 
 
