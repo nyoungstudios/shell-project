@@ -169,7 +169,9 @@ void Command::execute() {
 			int error;
 			if (_simpleCommands[0]->_arguments.size() == 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
 				error = chdir(getenv("HOME"));
-			} else {
+			} else if(_simpleCommands[0]->_arguments.size()== 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
+				error = chdir(getenv("OLDPWD"));
+			}else {
 				error = chdir(_simpleCommands[0]->_arguments[1]->c_str());
 			}
 
