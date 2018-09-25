@@ -187,7 +187,7 @@ void Command::execute() {
 
 			//setup output
 			if (i == _numberOfSimpleCommands - 1) {
-				if (_outFile && _errFile) {
+				if (_outFile && _errFile) {  //if both out and err are to the same file
 					if (!_append) {
 						remove(_outFile->c_str());
 					}
@@ -196,7 +196,7 @@ void Command::execute() {
 					fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);	
 					
 
-				} else if (_outFile) {
+				} else if (_outFile) {  //if just out is redirected
 					if (_append) {
 						fdout = open(_outFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					} else {
@@ -210,7 +210,7 @@ void Command::execute() {
 					}
 					
 
-				} else if (_errFile) {
+				} else if (_errFile) {  //if just err is redirected
 					if (_append) {
 						fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
 					} else {

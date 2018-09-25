@@ -108,29 +108,31 @@ iomodifier_opt:
   GREAT WORD {
     //printf("   Yacc: insert output \"%s\"\n", $2->c_str());
     Shell::_currentCommand._outFile = $2;
+		Shell::_currentCommand._outCounter++;
   }
 	| GREATGREAT WORD {
 		Shell::_currentCommand._outFile = $2;
 		Shell::_currentCommand._append = 1;
-		//Shell::_currentCommand._outCounter++;
+		Shell::_currentCommand._outCounter++;
 	}
 	| GREATGREATAMP WORD {
 		Shell::_currentCommand._outFile = $2;
 		Shell::_currentCommand._errFile = $2;
 		Shell::_currentCommand._append = 1;
-		//Shell::_currentCommand._outCounter++;
+		Shell::_currentCommand._outCounter++;
 	}
 	| GREATAMP WORD {
 		Shell::_currentCommand._outFile = $2;
 		Shell::_currentCommand._errFile = $2;
-		//Shell::_currentCommand._outCounter++;
+		Shell::_currentCommand._outCounter++;
 	}	
 	| LESS WORD {
 		Shell::_currentCommand._inFile = $2;
-		//Shell::_currentCommand._inCounter++;
+		Shell::_currentCommand._inCounter++;
 	}
 	| TWOGREAT WORD {
 		Shell::_currentCommand._errFile = $2;
+		Shell::_currentCommand._outCounter++;
 	}
   /*| /* can be empty */ 
   ;
