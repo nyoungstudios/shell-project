@@ -40,8 +40,6 @@ Command::Command() {
 		_inCounter = 0;
 		_outCounter = 0;
 
-		//_inList = std::vector<std::string *>();
-		//_outList = std::vector<std::string *>();	
 }
 
 void Command::insertSimpleCommand( SimpleCommand * simpleCommand ) {
@@ -62,13 +60,6 @@ void Command::clear() {
 		if (_outFile == _errFile) {
 				if ( _outFile ) {
 					delete _outFile;
-					/*
-					if (_outCounter > 1) {	
-						for (auto outList : _outList) {
-							delete outList;
-						}				
-					}
-					*/
 			}
 			_outFile = NULL;
 			_errFile = NULL;
@@ -76,26 +67,10 @@ void Command::clear() {
 		} else {
 			if ( _outFile ) {
 					delete _outFile;
-					/*
-					if (_outCounter > 1) {	
-						for (auto outList : _outList) {
-							delete outList;
-						}				
-					}
-					*/
-
 			}
 			_outFile = NULL;
 			if ( _errFile ) {
 					delete _errFile;
-					/*
-					if (_outCounter > 1) {	
-						for (auto outList : _outList) {
-							delete outList;
-						}				
-					}
-					*/
-
 			}
 			_errFile = NULL;
 
@@ -103,13 +78,6 @@ void Command::clear() {
 
     if ( _inFile ) {
         delete _inFile;
-				/*
-				if (_inCounter > 1) {
-					for (auto inList : _inList) {
-						delete inList;
-					}
-				}
-				*/
     }
     _inFile = NULL;
 
@@ -243,16 +211,7 @@ void Command::execute() {
 		
 		//sets in file
 		if (_inFile) {
-			/*
-			if (_inCounter > 1) {
-				for (auto inList : _inList) {
-					printf("%s\n", inList->c_str());
-					fdin = open(inList->c_str(), O_RDONLY, 0664);
-				}
-			}*/
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
-			//fderr = fdin;
-			//dup2(fderr, 0);
 		} else {
 			fdin = dup(defaultin);
 		}
