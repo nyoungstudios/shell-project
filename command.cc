@@ -234,7 +234,12 @@ void Command::execute() {
 		int fdin;
 		int fdout;
 		int fderr;
-		
+	
+
+
+		if (_inCounter > 1 || _outCounter > 1) {
+			fprintf("Ambiguous output redirect.\n");
+		}	
 		
 		//sets in file
 		if (_inFile) {
