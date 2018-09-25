@@ -147,13 +147,14 @@ void Command::execute() {
 		int fderr;
 		
 		
-
+		//sets in file
 		if (_inFile) {
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
 		} else {
 			fdin = dup(defaultin);
 		}
 		
+		//sets error file
 		if (_errFile) {
 			if (_append) {
 				fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
@@ -168,8 +169,11 @@ void Command::execute() {
 		close(fderr);
 		
 
+		//gets number of simple commands
 		int _numberOfSimpleCommands = (int) _simpleCommands.size();
 
+
+		//variable for forking
 		int ret;
 
 
