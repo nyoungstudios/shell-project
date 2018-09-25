@@ -153,7 +153,7 @@ void Command::execute() {
 		} else {
 			fdin = dup(defaultin);
 		}
-		/*
+		
 		if (_errFile) {
 			if (_append) {
 				fderr = open(_errFile->c_str(), O_WRONLY | O_CREAT | O_APPEND, 0664);
@@ -166,7 +166,7 @@ void Command::execute() {
 
 		dup2(fderr, 2);
 		close(fderr);
-		*/
+		
 
 		int _numberOfSimpleCommands = (int) _currentSimpleCommand->_arguments.size();
 
