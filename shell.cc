@@ -72,7 +72,7 @@ int main() {
 	if (fd) {
 		yyrestart(fd);
 		yyparse();
-		yyrestart(stind);
+		yyrestart(stdin);
 		fclose(fd);
 	} else {
 
