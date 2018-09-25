@@ -130,18 +130,19 @@ void Command::execute() {
 
 
     // Print contents of Command data structure
-    print();
+    //print();
 
     // Add execution here
     // For every simple command fork a new process
     // Setup i/o redirection
     // and call exec
 
-		
+		//sets default in, out, and err	
 		int defaultin = dup(0);
 		int defaultout = dup(1);
 		int defaulterr = dup(2);
 
+		//file descriptors
 		int fdin;
 		int fdout;
 		int fderr;
@@ -176,7 +177,7 @@ void Command::execute() {
 		//variable for forking
 		int ret;
 
-
+		//iterates over all the simple commands
 		for (int i = 0; i < _numberOfSimpleCommands; i++) {
 	
 					
@@ -217,12 +218,12 @@ void Command::execute() {
 				}
 
 			} else {
+				//if not last simple command, create a pipe
 				int fdPipe[2];
 				pipe(fdPipe);
 				fdout = fdPipe[1];
 				fdin = fdPipe[0];
 
-				printf("this is num of simple commands: %d\n", _numberOfSimpleCommands);
 			}
 
 			dup2(fdout, 1);
@@ -230,7 +231,7 @@ void Command::execute() {
 
 			
 			
-
+			//fork
 			ret = fork();
 			if (ret == 0) {
 			
@@ -243,6 +244,7 @@ void Command::execute() {
 				}
 				cargument[j] = NULL;
 
+				//execute command
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
 
 
@@ -252,13 +254,14 @@ void Command::execute() {
 
 			}
 
+			//checks if not background. If true, waits for command to finish
 			if (!_background) {
 				waitpid(ret, NULL, 0);
 			}
 
 		}
 
-
+		//resets defaults
 		dup2(defaultin, 0);
 		dup2(defaultout, 1);
 		dup2(defaulterr, 2);
