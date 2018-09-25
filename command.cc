@@ -202,7 +202,7 @@ void Command::execute() {
 		if (_inFile) {
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
 			//fderr = fdin;
-			dup2(fderr, 0);
+			//dup2(fderr, 0);
 		} else {
 			fdin = dup(defaultin);
 		}
@@ -225,6 +225,7 @@ void Command::execute() {
 
 		//gets number of simple commands
 		int _numberOfSimpleCommands = (int) _simpleCommands.size();
+		printf("this is the number of simple commands: %d\n", _numberOfSimpleCommands);
 
 
 		//variable for forking
