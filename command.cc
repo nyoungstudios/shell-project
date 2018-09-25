@@ -213,7 +213,7 @@ void Command::execute() {
 		if (_inFile) {
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
 			if (fdin < 0) {
-				fprintf(stderr, "%s: No such file or directory", _inFile->c_str());
+				fprintf(stderr, "%s: No such file or directory\n", _inFile->c_str());
 				clear();
 				Shell::prompt();
 				return;
