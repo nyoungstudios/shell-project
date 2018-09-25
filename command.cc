@@ -27,6 +27,7 @@
 #include <sys/stat.h>
 #include <sys/signal.h>
 #include <sys/wait.h>
+#include <stdlib.h>
 
 Command::Command() {
     // Initialize a new vector of Simple Commands
