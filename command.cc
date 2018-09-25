@@ -191,13 +191,13 @@ void Command::execute() {
 
 			}*/else {
 				error = chdir(_simpleCommands[0]->_arguments[1]->c_str());
-				//std::string pwdString = "PWD=";
-				//std::string oldpwdString = "OLDPWD=";
-				//std::string pwd = getenv("PWD");
-				//pwdString.append(_simpleCommands[0]->_arguments[1]->c_str());
-				//putenv(const_cast<char *>(pwdString.c_str()));
-				//oldpwdString.append(pwd);
-				//putenv(const_cast<char *>(oldpwdString.c_str()));
+				std::string pwdString = "PWD=";
+				std::string oldpwdString = "OLDPWD=";
+				std::string pwd = getenv("PWD");
+				pwdString.append(_simpleCommands[0]->_arguments[1]->c_str());
+				putenv(const_cast<char *>(pwdString.c_str()));
+				oldpwdString.append(pwd);
+				putenv(const_cast<char *>(oldpwdString.c_str()));
 			}
 
 
