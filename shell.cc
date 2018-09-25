@@ -64,7 +64,7 @@ int main() {
 	sa2.sa_flags = SA_RESTART;
 	sigemptyset(&sa2.sa_mask);
 	error = sigaction(SIGCHLD, &sa2, NULL);
-	if (error == -1) {
+	if (error) {
 		perror("sigaction");
 		exit(1);
 	}
