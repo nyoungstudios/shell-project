@@ -160,8 +160,9 @@ void expandWildcardsIfNecessary(char *arg) {
 	if (strcmp(arg, "*") || strcmp(arg, "?")) {
 
 	} else {
-		std::string *argument;
-		argument->arg;
+		std::string strArg;
+		strArg.push_back(*arg);
+		std::string *argument = *strArg;
 		Command::_currentSimpleCommand->insertArgument(argument);
 	}
 	return;
