@@ -65,7 +65,7 @@ void myunputc(int c) {
 \"[^\n\"]\" {
 	std::string original = new std::string(yytext);
 	
-	yylval.ccp_string = original.substr(1, original.length() - 2);
+	yylval.cpp_string = original.substr(1, original.length() - 2);
 
 	return WORD;
 }
