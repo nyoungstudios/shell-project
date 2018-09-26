@@ -68,7 +68,10 @@ void myunputc(int c) {
 
 	printf("%c\n", yytext[strlen(yytext)-1]);
 
-	if (strcmp(yytext[0],"\"") && strcmp(yytext[strlen(yytext)-1],"\"")) {
+	const char *first = yytext[0];
+	const char *last = yytext[strlen(yytext)-1];
+
+	if (strcmp(first,"\"") && strcmp(last,"\"")) {
 		printf("test\n");
 	}
   yylval.cpp_string = new std::string(yytext);
