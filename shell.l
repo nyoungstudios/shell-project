@@ -69,12 +69,15 @@ void myunputc(int c) {
 	printf("%s\n", yytext);
 
 	const char *first = (const char *) yytext;
-	const char *last = (const char *) yytext + strlen(yytext)-1;
+	const char *last = (const char *) yytext + strlen(yytext) - 1;
 
 	if (!strcmp(first,"\"") && !strcmp(last,"\"")) {
 		printf("test\n");
+		last = "\0";
+		
+	} else {
+	  yylval.cpp_string = new std::string(yytext);
 	}
-  yylval.cpp_string = new std::string(yytext);
 	
   return WORD;
 }
