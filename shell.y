@@ -36,7 +36,7 @@
 #include "shell.hh"
 #include <string.h>
 
-void expandWildcardsIfNecessary(char * arg);
+void expandWildcardsIfNecessary(std::string arg);
 void yyerror(const char * s);
 int yylex();
 
@@ -156,7 +156,7 @@ background_optional:
 
 %%
 
-void expandWildcardsIfNecessary(char *arg) {
+void expandWildcardsIfNecessary(std::string arg) {
 	if (strcmp(arg, "*") || strcmp(arg, "?") {
 
 	} else {
