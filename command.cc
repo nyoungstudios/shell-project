@@ -348,8 +348,6 @@ void Command::execute() {
 				perror("fork");
 				return;
 
-			} else {
-				wait(NULL);
 			}
 
 
