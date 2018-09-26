@@ -58,15 +58,15 @@ int main() {
 		exit(1);
 	}
 
-	struct sigaction sa2;
-	sa2.sa_handler = zombie;
-	sa2.sa_flags = SA_RESTART;
-	sigemptyset(&sa2.sa_mask);
-	error = sigaction(SIGCHLD, &sa2, NULL);
-	if (error == -1) {
-		perror("sigaction");
-		exit(1);
-	}
+	//struct sigaction sa2;
+	//sa2.sa_handler = zombie;
+	//sa2.sa_flags = SA_RESTART;
+	//sigemptyset(&sa2.sa_mask);
+	//error = sigaction(SIGCHLD, &sa2, NULL);
+	//if (error == -1) {
+	//	perror("sigaction");
+	//	exit(1);
+	//}
 
 
 
