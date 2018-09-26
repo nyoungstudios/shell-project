@@ -157,7 +157,7 @@ background_optional:
 %%
 
 void expandWildcardsIfNecessary(char *arg) {
-	if (strcmp(arg, "*") || strcmp(arg, "?") {
+	if (strcmp(arg, "*") || strcmp(arg, "?")) {
 
 	} else {
 		Command::_currentSimpleCommand->insertArgument( arg );
