@@ -62,7 +62,7 @@ void myunputc(int c) {
 	return LESS;
 }
 
-["][^ \n\"]*["] {
+["][^\n\"]*["] {
 
 	const char *first = (const char *) yytext;
 	const char *last = (const char *) yytext + strlen(yytext) - 1;
