@@ -66,6 +66,8 @@ void myunputc(int c) {
 	//std::string original = new std::string(yytext);
 	
 	yylval.cpp_string = std::strdup(yytext+1);
+
+	yylval.cpp_string = new std::string(yytext);
 	//new std::string(yytext);
 	//*yylval.cpp_string = *yylval.cpp_string->substr(1, *yylval.cpp_string->length() - 2);
 
