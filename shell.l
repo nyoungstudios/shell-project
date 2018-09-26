@@ -68,9 +68,9 @@ void myunputc(int c) {
 
 	printf("%c\n", yytext[strlen(yytext)-1]);
 
-	//if (*yytext[0] == "\"" && *yytext[strlen(yytext)-1] == "\"") {
-	//	printf("test\n");
-	//}
+	if (yytext[0] == "\"" && yytext[strlen(yytext)-1] == "\"") {
+		printf("test\n");
+	}
   yylval.cpp_string = new std::string(yytext);
 	
   return WORD;
