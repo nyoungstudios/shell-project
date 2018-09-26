@@ -162,7 +162,7 @@ void expandWildcardsIfNecessary(char *arg) {
 	} else {
 		std::string strArg;
 		strArg.push_back(*arg);
-		std::string *argument = const_cast<std::string>( strArg);
+		std::string *argument = const_cast<std::string>( arg);
 		Command::_currentSimpleCommand->insertArgument(argument);
 	}
 	return;
