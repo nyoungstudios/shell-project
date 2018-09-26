@@ -352,10 +352,7 @@ void Command::execute() {
 				wait(NULL);
 			}
 
-			//checks if not background. If true, waits for command to finish
-			if (!_background) {
-				waitpid(ret, NULL, 0);
-			}
+
 
 		}
 
@@ -367,7 +364,10 @@ void Command::execute() {
 		close(defaultout);
 		close(defaulterr);
 
-		
+		//checks if not background. If true, waits for command to finish
+		if (!_background) {
+			waitpid(ret, NULL, 0);
+		}	
 
     // Clear to prepare for next command
     clear();
