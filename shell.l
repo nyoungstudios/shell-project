@@ -63,7 +63,7 @@ void myunputc(int c) {
 }
 
 ["][^ \n]*["] {
-	return LESS;
+	return WORD;
 }
 
 
