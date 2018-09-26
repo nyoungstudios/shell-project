@@ -62,7 +62,7 @@ void myunputc(int c) {
 	return LESS;
 }
 
-"." {
+[^ \n]* {
 	return LESS;
 }
 
