@@ -65,7 +65,7 @@ void myunputc(int c) {
 ["][^\n\"]*["] {
 
 	const char *first = (const char *) yytext + 1;
-	char *last = (char *) yytext + strlen(yytext) - 3;
+	char *last = (char *) yytext + strlen(yytext) - 1;
 	//const char *newText = (const char *) malloc(strlen(yytext) - 2);
 	//memcpy(newText, first, strlen(yytext)-3);
 	//newText[strlen(yytext)-3] = '\0';
