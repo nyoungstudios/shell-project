@@ -74,7 +74,7 @@ void myunputc(int c) {
 	if (!strcmp(first,"\"") && !strcmp(last,"\"")) {
 		printf("test\n");
 		last = "\0";
-		yyval.cpp_string = new std::string(first);	
+		yylval.cpp_string = new std::string(first);	
 	} else {
 	  yylval.cpp_string = new std::string(yytext);
 	}
