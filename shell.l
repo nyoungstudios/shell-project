@@ -62,15 +62,6 @@ void myunputc(int c) {
 	return LESS;
 }
 
-["][^\n\"]*["] {
-
-	const char *first = (const char *) yytext + 1;
-	char *last = (char *) yytext + strlen(yytext) - 1;
-	*last = '\0';
-	yylval.cpp_string = new std::string(first);
-	return WORD;
-}
-
 
 [^ \t\n][^ \t\n]*  {
   /* Assume that file names have only alpha chars */
