@@ -36,7 +36,7 @@
 #include "shell.hh"
 #include <string.h>
 
-void expandWildcardsIfNecessary(std::string arg);
+void expandWildcardsIfNecessary(char * arg);
 void yyerror(const char * s);
 int yylex();
 
@@ -95,7 +95,7 @@ argument:
   WORD {
     //printf("   Yacc: insert argument \"%s\"\n", $1->c_str());
     //Command::_currentSimpleCommand->insertArgument( $1 );
-		expandWildcardsIfNecessary($1->c_str());
+		expandWildcardsIfNecessary($1);
   }
   ;
 
@@ -104,7 +104,7 @@ command_word:
     //printf("   Yacc: insert command \"%s\"\n", $1->c_str());
     Command::_currentSimpleCommand = new SimpleCommand();
     //Command::_currentSimpleCommand->insertArgument( $1 );
-		expandWildcardsIfNecessary($1->c_str());
+		expandWildcardsIfNecessary($1);
   }
   ;
 
@@ -156,8 +156,8 @@ background_optional:
 
 %%
 
-void expandWildcardsIfNecessary(std::string arg) {
-	if (strcmp(arg.c_str(), "*") || strcmp(arg.c_str(), "?")) {
+void expandWildcardsIfNecessary(char *arg) {
+	if (strcmp(arg, "*") || strcmp(arg, "?") {
 
 	} else {
 		Command::_currentSimpleCommand->insertArgument( arg );
