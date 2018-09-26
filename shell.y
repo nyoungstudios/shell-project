@@ -34,6 +34,7 @@
 //#define yylex yylex
 #include <cstdio>
 #include "shell.hh"
+#include <string.h>
 
 void expandWildcardsIfNecessary(char * arg);
 void yyerror(const char * s);
