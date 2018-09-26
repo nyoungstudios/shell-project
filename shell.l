@@ -61,7 +61,7 @@ void myunputc(int c) {
 "<" {
 	return LESS;
 }
-
+/*
 ["][^\n\"]*["] {
 
 	const char *first = (const char *) yytext + 1;
@@ -70,7 +70,7 @@ void myunputc(int c) {
 	yylval.cpp_string = new std::string(first);
 	return WORD;
 }
-
+*/
 
 [^ \t\n][^ \t\n]*  {
   /* Assume that file names have only alpha chars */
