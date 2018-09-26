@@ -66,7 +66,7 @@ void myunputc(int c) {
 	//std::string original = new std::string(yytext);
 	
 	yylval.cpp_string = new std::string(yytext);
-	*yylval.cpp_string = *yylval.cpp_string->substr(1, *yylval.cpp_string.length() - 2);
+	*yylval.cpp_string = *yylval.cpp_string->substr(1, *yylval.cpp_string->length() - 2);
 
 	return WORD;
 }
