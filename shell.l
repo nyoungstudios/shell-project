@@ -62,7 +62,7 @@ void myunputc(int c) {
 	return LESS;
 }
 
-\"[^\n\"]\" {
+["][^\n\"]["] {
 	//std::string original = new std::string(yytext);
 	
 	yylval.cpp_string = strdup(yytext+1);
