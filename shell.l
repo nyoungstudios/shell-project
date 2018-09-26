@@ -66,7 +66,7 @@ void myunputc(int c) {
 [^ \t\n][^ \t\n]*  {
   /* Assume that file names have only alpha chars */
 
-	printf("%c\n", yytext[0]);
+	printf("%c\n", yytext[strlen(yytext)-1]);
 
 	//if (*yytext[0] == "\"" && *yytext[strlen(yytext)-1] == "\"") {
 	//	printf("test\n");
