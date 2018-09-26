@@ -162,7 +162,11 @@ void expandWildcardsIfNecessary(char *arg) {
 	if (strcmp(arg, "*") || strcmp(arg, "?")) {
 
 	} else {
-		Command::_currentSimpleCommand->insertArgument(string(1, arg));
+		stringstream ss;
+		string s;
+		ss << arg;
+		ss > s;
+		Command::_currentSimpleCommand->insertArgument(s);
 	}
 	return;
 
