@@ -161,7 +161,7 @@ void expandWildcardsIfNecessary(char *arg) {
 
 	} else {
 		std::string argument;
-		argument.pushback(arg);
+		argument.push_back(arg);
 		Command::_currentSimpleCommand->insertArgument(argument);
 	}
 	return;
