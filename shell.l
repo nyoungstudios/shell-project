@@ -64,8 +64,8 @@ void myunputc(int c) {
 
 ["][^\n\"]*["] {
 
-	const char *first = (const char *) yytext;
-	const char *last = (const char *) yytext + strlen(yytext) - 1;
+	const char *first = (const char *) yytext + 1;
+	const char *last = (const char *) yytext + strlen(yytext) - 2;
 
 	//if (!strcmp(first,"\"") && !strcmp(last,"\"")) {
 	last = "\0";
