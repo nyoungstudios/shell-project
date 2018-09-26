@@ -157,7 +157,7 @@ background_optional:
 %%
 
 void expandWildcardsIfNecessary(std::string arg) {
-	if (strcmp(arg, "*") || strcmp(arg, "?")) {
+	if (strcmp(arg.c_str(), "*") || strcmp(arg.c_str(), "?")) {
 
 	} else {
 		Command::_currentSimpleCommand->insertArgument( arg );
