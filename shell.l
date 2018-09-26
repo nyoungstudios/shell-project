@@ -65,13 +65,13 @@ void myunputc(int c) {
 ["][^\n\"]*["] {
 
 	const char *first = (const char *) yytext + 1;
-	const char *last = (const char *) yytext + strlen(yytext) - 3;
+	char *last = (char *) yytext + strlen(yytext) - 3;
 	//const char *newText = (const char *) malloc(strlen(yytext) - 2);
 	//memcpy(newText, first, strlen(yytext)-3);
 	//newText[strlen(yytext)-3] = '\0';
 	//printf("%s\n", last);
 	//if (!strcmp(first,"\"") && !strcmp(last,"\"")) {
-	*last = (const char)'\0';
+	*last = '\0';
 	yylval.cpp_string = new std::string(first);
 	//printf("%s\n", first);	
 	//} else {
