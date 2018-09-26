@@ -71,7 +71,7 @@ void myunputc(int c) {
 	newText[strlen(yytext)-3] = '\0';
 	printf("%s\n", last);
 	//if (!strcmp(first,"\"") && !strcmp(last,"\"")) {
-	last = '\0';
+	last = (const char*)'\0';
 	yylval.cpp_string = new std::string(first);
 	printf("%s\n", first);	
 	//} else {
