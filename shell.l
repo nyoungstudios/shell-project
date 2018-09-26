@@ -67,7 +67,7 @@ void myunputc(int c) {
   /* Assume that file names have only alpha chars */
 
 	printf("%s\n", yytext);
-	if (yytext[0] == "\"" && yytext[strlen(yytext)-1] == "\"") {
+	if (*yytext[0] == "\"" && *yytext[strlen(yytext)-1] == "\"") {
 		printf("test\n");
 	}
   yylval.cpp_string = new std::string(yytext);
