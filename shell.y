@@ -165,7 +165,7 @@ void expandWildcardsIfNecessary(char *arg) {
 		stringstream ss;
 		string s;
 		ss << arg;
-		ss > s;
+		ss >> s;
 		Command::_currentSimpleCommand->insertArgument(s);
 	}
 	return;
