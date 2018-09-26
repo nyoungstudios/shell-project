@@ -65,8 +65,10 @@ void myunputc(int c) {
 ["][^\n\"]*["] {
 
 	const char *first = (const char *) yytext + 1;
-	const char *last = (const char *) yytext + strlen(yytext) - 1;
-
+	const char *last = (const char *) yytext + strlen(yytext) - 3;
+	//const char *newText = (const char *) malloc(strlen(yytext) - 2);
+	//memcpy(newText, first, strlen(yytext)-3);
+	//newText[strlen
 	printf("%s\n", last);
 	//if (!strcmp(first,"\"") && !strcmp(last,"\"")) {
 	last = "\0";
