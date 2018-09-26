@@ -348,6 +348,8 @@ void Command::execute() {
 				perror("fork");
 				return;
 
+			} else {
+				wait(NULL);
 			}
 
 			//checks if not background. If true, waits for command to finish
