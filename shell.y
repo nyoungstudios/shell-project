@@ -35,6 +35,7 @@
 #include <cstdio>
 #include "shell.hh"
 #include <string.h>
+#include <string>
 
 void expandWildcardsIfNecessary(const char * arg);
 void yyerror(const char * s);
