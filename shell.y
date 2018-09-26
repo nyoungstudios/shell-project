@@ -35,8 +35,6 @@
 #include <cstdio>
 #include "shell.hh"
 #include <string.h>
-#include <string>
-#include <sstream>
 
 void expandWildcardsIfNecessary(const char * arg);
 void yyerror(const char * s);
@@ -162,11 +160,7 @@ void expandWildcardsIfNecessary(char *arg) {
 	if (strcmp(arg, "*") || strcmp(arg, "?")) {
 
 	} else {
-		stringstream ss;
-		string s;
-		ss << arg;
-		ss >> s;
-		Command::_currentSimpleCommand->insertArgument(s);
+		Command::_currentSimpleCommand->insertArgument(arg);
 	}
 	return;
 
