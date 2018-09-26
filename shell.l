@@ -69,7 +69,7 @@ void myunputc(int c) {
 	printf("%c\n", yytext[strlen(yytext)-1]);
 
 	const char *first = (const char *) yytext;
-	const char *last = yytext[strlen(yytext)-1];
+	const char *last = (const char *) yytext + strlen(yytext)-1;
 
 	if (strcmp(first,"\"") && strcmp(last,"\"")) {
 		printf("test\n");
