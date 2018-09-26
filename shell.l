@@ -66,7 +66,7 @@ void myunputc(int c) {
 [^ \t\n][^ \t\n]*  {
   /* Assume that file names have only alpha chars */
 
-	printf("%c\n", yytext);
+	printf("%s\n", yytext);
 
 	const char *first = (const char *) yytext;
 	const char *last = (const char *) yytext + strlen(yytext)-1;
