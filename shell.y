@@ -165,8 +165,8 @@ void expandWildcardsIfNecessary(std::string *arg) {
 	//	printf("test\n");
 	//}
 	
-	if (!strcmp(arg->c_str(), "*") || !strcmp(arg->c_str(), "?")) {
-
+	if (!strchr(arg->c_str(), "*") || !strchr(arg->c_str(), "?")) {
+		printf("test\n");
 	} else {
 		//std::string strArg;
 		//strArg.push_back(*arg);
