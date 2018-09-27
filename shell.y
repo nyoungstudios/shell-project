@@ -157,22 +157,22 @@ background_optional:
 %%
 
 void expandWildcardsIfNecessary(std::string *arg) {
-	Command::_currentSimpleCommand->insertArgument(arg);
+	//Command::_currentSimpleCommand->insertArgument(arg);
 
-	printf("%s\n", arg->c_str());
+	//printf("%s\n", arg->c_str());
 
 	//if (!arg.compare("*") || !arg.compare("?")) {
 	//	printf("test\n");
 	//}
 	
-	//if (strcmp(arg, "*") || strcmp(arg, "?")) {
+	if (strcmp(arg->c_str(), "*") || strcmp(arg->c_str(), "?")) {
 
-	//} else {
+	} else {
 		//std::string strArg;
 		//strArg.push_back(*arg);
 		//std::string argument = const_cast<std::string>(arg->c_str());
-		//Command::_currentSimpleCommand->insertArgument(argument);
-//	}
+		Command::_currentSimpleCommand->insertArgument(arg);
+	}
 	return;
 
 }
