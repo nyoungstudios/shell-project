@@ -3,15 +3,5 @@
 echo -e "\033[1;4;93m\tcd notfound >& err\033[0m"
 
 input_str=$'cd notfound\n/bin/pwd'
-
-#testing
-
-
-echo <(/bin/sh <<< "$input_str" 2>&1)
-echo <(../shell <<< "$input_str" 2>&1)
-#testing
-
-
-
 diff <(/bin/sh <<< "$input_str" 2>&1) <(../shell <<< "$input_str" 2>&1)
 exit $?

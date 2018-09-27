@@ -94,8 +94,8 @@ argument_list:
 argument:
   WORD {
     //printf("   Yacc: insert argument \"%s\"\n", $1->c_str());
-    Command::_currentSimpleCommand->insertArgument( $1 );
-		//expandWildcardsIfNecessary($1->c_str());
+    //Command::_currentSimpleCommand->insertArgument( $1 );
+		expandWildcardsIfNecessary($1);
   }
   ;
 
@@ -103,8 +103,8 @@ command_word:
   WORD {
     //printf("   Yacc: insert command \"%s\"\n", $1->c_str());
     Command::_currentSimpleCommand = new SimpleCommand();
-    Command::_currentSimpleCommand->insertArgument( $1 );
-		//expandWildcardsIfNecessary($1->c_str());
+    //Command::_currentSimpleCommand->insertArgument( $1 );
+		expandWildcardsIfNecessary($1);
   }
   ;
 
@@ -156,15 +156,17 @@ background_optional:
 
 %%
 
-void expandWildcardsIfNecessary(char *arg) {
-	if (strcmp(arg, "*") || strcmp(arg, "?")) {
+void expandWildcardsIfNecessary(std::string *arg) {
+	Command::_currentSimpleCommand->insertArgument(arg);
+	
+	//if (strcmp(arg, "*") || strcmp(arg, "?")) {
 
-	} else {
+	//} else {
 		//std::string strArg;
 		//strArg.push_back(*arg);
 		//std::string argument = const_cast<std::string>(arg->c_str());
 		//Command::_currentSimpleCommand->insertArgument(argument);
-	}
+//	}
 	return;
 
 }
