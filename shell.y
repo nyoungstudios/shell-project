@@ -160,6 +160,8 @@ void expandWildcardsIfNecessary(std::string *arg) {
 	
 	if (!strchr(arg->c_str(), '*') && !strchr(arg->c_str(), '?')) {
 		Command::_currentSimpleCommand->insertArgument(arg);
+		
+		printf("tesifsdfasdf\n");
 		return;
 	}
 
