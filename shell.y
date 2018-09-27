@@ -36,7 +36,7 @@
 #include "shell.hh"
 #include <string.h>
 
-void expandWildcardsIfNecessary(const char * arg);
+void expandWildcardsIfNecessary(std::string * arg);
 void yyerror(const char * s);
 int yylex();
 
