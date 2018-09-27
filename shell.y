@@ -159,8 +159,9 @@ background_optional:
 void expandWildcardsIfNecessary(std::string *arg) {
 	Command::_currentSimpleCommand->insertArgument(arg);
 	
-	//if (strcmp(arg, "*") || strcmp(arg, "?")) {
-
+	if (strcmp(arg, "*") || strcmp(arg, "?")) {
+		printf("test\n");
+	}
 	//} else {
 		//std::string strArg;
 		//strArg.push_back(*arg);
