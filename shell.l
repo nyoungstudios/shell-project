@@ -31,7 +31,7 @@ void myunputc(int c) {
 }
 
 "^[[A" {
-	printf("lets go\n");
+	
 }
 
 ">>&" {
