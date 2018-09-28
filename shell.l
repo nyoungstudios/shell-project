@@ -30,6 +30,10 @@ void myunputc(int c) {
   /* Discard spaces and tabs */
 }
 
+"^[[A" {
+	printf("lets go\n");
+}
+
 ">>&" {
 	return GREATGREATAMP;
 }
