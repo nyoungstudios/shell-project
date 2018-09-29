@@ -356,8 +356,34 @@ void Command::execute() {
 			close(fdout);
 			dup2(fderr, 2);
 			close(fderr);
+		
 
+
+			printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());	
+			if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2) {
+				//if ls to home directory
+				if (!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
+					_simpleCommands[0]->_arguments[1] = new std::string(getenv("HOME"));
+				}
+
+			} else if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2 && (const char) *_simpleCommands[0]->_arguments[1]->c_str() == '~') {
+				//if ls to home directory plus path
+				std::string newPath = getenv("HOME");
 			
+				std::string secondPart = (const char *) (_simpleCommands[0]->_arguments[1]->c_str() + 1);
+
+				if ((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1) == '/') {
+					newPath += secondPart;
+				} else {
+					newPath += "/";
+					newPath += secondPart;
+				}
+
+				_simpleCommands[0]->_arguments[1] = new std::string(newPath);
+			
+
+			}
+		
 			
 			//fork
 			ret = fork();
@@ -373,30 +399,7 @@ void Command::execute() {
 					exit(0);
 				
 				}
-				/*printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());	
-				if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2) {
-					//if ls to home directory
-					if (!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
-						_simpleCommands[0]->_arguments[1] = new std::string(getenv("HOME"));
-					}
 
-				} else if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2 && (const char) *_simpleCommands[0]->_arguments[1]->c_str() == '~') {
-					//if ls to home directory plus path
-					std::string newPath = getenv("HOME");
-				
-					std::string secondPart = (const char *) (_simpleCommands[0]->_arguments[1]->c_str() + 1);
-
-					if ((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1) == '/') {
-						newPath += secondPart;
-					} else {
-						newPath += "/";
-						newPath += secondPart;
-					}
-
-					_simpleCommands[0]->_arguments[1] = new std::string(newPath);
-				
-
-				}	*/
 	
 	
 				//convert to char** from vector
