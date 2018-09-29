@@ -421,6 +421,8 @@ void Command::execute() {
 				perror("fork");
 				return;
 
+			} else {
+				printf("again\n");
 			}
 
 			//checks if not background. If true, waits for command to finish
