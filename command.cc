@@ -443,7 +443,7 @@ void Command::execute() {
 					close(tmpin);
 					close(tmpout);
 
-				} else {	
+				}
 		
 				//convert to char** from vector
 				char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
@@ -456,7 +456,7 @@ void Command::execute() {
 				//execute command
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
 
-				}
+				
 			} else if (ret < 0) {
 				perror("fork");
 				return;
