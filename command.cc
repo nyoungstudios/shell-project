@@ -359,30 +359,7 @@ void Command::execute() {
 		
 
 
-			printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());
-			unsigned int lastElement = _simpleCommands[0]->_arguments.size() - 1;	
-			if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() >= 2) {
-				//if ls to home directory
-				if (!strcmp(_simpleCommands[0]->_arguments[lastElement]->c_str(), "~")) {
-					_simpleCommands[0]->_arguments[lastElement] = new std::string(getenv("HOME"));
-				} else if ((const char) *_simpleCommands[0]->_arguments[lastElement]->c_str() == '~') {
-					//if ls to home directory plus path
-					std::string newPath = getenv("HOME");
-				
-					std::string secondPart = (const char *) (_simpleCommands[0]->_arguments[lastElement]->c_str() + 1);
-
-					if ((const char) *(_simpleCommands[0]->_arguments[lastElement]->c_str() + 1) == '/') {
-						newPath += secondPart;
-					} else {
-						newPath += "/";
-						newPath += secondPart;
-					}
-
-					_simpleCommands[0]->_arguments[lastElement] = new std::string(newPath);
-
-				}
-
-			} 		
+			 		
 			
 			//fork
 			ret = fork();
@@ -398,9 +375,32 @@ void Command::execute() {
 					exit(0);
 				
 				}
+				//printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());
+				unsigned int lastElement = _simpleCommands[0]->_arguments.size() - 1;	
+				if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() >= 2) {
+					//if ls to home directory
+					if (!strcmp(_simpleCommands[0]->_arguments[lastElement]->c_str(), "~")) {
+						_simpleCommands[0]->_arguments[lastElement] = new std::string(getenv("HOME"));
+					} else if ((const char) *_simpleCommands[0]->_arguments[lastElement]->c_str() == '~') {
+						//if ls to home directory plus path
+						std::string newPath = getenv("HOME");
+					
+						std::string secondPart = (const char *) (_simpleCommands[0]->_arguments[lastElement]->c_str() + 1);
 
-	
-	
+						if ((const char) *(_simpleCommands[0]->_arguments[lastElement]->c_str() + 1) == '/') {
+							newPath += secondPart;
+						} else {
+							newPath += "/";
+							newPath += secondPart;
+						}
+
+						_simpleCommands[0]->_arguments[lastElement] = new std::string(newPath);
+
+					}
+
+				}
+		
+		
 				//convert to char** from vector
 				char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
 				unsigned int j;
