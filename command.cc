@@ -189,8 +189,8 @@ void Command::execute() {
 				} else {	
 					newPath += (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1);
 				}
-				
-				error = chdir(newPath.c_str());
+				printf("this is the string: %s\n", newPath);	
+				//error = chdir(newPath.c_str());
 				
 
 			} else if(!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
