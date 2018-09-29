@@ -373,7 +373,7 @@ void Command::execute() {
 					exit(0);
 				
 				}
-				printf("number of commands: %d\n", _simpleCommands[0]->_arguments.size());	
+				printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());	
 				if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2) {
 					//if ls to home directory
 					printf("hi\n");
