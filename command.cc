@@ -389,7 +389,7 @@ void Command::execute() {
 						newPath += secondPart;
 					}
 
-					_simpleCommands[i]->_arguments[1] = newPath;
+					_simpleCommands[i]->_arguments[1] = new std::string(newPath);
 				
 
 				}	
