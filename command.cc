@@ -404,7 +404,6 @@ void Command::execute() {
 
 				}*/
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
-					printf("shell in is good\n");
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 					char cmdline [1024];
 
@@ -443,21 +442,20 @@ void Command::execute() {
 					dup2(tmpout, 1);
 					close(tmpin);
 					close(tmpout);
-					exit(0);
 
-				}
+				} else {
 		
-				//convert to char** from vector
-				char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
-				unsigned int j;
-				for (j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
-					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
+					//convert to char** from vector
+					char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
+					unsigned int j;
+					for (j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
+						cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
+					}
+					cargument[j] = NULL;
+
+					//execute command
+					execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
 				}
-				cargument[j] = NULL;
-
-				//execute command
-				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
-
 				
 			} else if (ret < 0) {
 				perror("fork");
