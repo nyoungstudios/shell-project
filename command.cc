@@ -375,9 +375,11 @@ void Command::execute() {
 					exit(0);
 				
 				}
+				/*
 				printf("number of commands: %ld\n", _simpleCommands[i]->_arguments.size());
 				printf("%s\n", _simpleCommands[i]->_arguments[0]->c_str());
-				
+			
+				//tilde	
 				unsigned int lastElement = _simpleCommands[i]->_arguments.size() - 1;	
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "ls")  && _simpleCommands[i]->_arguments.size() >= 2) {
 					//if ls to home directory
@@ -400,9 +402,7 @@ void Command::execute() {
 
 					}
 
-				} else {
-					printf("hi\n");
-				}
+				}*/
 		
 		
 				//convert to char** from vector
@@ -421,8 +421,6 @@ void Command::execute() {
 				perror("fork");
 				return;
 
-			} else {
-				printf("again\n");
 			}
 
 			//checks if not background. If true, waits for command to finish
