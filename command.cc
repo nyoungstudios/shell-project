@@ -419,7 +419,7 @@ void Command::execute() {
 					pipe(fdpipein);
 					pipe(fdpipeout);
 
-					write(fdpipe[1], cmdline, strlen(cmdline));
+					write(fdpipein[1], cmdline, strlen(cmdline));
 					write(fdpipein[1], "\n", 1);
 
 					close(fdpipein[1]);
