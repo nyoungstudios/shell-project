@@ -174,7 +174,7 @@ void Command::execute() {
 				std::string pwd = getenv("PWD");
 				std::string home = getenv("HOME");
 				
-				if (error < 0) {
+				if (error >= 0) {
 					setenv("PWD", home.c_str(), 1);
 					setenv("OLDPWD", pwd.c_str(), 1);
 				}
@@ -193,7 +193,7 @@ void Command::execute() {
 				error = chdir(newPath.c_str());
 				
 				std::string pwd = getenv("PWD");
-				if (error < 0) {
+				if (error >= 0) {
 					setenv("PWD", newPath.c_str(), 1);
 					setenv("OLDPWD", pwd.c_str(), 1);
 				}
@@ -205,7 +205,7 @@ void Command::execute() {
 				std::string pwd = getenv("PWD");
 				std::string oldpwd = getenv("OLDPWD");
 				
-				if (error < 0) {
+				if (error >= 0) {
 					setenv("PWD", oldpwd.c_str(), 1);
 					setenv("OLDPWD", pwd.c_str(), 1);
 				}
@@ -217,7 +217,7 @@ void Command::execute() {
 				pwdString.append("/");
 				pwdString.append(_simpleCommands[0]->_arguments[1]->c_str());
 
-				if (error < 0) {
+				if (error >= 0) {
 					setenv("PWD", pwdString.c_str(), 1);
 					setenv("OLDPWD", pwd.c_str(), 1);
 				}
