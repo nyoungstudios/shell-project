@@ -190,7 +190,7 @@ void Command::execute() {
 					newPath += (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1);
 				}
 				
-				error = chdir(newPath->c_str());
+				error = chdir(newPath.c_str());
 				
 
 			} else if(!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
