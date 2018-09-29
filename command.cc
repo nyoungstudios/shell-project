@@ -181,15 +181,16 @@ void Command::execute() {
 
 			} else if ((const char) *_simpleCommands[0]->_arguments[1]->c_str() == '~') {
 				printf("this is amazin\n");
-				std::string home = getenv("HOME");
+				std::string newPath = getenv("HOME");
 				
-				printf("this is a character: %c\n", (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1));
 
 				if ((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1) == '/') {
-					printf("yes\n");
-				} else {
-					printf("no\n");
+					newPath += (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 2);
+				} else {	
+					newPath += (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1);
 				}
+				
+				error = chdir(newPath->c_str());
 				
 
 			} else if(!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
