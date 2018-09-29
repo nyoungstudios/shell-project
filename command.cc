@@ -288,8 +288,7 @@ void Command::execute() {
 		for (int i = 0; i < _numberOfSimpleCommands; i++) {
 	
 					
-			dup2(fdin, 0);
-			close(fdin);
+
 			printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());
 			unsigned int lastElement = _simpleCommands[i]->_arguments.size() - 1;	
 			if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "ls")  && _simpleCommands[i]->_arguments.size() >= 2) {
@@ -314,7 +313,8 @@ void Command::execute() {
 				}
 
 			}
-
+			dup2(fdin, 0);
+			close(fdin);
 			//setup output
 			if (i == _numberOfSimpleCommands - 1) {
 				if (_outFile && _errFile) {  //if both out and err are to the same file
