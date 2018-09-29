@@ -374,6 +374,7 @@ void Command::execute() {
 				
 				} else if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2) {
 					//if ls to home directory
+					printf("hi\n");
 					if (!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
 						printf("hi\n");
 						_simpleCommands[0]->_arguments[1] = new std::string(getenv("HOME"));
