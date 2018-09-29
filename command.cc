@@ -185,7 +185,7 @@ void Command::execute() {
 				
 
 				if ((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1) == '/') {
-					newPath += (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1);
+					newPath.append((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1));
 				} else {
 					newPath += "/";
 					newPath += (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1);
@@ -193,6 +193,11 @@ void Command::execute() {
 				printf("this is the string: %s\n", newPath.c_str());	
 				//error = chdir(newPath.c_str());
 				
+				//std::string pwd = getenv("PWD");
+				//setenv("PWD", newPath.c_str(), 1);
+				//setenv("OLDPWD", pwd.c_str(), 1);
+
+
 
 			} else if(!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
 				error = chdir(getenv("OLDPWD"));
