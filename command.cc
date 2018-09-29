@@ -375,7 +375,7 @@ void Command::execute() {
 					exit(0);
 				
 				}
-				//printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());
+				printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());
 				unsigned int lastElement = _simpleCommands[i]->_arguments.size() - 1;	
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "ls")  && _simpleCommands[i]->_arguments.size() >= 2) {
 					//if ls to home directory
