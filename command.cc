@@ -403,7 +403,7 @@ void Command::execute() {
 					}
 
 				}*/
-				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source") {
+				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1], "r");
 					char cmdline [1024];
 
@@ -442,6 +442,7 @@ void Command::execute() {
 					dup2(tmpout, 1);
 					close(tmpin);
 					close(tmpout);
+					exit(0);
 
 				}
 		
