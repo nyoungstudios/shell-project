@@ -13,5 +13,5 @@ export BVAR
 #echo "hi"
 #echo $(PATH=/bin ../shell <<< "$shell_in" 2>&1)
 #echo "bye"
-#diff <(/bin/sh <<< "$sh_in" 2>&1) <(PATH=/bin ../shell <<< "$shell_in" 2>&1)
+diff <(/bin/sh <<< "$sh_in" 2>&1) <(PATH=/bin ../shell <<< "$shell_in" 2>&1)
 exit $?
