@@ -372,7 +372,9 @@ void Command::execute() {
 					}
 					exit(0);
 				
-				} else if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2) {
+				}
+				
+				if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2) {
 					//if ls to home directory
 					printf("hi\n");
 					if (!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
