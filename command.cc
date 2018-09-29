@@ -381,7 +381,7 @@ void Command::execute() {
 					//if ls to home directory
 					if (!strcmp(_simpleCommands[i]->_arguments[lastElement]->c_str(), "~")) {
 						_simpleCommands[i]->_arguments[lastElement] = new std::string(getenv("HOME"));
-					} else if ((const char) *_simpleCommands[i]->_arguments[lastElement]->c_str() == '~') {
+					} /*else if ((const char) *_simpleCommands[i]->_arguments[lastElement]->c_str() == '~') {
 						//if ls to home directory plus path
 						std::string newPath = getenv("HOME");
 					
@@ -398,7 +398,7 @@ void Command::execute() {
 
 					}
 
-				}
+				}*/
 		
 		
 				//convert to char** from vector
@@ -406,7 +406,6 @@ void Command::execute() {
 				unsigned int j;
 				for (j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
 					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
-					printf("%s\n", cargument[j]);
 				}
 				cargument[j] = NULL;
 
