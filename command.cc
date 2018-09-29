@@ -185,7 +185,7 @@ void Command::execute() {
 				
 
 				std::string amazing = (const char *) (_simpleCommands[0]->_arguments[1]->c_str() + 1);
-				printf("the amazing string: %s\n", amazing);
+				printf("the amazing string: %s\n", amazing.c_str());
 
 
 				if ((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1) == '/') {
