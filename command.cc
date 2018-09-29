@@ -381,7 +381,7 @@ void Command::execute() {
 					//if ls to home directory
 					if (!strcmp(_simpleCommands[i]->_arguments[lastElement]->c_str(), "~")) {
 						_simpleCommands[i]->_arguments[lastElement] = new std::string(getenv("HOME"));
-					} /*else if ((const char) *_simpleCommands[i]->_arguments[lastElement]->c_str() == '~') {
+					} else if ((const char) *_simpleCommands[i]->_arguments[lastElement]->c_str() == '~') {
 						//if ls to home directory plus path
 						std::string newPath = getenv("HOME");
 					
@@ -396,7 +396,7 @@ void Command::execute() {
 
 						_simpleCommands[i]->_arguments[lastElement] = new std::string(newPath);
 
-					}*/
+					}
 
 				}
 		
