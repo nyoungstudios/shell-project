@@ -185,8 +185,9 @@ void Command::execute() {
 				
 
 				if ((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1) == '/') {
-					newPath += (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 2);
-				} else {	
+					newPath += (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1);
+				} else {
+					newPath += "/";
 					newPath += (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1);
 				}
 				printf("this is the string: %s\n", newPath.c_str());	
