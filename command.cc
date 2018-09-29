@@ -372,11 +372,11 @@ void Command::execute() {
 					}
 					exit(0);
 				
-				} else if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "ls")  && _simpleCommands[i]->_arguments.size() > 1 && !strcmp(_simpleCommands[i]->_arguments[1]->c_str(), "~")) {
+				} /*else if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "ls")  && _simpleCommands[i]->_arguments.size() > 1 && !strcmp(_simpleCommands[i]->_arguments[1]->c_str(), "~")) {
 					//if ls to home directory
 					_simpleCommands[i]->_arguments[1] = new std::string(getenv("HOME"));
 
-				} /*else if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "ls")  && _simpleCommands[i]->_arguments.size() > 1 && (const char) *_simpleCommands[i]->_arguments[1]->c_str() == '~') {
+				} else if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "ls")  && _simpleCommands[i]->_arguments.size() > 1 && (const char) *_simpleCommands[i]->_arguments[1]->c_str() == '~') {
 					//if ls to home directory plus path
 					std::string newPath = getenv("HOME");
 				
