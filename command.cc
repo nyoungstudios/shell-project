@@ -373,16 +373,14 @@ void Command::execute() {
 					exit(0);
 				
 				}
-				printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());	
+				/*printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());	
 				if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2) {
 					//if ls to home directory
-					printf("hi\n");
 					if (!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
-						printf("hi\n");
 						_simpleCommands[0]->_arguments[1] = new std::string(getenv("HOME"));
 					}
 
-				} /*else if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2 && (const char) *_simpleCommands[0]->_arguments[1]->c_str() == '~') {
+				} else if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2 && (const char) *_simpleCommands[0]->_arguments[1]->c_str() == '~') {
 					//if ls to home directory plus path
 					std::string newPath = getenv("HOME");
 				
