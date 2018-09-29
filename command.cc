@@ -185,10 +185,10 @@ void Command::execute() {
 				
 
 				if ((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1) == '/') {
-					newPath += new std::string((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1));
+					newPath += std::string((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1));
 				} else {
 					newPath += "/";
-					newPath += new std::string((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1));
+					newPath += std::string((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1));
 				}
 				printf("this is the string: %s\n", newPath.c_str());	
 				//error = chdir(newPath.c_str());
