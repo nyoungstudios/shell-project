@@ -185,7 +185,7 @@ void Command::execute() {
 				
 				printf("this is a character: %c\n", (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1));
 
-				if ((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1 == '/') + 1) {
+				if ((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1) == '/') {
 					printf("yes\n");
 				} else {
 					printf("no\n");
