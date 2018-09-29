@@ -194,8 +194,10 @@ void Command::execute() {
 				error = chdir(newPath.c_str());
 				
 				std::string pwd = getenv("PWD");
-				setenv("PWD", newPath.c_str(), 1);
-				setenv("OLDPWD", pwd.c_str(), 1);
+				if (error < 0) {
+					setenv("PWD", newPath.c_str(), 1);
+					setenv("OLDPWD", pwd.c_str(), 1);
+				}
 
 
 
