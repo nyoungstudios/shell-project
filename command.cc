@@ -169,15 +169,15 @@ void Command::execute() {
 		//cd
 		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "cd")) {
 			int error;
-			printf("this is size: %ld\n", _simpleCommands[0]->_arguments.size());
-			printf("this is a character: %c\n", (const char) *_simpleCommands[0]->_arguments[1]->c_str());
 			if (_simpleCommands[0]->_arguments.size() == 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
 				error = chdir(getenv("HOME"));
 				std::string pwd = getenv("PWD");
 				std::string home = getenv("HOME");
-				setenv("PWD", home.c_str(), 1);
-				setenv("OLDPWD", pwd.c_str(), 1);
-
+				
+				if (error < 0) {
+					setenv("PWD", home.c_str(), 1);
+					setenv("OLDPWD", pwd.c_str(), 1);
+				}
 
 			} else if ((const char) *_simpleCommands[0]->_arguments[1]->c_str() == '~') {
 				std::string newPath = getenv("HOME");
@@ -190,7 +190,6 @@ void Command::execute() {
 					newPath += "/";
 					newPath += secondPart;
 				}
-				printf("this is the string: %s\n", newPath.c_str());	
 				error = chdir(newPath.c_str());
 				
 				std::string pwd = getenv("PWD");
@@ -205,8 +204,11 @@ void Command::execute() {
 				error = chdir(getenv("OLDPWD"));
 				std::string pwd = getenv("PWD");
 				std::string oldpwd = getenv("OLDPWD");
-				setenv("PWD", oldpwd.c_str(), 1);
-				setenv("OLDPWD", pwd.c_str(), 1);
+				
+				if (error < 0) {
+					setenv("PWD", oldpwd.c_str(), 1);
+					setenv("OLDPWD", pwd.c_str(), 1);
+				}
 
 			} else {
 				error = chdir(_simpleCommands[0]->_arguments[1]->c_str());
@@ -214,8 +216,11 @@ void Command::execute() {
 				std::string pwdString = pwd;
 				pwdString.append("/");
 				pwdString.append(_simpleCommands[0]->_arguments[1]->c_str());
-				setenv("PWD", pwdString.c_str(), 1);
-				setenv("OLDPWD", pwd.c_str(), 1);
+
+				if (error < 0) {
+					setenv("PWD", pwdString.c_str(), 1);
+					setenv("OLDPWD", pwd.c_str(), 1);
+				}
 			}
 
 
