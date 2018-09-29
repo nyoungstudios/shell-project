@@ -396,9 +396,9 @@ void Command::execute() {
 
 						_simpleCommands[i]->_arguments[lastElement] = new std::string(newPath);
 
-					}
+					}*/
 
-				}*/
+				}
 		
 		
 				//convert to char** from vector
