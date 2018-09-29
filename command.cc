@@ -431,6 +431,7 @@ void Command::execute() {
 
 					int ret2 = fork();
 					if (ret2 == 0) {
+						printf("hi\n");
 						execvp("/proc/self/exe", NULL);
 						_exit(1);
 					} else if (ret < 0) {
