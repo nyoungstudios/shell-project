@@ -359,10 +359,11 @@ void Command::execute() {
 		
 
 
-			printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());	
-			if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() == 2) {
+			printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());
+			unsigned int lastElement = _simpleCommands[0]->_arguments.size() - 1;	
+			if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "ls")  && _simpleCommands[0]->_arguments.size() >= 2) {
 				//if ls to home directory
-				if (!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
+				if (!strcmp(_simpleCommands[0]->_arguments[lastElement]->c_str(), "~")) {
 					_simpleCommands[0]->_arguments[1] = new std::string(getenv("HOME"));
 				} else if ((const char) *_simpleCommands[0]->_arguments[1]->c_str() == '~') {
 					//if ls to home directory plus path
