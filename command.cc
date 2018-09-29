@@ -170,6 +170,7 @@ void Command::execute() {
 		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "cd")) {
 			int error;
 			if (_simpleCommands[0]->_arguments.size() == 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
+				//if cd to home directory
 				error = chdir(getenv("HOME"));
 				std::string pwd = getenv("PWD");
 				std::string home = getenv("HOME");
@@ -180,6 +181,7 @@ void Command::execute() {
 				}
 
 			} else if ((const char) *_simpleCommands[0]->_arguments[1]->c_str() == '~') {
+				//if cd to the home directory plus more path
 				std::string newPath = getenv("HOME");
 				
 				std::string secondPart = (const char *) (_simpleCommands[0]->_arguments[1]->c_str() + 1);
@@ -200,6 +202,7 @@ void Command::execute() {
 
 
 			} else if(!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
+				//if cd to last active directory
 				error = chdir(getenv("OLDPWD"));
 				std::string pwd = getenv("PWD");
 				std::string oldpwd = getenv("OLDPWD");
@@ -210,6 +213,7 @@ void Command::execute() {
 				}
 
 			} else {
+				//if cd to any other path
 				error = chdir(_simpleCommands[0]->_arguments[1]->c_str());
 				std::string pwd = getenv("PWD");
 				std::string pwdString = pwd;
@@ -222,7 +226,7 @@ void Command::execute() {
 				}
 			}
 
-
+			//if error, prints error message
 			if (error < 0) {
 				fprintf(stderr, "/bin/sh: 1: cd: can't cd to %s\n", _simpleCommands[0]->_arguments[1]->c_str());
 			}
@@ -253,7 +257,7 @@ void Command::execute() {
 		int fderr;
 	
 
-
+		//checks for multiple redirects
 		if (_inCounter > 1 || _outCounter > 1) {
 			fprintf(stderr, "Ambiguous output redirect.\n");
 		}	
@@ -334,7 +338,7 @@ void Command::execute() {
 						exit(1);
 					}	
 								
-				} else {
+				} else {  //sets default out and err
 					fdout = dup(defaultout);
 					fderr = dup(defaulterr);
 				}
@@ -359,6 +363,7 @@ void Command::execute() {
 			ret = fork();
 			if (ret == 0) {
 		
+				//printenv
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "printenv")) {
 					char **env = environ;
 					while (*env != NULL) {
@@ -367,7 +372,10 @@ void Command::execute() {
 					}
 					exit(0);
 				
+				} else if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "ls")  && !strcmp(_simpleCommands[i]->arguments[1]->c_str(), "~")) {
+					_simpleCommands[i]->arguments[1] = getenv("HOME");
 				}
+				
 	
 	
 				//convert to char** from vector
