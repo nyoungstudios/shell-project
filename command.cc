@@ -373,6 +373,7 @@ void Command::execute() {
 					exit(0);
 				
 				} else if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "ls")  && !strcmp(_simpleCommands[i]->_arguments[1]->c_str(), "~")) {
+					printf("this is it\n");
 					_simpleCommands[i]->_arguments[1] = new std::string(getenv("HOME"));
 				}
 				
