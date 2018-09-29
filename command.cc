@@ -183,7 +183,7 @@ void Command::execute() {
 				printf("this is amazin\n");
 				std::string home = getenv("HOME");
 				
-				printf("this is a character: %c\n", (const char) *_simpleCommands[0]->_arguments[1]->c_str() + 1);
+				printf("this is a character: %c\n", (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1));
 
 				if ((const char) *_simpleCommands[0]->_arguments[1]->c_str() + 1 == '/') {
 					printf("yes\n");
