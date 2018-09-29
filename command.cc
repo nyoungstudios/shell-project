@@ -408,7 +408,7 @@ void Command::execute() {
 					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
 				}
 				cargument[j] = NULL;
-				
+				printf("hi\n");	
 				//execute command
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
 
