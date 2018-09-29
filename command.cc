@@ -180,6 +180,7 @@ void Command::execute() {
 
 
 			} else if ((const char) *_simpleCommands[0]->_arguments[1]->c_str() == '~') {
+				printf("this is amazin\n");
 
 			} else if(!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
 				error = chdir(getenv("OLDPWD"));
