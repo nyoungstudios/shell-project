@@ -410,6 +410,8 @@ void Command::execute() {
 					fgets(cmdline, 1023, fp);
 					fclose(fp);
 
+					printf("%s\n", cmdline);
+
 					int tmpin = dup(0);
 					int tmpout = dup(1);
 
