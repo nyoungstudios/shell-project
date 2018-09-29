@@ -181,6 +181,13 @@ void Command::execute() {
 
 			} else if ((const char) *_simpleCommands[0]->_arguments[1]->c_str() == '~') {
 				printf("this is amazin\n");
+				std::string home = getenv("HOME");
+				if ((const char) *_simpleCommands[0]->arguments[1]->c_str() + 1 == '/') {
+					printf("yes\n");
+				} else {
+					printf("no\n");
+				}
+				
 
 			} else if(!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
 				error = chdir(getenv("OLDPWD"));
