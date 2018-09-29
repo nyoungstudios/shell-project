@@ -357,7 +357,7 @@ void Command::execute() {
 			dup2(fderr, 2);
 			close(fderr);
 
-			
+			printf("yes\n");	
 			
 			//fork
 			ret = fork();
