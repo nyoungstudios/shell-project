@@ -9,9 +9,5 @@ shell_in=$'printenv | grep BVAR'
 BVAR="WeChangedItForFinalGradingAndMadeItLonger"
 export BVAR
 
-#echo $(/bin/sh <<< "$sh_in" 2>&1) 
-#echo "hi"
-#echo $(PATH=/bin ../shell <<< "$shell_in" 2>&1)
-#echo "bye"
 diff <(/bin/sh <<< "$sh_in" 2>&1) <(PATH=/bin ../shell <<< "$shell_in" 2>&1)
 exit $?

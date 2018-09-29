@@ -169,6 +169,7 @@ void Command::execute() {
 		//cd
 		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "cd")) {
 			int error;
+			printf("this is size\n", _simpleCommands[0]->_arguments.size());
 			if (_simpleCommands[0]->_arguments.size() == 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
 				error = chdir(getenv("HOME"));
 				std::string pwd = getenv("PWD");
