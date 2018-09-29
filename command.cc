@@ -339,6 +339,17 @@ void Command::execute() {
 					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
 				}
 				cargument[j] = NULL;
+				/*
+				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "printenv")) {
+					char **env = environ;
+					while (*env != NULL) {
+						printf("%s\n", *env);
+						env++;
+					}
+					exit(0);
+				
+				}
+				*/
 
 				//execute command
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
