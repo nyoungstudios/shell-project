@@ -290,6 +290,30 @@ void Command::execute() {
 					
 			dup2(fdin, 0);
 			close(fdin);
+			printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());
+			unsigned int lastElement = _simpleCommands[i]->_arguments.size() - 1;	
+			if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "ls")  && _simpleCommands[i]->_arguments.size() >= 2) {
+				//if ls to home directory
+				if (!strcmp(_simpleCommands[i]->_arguments[lastElement]->c_str(), "~")) {
+					_simpleCommands[i]->_arguments[lastElement] = new std::string(getenv("HOME"));
+				} else if ((const char) *_simpleCommands[i]->_arguments[lastElement]->c_str() == '~') {
+					//if ls to home directory plus path
+					std::string newPath = getenv("HOME");
+				
+					std::string secondPart = (const char *) (_simpleCommands[i]->_arguments[lastElement]->c_str() + 1);
+
+					if ((const char) *(_simpleCommands[i]->_arguments[lastElement]->c_str() + 1) == '/') {
+						newPath += secondPart;
+					} else {
+						newPath += "/";
+						newPath += secondPart;
+					}
+
+					_simpleCommands[i]->_arguments[lastElement] = new std::string(newPath);
+
+				}
+
+			}
 
 			//setup output
 			if (i == _numberOfSimpleCommands - 1) {
@@ -374,30 +398,6 @@ void Command::execute() {
 					}
 					exit(0);
 				
-				}
-				printf("number of commands: %ld\n", _simpleCommands[0]->_arguments.size());
-				unsigned int lastElement = _simpleCommands[i]->_arguments.size() - 1;	
-				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "ls")  && _simpleCommands[i]->_arguments.size() >= 2) {
-					//if ls to home directory
-					if (!strcmp(_simpleCommands[i]->_arguments[lastElement]->c_str(), "~")) {
-						_simpleCommands[i]->_arguments[lastElement] = new std::string(getenv("HOME"));
-					} else if ((const char) *_simpleCommands[i]->_arguments[lastElement]->c_str() == '~') {
-						//if ls to home directory plus path
-						std::string newPath = getenv("HOME");
-					
-						std::string secondPart = (const char *) (_simpleCommands[i]->_arguments[lastElement]->c_str() + 1);
-
-						if ((const char) *(_simpleCommands[i]->_arguments[lastElement]->c_str() + 1) == '/') {
-							newPath += secondPart;
-						} else {
-							newPath += "/";
-							newPath += secondPart;
-						}
-
-						_simpleCommands[i]->_arguments[lastElement] = new std::string(newPath);
-
-					}
-
 				}
 		
 		
