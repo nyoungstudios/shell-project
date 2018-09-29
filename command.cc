@@ -178,7 +178,7 @@ void Command::execute() {
 				setenv("OLDPWD", pwd.c_str(), 1);
 
 
-			} else if ((const char *) _simpleCommands[0]->_arguments[1]->c_str() == "~") {
+			} else if ((const char *) _simpleCommands[0]->_arguments[1]->c_str() == '~') {
 
 			} else if(!strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "-")) {
 				error = chdir(getenv("OLDPWD"));
