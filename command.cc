@@ -184,6 +184,8 @@ void Command::execute() {
 				std::string newPath = getenv("HOME");
 				
 
+				std::string amazing = new std::string((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1));
+
 				if ((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1) == '/') {
 					newPath += (const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1);
 				} else {
