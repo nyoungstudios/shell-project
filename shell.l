@@ -183,7 +183,7 @@ void myunputc(int c) {
 				escape[i++] = '~';
 			} else if (*(temp+1) == '*') {
 				temp++;
-				escape[i++] = '*';
+				escape[i++] = '\\*';
 			} else if (*(temp+1) == '(') {
 				temp++;
 				escape[i++] = '(';
