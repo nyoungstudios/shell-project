@@ -160,7 +160,6 @@ void myunputc(int c) {
 		printf("this is c: %c\n", *temp);
 		if (*temp == '\\') {
 			if (*(temp+1) == '\\') {
-				temp++;
 				//temp = temp + 2;
 				escape[i++] = '\\';
 			} else if (*(temp+1) == '>') {
@@ -198,7 +197,7 @@ void myunputc(int c) {
 			}
 
 		} else {
-			escape[i++] = *temp;
+			escape[i++] = *(++temp);
 		}
 
 		temp++;
