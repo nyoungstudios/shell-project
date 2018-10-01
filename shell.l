@@ -70,7 +70,8 @@ void myunputc(int c) {
 	const char * first = (const char *) yytext + 2;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
-	//printf("%s\n", first);
+	printf("%s\n", first);
+	printf("%d\n", strlen(first));
 
 	int tmpin = dup(0);
 	int tmpout = dup(1);
@@ -81,7 +82,7 @@ void myunputc(int c) {
 	pipe(fdpipein);
 	pipe(fdpipeout);
 
-	write(fdpipein[1], first, strlen(first) - 1);
+	write(fdpipein[1], first, strlen(first));
 	write(fdpipein[1], "\n", 1);
 	//write(fdpipein[1], "exit", 4);
 	//write(fdpipein[1], "\n", 1);
