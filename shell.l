@@ -193,7 +193,7 @@ void myunputc(int c) {
 				temp = temp + 2;
 				escape[i++] = ')';
 			} else {
-				escape[i++] = *(++temp);
+				escape[i++] = *(temp);
 			}
 
 		} else {
@@ -204,7 +204,7 @@ void myunputc(int c) {
 
 
 	}
-	escape[i] = '\0';
+	escape[--i] = '\0';
 
 	printf("amazing%s\n", escape);
 
