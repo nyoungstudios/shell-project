@@ -411,7 +411,7 @@ void Command::execute() {
 					fgets(cmdline, 1023, fp);
 					fclose(fp);
 
-					prinf("this is amazing\n");
+					printf("this is amazing\n");
 
 					printf("%s\n", cmdline);
 
