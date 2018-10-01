@@ -408,13 +408,16 @@ void Command::execute() {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 					char cmdline [4096];
 
-					fgets(cmdline, 4095, fp);
-					fgets(cmdline, 4095, fp);
+					while (cmdline) {
+						fgets(cmdline, 4095, fp);
+				
+						printf("%s\n", cmdline);
+					}
 					fclose(fp);
 
 					//printf("this is amazing\n");
 
-					printf("%s\n", cmdline);
+					//printf("%s\n", cmdline);
 
 					int tmpin = dup(0);
 					int tmpout = dup(1);
