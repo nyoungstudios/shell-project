@@ -202,7 +202,7 @@ void myunputc(int c) {
 
 
 	}
-	escape[--i] = '\0';
+	escape[i] = '\0';
 
 	printf("amazing%s\n", escape);
 
