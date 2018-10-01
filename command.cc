@@ -406,9 +406,9 @@ void Command::execute() {
 				
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
-					char cmdline [1024];
+					char cmdline [4096];
 
-					fgets(cmdline, 1023, fp);
+					fgets(cmdline, 4095, fp);
 					fclose(fp);
 
 					//printf("this is amazing\n");
