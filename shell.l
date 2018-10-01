@@ -152,7 +152,7 @@ void myunputc(int c) {
 
 [^ \t\n\|\>\<\&]*[\\][^ \t\n]* {
 	int i = 0;
-	char * escape = (char *) malloc(strlen(yytext) - 1);
+	char * escape = (char *) malloc(strlen(yytext));
 	char * temp = yytext;
 
 	while (*temp) {
