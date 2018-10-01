@@ -156,6 +156,7 @@ void myunputc(int c) {
 	char * temp = yytext;
 
 	while (*temp) {
+		printf("this is c: %c\n", *temp);
 		if (*temp == '\\') {
 			if (*(temp+1) == '\\') {
 				temp = temp + 2;
