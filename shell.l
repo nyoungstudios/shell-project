@@ -70,8 +70,8 @@ void myunputc(int c) {
 	const char * first = (const char *) yytext + 2;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
-	printf("%s\n", first);
-	printf("%ld\n", strlen(first));
+	//printf("%s\n", first);
+	//printf("%ld\n", strlen(first));
 
 	int tmpin = dup(0);
 	int tmpout = dup(1);
