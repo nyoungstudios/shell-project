@@ -154,6 +154,7 @@ void myunputc(int c) {
 	int i = 0;
 	char * escape = (char *) malloc(strlen(yytext));
 	char * temp = yytext;
+	printf("%s\n", temp);
 
 	while (*temp) {
 		printf("this is c: %c\n", *temp);
