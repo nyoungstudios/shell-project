@@ -190,9 +190,6 @@ void myunputc(int c) {
 			} else if (*(temp+1) == ')') {
 				temp++;
 				escape[i++] = ')';
-			} else if (*(temp+1) == ' ') {
-				temp++;
-				escape[i++] = ' ';
 			} else {
 				escape[i++] = *(temp);
 			}
