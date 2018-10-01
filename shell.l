@@ -160,6 +160,36 @@ void myunputc(int c) {
 			if (*(temp+1) == '\\') {
 				temp = temp + 2;
 				escape[i++] = '\\';
+			} else if (*(temp+1) == '>') {
+				temp = temp + 2;
+				escape[i++] = '>';
+			} else if (*(temp+1) == '<') {
+				temp = temp + 2;
+				escape[i++] = '<';
+			} else if (*(temp+1) == '\"') {
+				temp = temp + 2;
+				escape[i++] = '\"';
+			} else if (*(temp+1) == '\'') {
+				temp = temp + 2;
+				escape[i++] = '\'';
+			} else if (*(temp+1) == '&') {
+				temp = temp + 2;
+				escape[i++] = '&';
+			} else if (*(temp+1) == '|') {
+				temp = temp + 2;
+				escape[i++] = '|';
+			} else if (*(temp+1) == '~') {
+				temp = temp + 2;
+				escape[i++] = '~';
+			} else if (*(temp+1) == '*') {
+				temp = temp + 2;
+				escape[i++] = '*';
+			} else if (*(temp+1) == '(') {
+				temp = temp + 2;
+				escape[i++] = '(';
+			} else if (*(temp+1) == ')') {
+				temp = temp + 2;
+				escape[i++] = ')';
 			} else {
 				escape[i++] = *(++temp);
 			}
