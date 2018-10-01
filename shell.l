@@ -67,11 +67,10 @@ void myunputc(int c) {
 }
 
 [\$\(][^\n]*[\)] {
+	//get command
 	const char * first = (const char *) yytext + 2;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
-	//printf("%s\n", first);
-	//printf("%ld\n", strlen(first));
 
 	int tmpin = dup(0);
 	int tmpout = dup(1);
@@ -84,8 +83,6 @@ void myunputc(int c) {
 
 	write(fdpipein[1], first, strlen(first));
 	write(fdpipein[1], "\n", 1);
-	//write(fdpipein[1], "exit", 4);
-	//write(fdpipein[1], "\n", 1);
 
 	close(fdpipein[1]);
 
@@ -94,6 +91,7 @@ void myunputc(int c) {
 	dup2(fdpipeout[1], 1);
 	close(fdpipeout[1]);
 
+	//fork and execute process
 	int ret = fork();
 	if (ret == 0) {
 		execvp("/proc/self/exe", NULL);
@@ -112,6 +110,7 @@ void myunputc(int c) {
 	char * buffer = (char *) malloc (4096);
 	int i = 0;
 
+	//read the output of the subshell from the pipe
 	while (read(fdpipeout[0], &ch, 1)) {
 		if (ch == '\n') {
 			buffer[i++] = ' ';
@@ -120,6 +119,7 @@ void myunputc(int c) {
 		}
 	}
 
+	//sets terminating character
 	buffer[--i] = '\0';
 
 	for (i = strlen(buffer); i >= 0; i--) {
@@ -142,7 +142,7 @@ void myunputc(int c) {
 }
 
 ["][^\n\"]*["] {
-
+	//remove quotes and return word
 	const char *first = (const char *) yytext + 1;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
@@ -150,6 +150,12 @@ void myunputc(int c) {
 	return WORD;
 }
 
+[^ \t\n\|\>\<\&]*[\\][^ \t\n]* {
+	int i = 0;
+	char * escape = (char *) malloc(strlen(yytext) - 1);
+	char * temp = yytext;
+
+}
 
 [^ \t\n\|\>\<\&][^ \t\n\|\>\<\&]*  {
   /* Assume that file names have only alpha chars */
