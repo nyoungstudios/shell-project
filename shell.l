@@ -75,6 +75,7 @@ void myunputc(int c) {
 	printf("%s\n", var.c_str());
 	yylval.cpp_string = new std::string(var);
 	//printf("%c\n", *last);
+	return WORD;
 
 }
 
