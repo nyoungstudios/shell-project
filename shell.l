@@ -71,7 +71,7 @@ void myunputc(int c) {
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
 	printf("%s\n", first);
-	printf("%d\n", strlen(first));
+	printf("%ld\n", strlen(first));
 
 	int tmpin = dup(0);
 	int tmpout = dup(1);
