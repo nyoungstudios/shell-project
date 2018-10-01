@@ -69,8 +69,8 @@ void myunputc(int c) {
 [\$\(][^\n]*[\)] {
 	const char * first = (const char *) yytext + 2;
 	char *last = (char *) yytext + strlen(yytext) - 1;
-	std::string command = new std::string(first);
-	printf("%s\n", first);
+	std::string command = new std::string(*first);
+	printf("%s\n", first.c_str());
 
 
 }
