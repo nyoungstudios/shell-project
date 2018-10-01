@@ -465,9 +465,10 @@ void Command::execute() {
 					//sets terminating character
 					buffer[--i] = '\0';
 
+					/*
 					for (k = strlen(buffer); k >= 0; k--) {
 						unput(buffer[k]);
-					}
+					}*/
 
 
 					exit(0);
