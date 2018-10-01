@@ -82,7 +82,7 @@ void myunputc(int c) {
 	pipe(fdpipeout);
 
 	write(fdpipein[1], first, strlen(first));
-	write(fdpipein[1], "\n", 1);
+	//write(fdpipein[1], "\n", 1);
 	//write(fdpipein[1], "exit", 4);
 	//write(fdpipein[1], "\n", 1);
 
