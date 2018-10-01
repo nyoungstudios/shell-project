@@ -165,7 +165,7 @@ void myunputc(int c) {
 			}
 
 		} else {
-			escape[i++] = *temp
+			escape[i++] = *temp;
 		}
 
 		temp++;
