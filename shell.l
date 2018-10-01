@@ -191,7 +191,8 @@ void myunputc(int c) {
 				temp++;
 				escape[i++] = ')';
 			} else {
-				escape[i++] = *(temp);
+				//escape[i++] = *(temp);
+				temp++;
 			}
 
 		} else {
