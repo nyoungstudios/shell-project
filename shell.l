@@ -204,7 +204,7 @@ void myunputc(int c) {
 	}
 	escape[--i] = '\0';
 
-	printf("%s\n", escape);
+	//printf("%s\n", escape);
 
 	yylval.cpp_string =new std::string(escape);
 	return WORD;
