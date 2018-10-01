@@ -73,6 +73,7 @@ void myunputc(int c) {
 	printf("%s\n", first);
 	std::string var = getenv(first);
 	printf("%s\n", var.c_str());
+	yylval.cpp_string = var;
 	//printf("%c\n", *last);
 
 }
