@@ -409,6 +409,7 @@ void Command::execute() {
 					char cmdline [4096];
 
 					fgets(cmdline, 4095, fp);
+					fgets(cmdline, 4095, fp);
 					fclose(fp);
 
 					//printf("this is amazing\n");
