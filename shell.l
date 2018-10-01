@@ -71,6 +71,8 @@ void myunputc(int c) {
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
 	printf("%s\n", first);
+	std::string var = getenv(first);
+	printf("%s\n", var->c_str());
 	//printf("%c\n", *last);
 
 }
