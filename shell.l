@@ -66,6 +66,16 @@ void myunputc(int c) {
 	return LESS;
 }
 
+[\$\(][^\n]*[\)] {
+	const char * first = (const char *) yytext + 2;
+	char *last = (char *) yytext + strlen(yytext) - 1;
+	std::string command = new std::string(first);
+	printf("%s\n", first);
+
+
+}
+
+
 [\$\{][^\n]*[\}] {
 	const char * first = (const char *) yytext + 2;
 	char *last = (char *) yytext + strlen(yytext) - 1;
