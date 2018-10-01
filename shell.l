@@ -119,7 +119,7 @@ void myunputc(int c) {
 		}
 	}
 
-	//buffer[i] = '\0';
+	buffer[i] = '\0';
 
 	for (i = strlen(buffer); i >= 0; i--) {
 		unput(buffer[i]);
