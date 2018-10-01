@@ -174,6 +174,9 @@ void myunputc(int c) {
 	}
 	escape[i] = '\0';
 
+	yylval.cpp_string =new std::string(escape);
+	return WORD;
+
 }
 
 [^ \t\n\|\>\<\&][^ \t\n\|\>\<\&]*  {
