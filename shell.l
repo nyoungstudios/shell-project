@@ -114,7 +114,7 @@ void myunputc(int c) {
 
 	while (read(fdpipeout[0], &ch, 1)) {
 		if (ch == '\n') {
-			buffer[i++] = ' ';
+			buffer[i++] = '\0';
 		} else {
 			buffer[i++] = ch;
 		}
