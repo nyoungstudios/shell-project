@@ -72,7 +72,7 @@ void myunputc(int c) {
 	*last = '\0';
 	printf("%s\n", first);
 	std::string var = getenv(first);
-	printf("%s\n", var->c_str());
+	printf("%s\n", var.c_str());
 	//printf("%c\n", *last);
 
 }
