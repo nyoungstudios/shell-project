@@ -158,7 +158,7 @@ void myunputc(int c) {
 	while (*temp) {
 		if (*temp == '\\') {
 			if (*(temp+1) == '\\') {
-				temp++;
+				temp = temp + 2;
 				escape[i++] = '\\';
 			} else if (*(temp+1) == '>') {
 				temp = temp + 2;
