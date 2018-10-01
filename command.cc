@@ -436,7 +436,6 @@ void Command::execute() {
 
 					int ret2 = fork();
 					if (ret2 == 0) {
-						printf("hi\n");
 						execvp("/proc/self/exe", NULL);
 						_exit(1);
 					} else if (ret < 0) {
@@ -448,7 +447,27 @@ void Command::execute() {
 					dup2(tmpout, 1);
 					close(tmpin);
 					close(tmpout);
+				
+					char ch;
+					char * buffer = (char *) malloc (4096);
+					int k = 0;
 					
+					//read the output of the subshell from the pipe
+					while(read(fdpipeout[0], &ch, 1)) {
+						if (ch == '\n') {
+							buffer[k++] = ' ';
+						} else {
+							buffer[k++] = ch;
+						}
+
+					}		
+
+					//sets terminating character
+					buffer[--i] = '\0';
+
+					for (k = strlen(buffer); k >= 0; k--) {
+						unput(buffer[k]);
+					}
 
 
 					exit(0);
