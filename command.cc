@@ -408,7 +408,7 @@ void Command::execute() {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 					char cmdline [4096];
 
-					while (cmdline) {
+					while (cmdline != NULL) {
 						fgets(cmdline, 4095, fp);
 				
 						printf("%s\n", cmdline);
