@@ -66,7 +66,7 @@ void myunputc(int c) {
 	return LESS;
 }
 
-["]*[\$\{][^\n]*["]* {
+[\$\{][^\n]* {
 	const char * first = (const char *) yytext;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	printf("%c\n", *first);
