@@ -155,6 +155,25 @@ void myunputc(int c) {
 	char * escape = (char *) malloc(strlen(yytext) - 1);
 	char * temp = yytext;
 
+	while (*temp) {
+		if (*temp == '\\') {
+			if (*(temp+1) == '\\') {
+				temp = temp + 2;
+				escape[i++] = '\\';
+			} else {
+				escape[i++] = *(++temp);
+			}
+
+		} else {
+			escape[i++] = *temp
+		}
+
+		temp++;
+
+
+	}
+	escape[i] = '\0';
+
 }
 
 [^ \t\n\|\>\<\&][^ \t\n\|\>\<\&]*  {
