@@ -154,44 +154,41 @@ void myunputc(int c) {
 	int i = 0;
 	char * escape = (char *) malloc(strlen(yytext));
 	char * temp = yytext;
-	printf("%s\n", temp);
 
 	while (*temp) {
-		printf("this is c: %c\n", *temp);
 		if (*temp == '\\') {
 			if (*(temp+1) == '\\') {
 				temp++;
-				//temp = temp + 2;
 				escape[i++] = '\\';
 			} else if (*(temp+1) == '>') {
-				temp = temp + 2;
+				temp++;
 				escape[i++] = '>';
 			} else if (*(temp+1) == '<') {
-				temp = temp + 2;
+				temp++;
 				escape[i++] = '<';
 			} else if (*(temp+1) == '\"') {
-				temp = temp + 2;
+				temp++;
 				escape[i++] = '\"';
 			} else if (*(temp+1) == '\'') {
-				temp = temp + 2;
+				temp++;
 				escape[i++] = '\'';
 			} else if (*(temp+1) == '&') {
-				temp = temp + 2;
+				temp++;
 				escape[i++] = '&';
 			} else if (*(temp+1) == '|') {
-				temp = temp + 2;
+				temp++;
 				escape[i++] = '|';
 			} else if (*(temp+1) == '~') {
-				temp = temp + 2;
+				temp++;
 				escape[i++] = '~';
 			} else if (*(temp+1) == '*') {
-				temp = temp + 2;
+				temp++;
 				escape[i++] = '*';
 			} else if (*(temp+1) == '(') {
-				temp = temp + 2;
+				temp++;
 				escape[i++] = '(';
 			} else if (*(temp+1) == ')') {
-				temp = temp + 2;
+				temp++;
 				escape[i++] = ')';
 			} else {
 				escape[i++] = *(temp);
