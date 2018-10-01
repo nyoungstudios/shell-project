@@ -155,6 +155,7 @@ void myunputc(int c) {
 	char * escape = (char *) malloc(strlen(yytext));
 	char * temp = yytext;
 
+	//iterates through each character to check for escapes
 	while (*temp) {
 		if (*temp == '\\') {
 			if (*(temp+1) == '\\') {
@@ -204,8 +205,6 @@ void myunputc(int c) {
 
 	}
 	escape[i] = '\0';
-
-	//printf("amazing%s\n", escape);
 
 	yylval.cpp_string =new std::string(escape);
 	return WORD;
