@@ -70,6 +70,7 @@ void myunputc(int c) {
 	const char * first = (const char *) yytext;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	printf("%c\n", *first);
+	printf("%c\n", *last);
 
 }
 
