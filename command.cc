@@ -403,6 +403,8 @@ void Command::execute() {
 					}
 
 				}*/
+
+
 				/*	
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
