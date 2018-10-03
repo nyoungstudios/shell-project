@@ -222,7 +222,7 @@ void myunputc(int c) {
 		if (*second == '/') {
 			home += second;
 		} else if (strlen(second) >= 1) {
-			const char *part1 = (const char *) malloc(8);
+			char *part1 = (char *) malloc(8);
 			*part1 = "/homes/";
 			home = new std::string(*part1);
 			home += second;
