@@ -206,7 +206,7 @@ void myunputc(int c) {
 	}
 	escape[i] = '\0';
 
-	yylval.cpp_string =new std::string(escape);
+	yylval.cpp_string = new std::string(escape);
 	return WORD;
 
 }
@@ -223,6 +223,7 @@ void myunputc(int c) {
 			home = getenv("HOME");
 			home += second;
 		} else if (strlen(second) >= 1) {
+			char * homesDir = (char *) malloc(8);
 			//home = new std::string("");
 			home += second;
 			printf("singer\n");
