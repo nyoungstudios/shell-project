@@ -490,6 +490,8 @@ void Command::execute() {
 
 				//execute command
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
+			
+				perror("command not found: %s\n", _simplecommands[i]->_arguments[0]->c_str());
 
 				_exit(1);
 			
