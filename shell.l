@@ -220,7 +220,7 @@ void myunputc(int c) {
 		//printf("env: %s\n", getenv("HOME"));
 		std::string home = getenv("HOME");
 		char *second = (char *) yytext + 1;
-		std::string secondPart = new std::string(second);
+		std::string secondPart = new std::string(*second);
 		home += secondPart;
 		yylval.cpp_string = new std::string(home); 	
 	} else {
