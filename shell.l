@@ -213,6 +213,10 @@ void myunputc(int c) {
 
 [^ \t\n\|\>\<\&][^ \t\n\|\>\<\&]*  {
   /* Assume that file names have only alpha chars */
+  const char *first = (const char *) yytext;
+	if (first == '~') {
+		printf("env: %s\n", getenv("HOME");
+	}
   yylval.cpp_string = new std::string(yytext);	
   return WORD;
 }
