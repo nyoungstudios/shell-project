@@ -220,7 +220,6 @@ void myunputc(int c) {
 		std::string home = getenv("HOME");
 		char *second = (char *) yytext + 1;
 		if (*second == '/') {
-			home = getenv("HOME");
 			home += second;
 		} else if (strlen(second) >= 1) {
 			home = "/homes/";
