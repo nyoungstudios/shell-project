@@ -223,9 +223,7 @@ void myunputc(int c) {
 			home = getenv("HOME");
 			home += second;
 		} else if (strlen(second) >= 1) {
-			char * homesDir = (char *) malloc(8);
-			homesDir = "/homes/";
-			//home = new std::string("");
+			home = "/homes/";
 			home += second;
 			printf("singer\n");
 		} else {
