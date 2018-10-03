@@ -498,14 +498,15 @@ void Command::execute() {
 
 			}
 
-			//checks if not background. If true, waits for command to finish
-			if (!_background) {
-				waitpid(ret, NULL, 0);
-			}	
+				
 
 
 		}
-
+		
+		//checks if not background. If true, waits for command to finish
+		if (!_background) {
+			waitpid(ret, NULL, 0);
+		}
 		//resets defaults
 		dup2(defaultin, 0);
 		dup2(defaultout, 1);
