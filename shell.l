@@ -222,7 +222,7 @@ void myunputc(int c) {
 		char *second = (char *) yytext + 1;
 		printf("%s\n", second);
 		//std::string secondPart = new std::string(second);
-		//home += secondPart;
+		home += second;
 		//yylval.cpp_string = new std::string(home); 	
 	} else {
 	  yylval.cpp_string = new std::string(yytext);	
