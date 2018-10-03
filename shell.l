@@ -213,10 +213,18 @@ void myunputc(int c) {
 
 [^ \t\n\|\>\<\&][^ \t\n\|\>\<\&]*  {
   /* Assume that file names have only alpha chars */
+
+	//test if first character is a tilde (~)
   const char *first = (const char *) yytext;
 	if (*first == '~') {
-		printf("env: %s\n", getenv("HOME"));
+		//printf("env: %s\n", getenv("HOME"));
+		std::string home = getenv("HOME");
+		char *second = (char *) yytext + 1;
+		std::string secondPart = new std::string(second);
+		home += secondPart;
+		yylval.cpp_string = new std::string(home); 	
+	} else {
+	  yylval.cpp_string = new std::string(yytext);	
 	}
-  yylval.cpp_string = new std::string(yytext);	
   return WORD;
 }
