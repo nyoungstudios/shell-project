@@ -224,6 +224,7 @@ void myunputc(int c) {
 		} else if (strlen(second) >= 1) {
 			//home = new std::string(*part1);
 			home += second;
+			printf("singer\n");
 		}
 		yylval.cpp_string = new std::string(home); 	
 	} else {
