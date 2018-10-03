@@ -217,7 +217,7 @@ void myunputc(int c) {
 	//test if first character is a tilde (~)
   const char *first = (const char *) yytext;
 	if (*first == '~') {
-		std::string home;
+		std::string home = getenv("HOME");
 		char *second = (char *) yytext + 1;
 		if (*second == '/') {
 			home = getenv("HOME");
@@ -225,8 +225,6 @@ void myunputc(int c) {
 		} else if (strlen(second) >= 1) {
 			home = "/homes/";
 			home += second;
-		} else {
-			home = getenv("HOME");
 		}
 		yylval.cpp_string = new std::string(home); 	
 	} else {
