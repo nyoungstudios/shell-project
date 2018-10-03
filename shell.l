@@ -219,8 +219,12 @@ void myunputc(int c) {
 	if (*first == '~') {
 		std::string home = getenv("HOME");
 		char *second = (char *) yytext + 1;
-		home += "/";
-		home += second;
+		if (*second == '/') {
+			home += second;
+		} else if (strlen(second) >= 1) {
+			home = new std::string("/homes/");
+			home += second;
+		}
 		yylval.cpp_string = new std::string(home); 	
 	} else {
 	  yylval.cpp_string = new std::string(yytext);	
