@@ -217,11 +217,8 @@ void myunputc(int c) {
 	//test if first character is a tilde (~)
   const char *first = (const char *) yytext;
 	if (*first == '~') {
-		//printf("env: %s\n", getenv("HOME"));
 		std::string home = getenv("HOME");
 		char *second = (char *) yytext + 1;
-		//printf("%s\n", second);
-		//std::string secondPart = new std::string(second);
 		home += "/";
 		home += second;
 		yylval.cpp_string = new std::string(home); 	
