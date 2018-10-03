@@ -223,7 +223,7 @@ void myunputc(int c) {
 			home = getenv("HOME");
 			home += second;
 		} else if (strlen(second) >= 1) {
-			home = new std::string("");
+			//home = new std::string("");
 			home += second;
 			printf("singer\n");
 		} else {
