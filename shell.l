@@ -224,7 +224,7 @@ void myunputc(int c) {
 		} else if (strlen(second) >= 1) {
 			const char *part1 = (const char *) malloc(8);
 			part1 = "/homes/";
-			home = new std::string(part1);
+			home = new std::string(*part1);
 			home += second;
 		}
 		yylval.cpp_string = new std::string(home); 	
