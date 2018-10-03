@@ -225,7 +225,6 @@ void myunputc(int c) {
 		} else if (strlen(second) >= 1) {
 			home = "/homes/";
 			home += second;
-			printf("singer\n");
 		} else {
 			home = getenv("HOME");
 		}
