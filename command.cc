@@ -261,7 +261,7 @@ void Command::execute() {
 		if (_inCounter > 1 || _outCounter > 1) {
 			fprintf(stderr, "Ambiguous output redirect.\n");
 			clear();
-			Shell::prompt()
+			Shell::prompt();
 			return;
 		}	
 		
