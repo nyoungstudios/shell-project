@@ -260,6 +260,9 @@ void Command::execute() {
 		//checks for multiple redirects
 		if (_inCounter > 1 || _outCounter > 1) {
 			fprintf(stderr, "Ambiguous output redirect.\n");
+			clear();
+			Shell::prompt();
+			return;
 		}	
 		
 		//sets in file
