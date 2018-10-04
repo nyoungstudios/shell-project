@@ -382,73 +382,62 @@ void Command::execute() {
 					char cmdline [4096];
 
 					while (fgets(cmdline, 4095, fp) != NULL) {
+						int tmpin = dup(0);
+						int tmpout = dup(1);
 
+						int fdpipein[2];
+						int fdpipeout[2];
 
-					//fgets(cmdline, 4095, fp); 
-					//fgets(cmdline, 4095, fp); 
-					//fgets(cmdline, 4095, fp); 
+						pipe(fdpipein);
+						pipe(fdpipeout);
+
+						write(fdpipein[1], cmdline, strlen(cmdline));
+						write(fdpipein[1], "\n", 1);
+
+						close(fdpipein[1]);
+
+						dup2(fdpipein[0], 0);
+						close(fdpipein[0]);
+						dup2(fdpipeout[1], 1);
+						close(fdpipeout[1]);
+
+						int ret2 = fork();
+						if (ret2 == 0) {
+							execvp("/proc/self/exe", NULL);
+							_exit(1);
+						} else if (ret < 0) {
+							perror("fork");
+							exit(1);
+						}
+						
+						dup2(tmpin, 0);
+						dup2(tmpout, 1);
+						close(tmpin);
+						close(tmpout);
+					
+						char ch;
+						char * buffer = (char *) malloc (4096);
+						int k = 0;
+						
+						//read the output of the subshell from the pipe
+						while(read(fdpipeout[0], &ch, 1)) {
+							if (ch == '\n') {
+								buffer[k++] = ' ';
+							} else {
+								buffer[k++] = ch;
+							}
+
+						}		
+
+						//sets terminating character
+						buffer[--i] = '\0';
+						printf("%s\n", buffer);
+
+		
 				
-						printf("%s", cmdline);
 					}
 					
 					fclose(fp);
-
-					//printf("this is amazing\n");
-
-					//printf("%s\n", cmdline);
-
-					int tmpin = dup(0);
-					int tmpout = dup(1);
-
-					int fdpipein[2];
-					int fdpipeout[2];
-
-					pipe(fdpipein);
-					pipe(fdpipeout);
-
-					write(fdpipein[1], cmdline, strlen(cmdline));
-					write(fdpipein[1], "\n", 1);
-
-					close(fdpipein[1]);
-
-					dup2(fdpipein[0], 0);
-					close(fdpipein[0]);
-					dup2(fdpipeout[1], 1);
-					close(fdpipeout[1]);
-
-					int ret2 = fork();
-					if (ret2 == 0) {
-						execvp("/proc/self/exe", NULL);
-						_exit(1);
-					} else if (ret < 0) {
-						perror("fork");
-						exit(1);
-					}
-					
-					dup2(tmpin, 0);
-					dup2(tmpout, 1);
-					close(tmpin);
-					close(tmpout);
-				
-					char ch;
-					char * buffer = (char *) malloc (4096);
-					int k = 0;
-					
-					//read the output of the subshell from the pipe
-					while(read(fdpipeout[0], &ch, 1)) {
-						if (ch == '\n') {
-							buffer[k++] = ' ';
-						} else {
-							buffer[k++] = ch;
-						}
-
-					}		
-
-					//sets terminating character
-					buffer[--i] = '\0';
-
-					
-
 
 					exit(0);
 
