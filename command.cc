@@ -441,7 +441,7 @@ void Command::execute() {
 					
 					fclose(fp);
 
-					exit(0);
+					//exit(0);
 
 				} else {
 			
