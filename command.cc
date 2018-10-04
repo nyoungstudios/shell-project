@@ -406,11 +406,11 @@ void Command::execute() {
 						close(fdpipeout[1]);
 
 						//fork
-						int ret = fork();
-						if (ret == 0) {
+						int ret2 = fork();
+						if (ret2 == 0) {
 							execvp("/proc/self/exe", NULL);
 							_exit(1);
-						} else if (ret < 0) {
+						} else if (ret2 < 0) {
 							perror("fork");
 							exit(1);
 						}
@@ -476,13 +476,15 @@ void Command::execute() {
 
 			}
 
-			//checks if not background. If true, waits for command to finish
-			if (!_background) {
-				waitpid(ret, NULL, 0);
-			}	
+
 
 
 		}
+
+		//checks if not background. If true, waits for command to finish
+		if (!_background) {
+			waitpid(ret, NULL, 0);
+		}	
 
 		//resets defaults
 		dup2(defaultin, 0);
