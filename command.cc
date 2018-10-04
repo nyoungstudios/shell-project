@@ -430,7 +430,7 @@ void Command::execute() {
 						}		
 
 						//sets terminating character
-						buffer[--i] = '\0';
+						buffer[--k] = '\0';
 						if (strlen(buffer) > 0) {
 							printf("%s\n", buffer);
 						}
