@@ -376,14 +376,17 @@ void Command::execute() {
 				
 				}
 				
-				/*	
+					
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 					char cmdline [4096];
 
-					fgets(cmdline, 4095, fp);
+					while (fgets(cmdline, 4095, fp) != EOF) {
+
+		
 				
-					printf("%s\n", cmdline);
+						printf("%s\n", cmdline);
+					}
 					
 					fclose(fp);
 
@@ -449,7 +452,7 @@ void Command::execute() {
 
 					exit(0);
 
-				}*/
+				}
 		
 				//convert to char** from vector
 				char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
