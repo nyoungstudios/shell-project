@@ -269,7 +269,7 @@ void Command::execute() {
 		if (_inFile) {
 			fdin = open(_inFile->c_str(), O_RDONLY, 0664);
 			if (fdin < 0) {
-				fprintf(stderr, "/bin/sh: 1: cannot open %s: No such file\n", _inFile->c_str());
+				fprintf(stderr, "cannot open %s: No such file\n", _inFile->c_str());
 				clear();
 				Shell::prompt();
 				return;
