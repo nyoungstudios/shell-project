@@ -388,7 +388,7 @@ void Command::execute() {
 					//fgets(cmdline, 4095, fp); 
 					//fgets(cmdline, 4095, fp); 
 				
-						printf("%s\n", cmdline);
+						printf("%s", cmdline);
 					}
 					
 					fclose(fp);
