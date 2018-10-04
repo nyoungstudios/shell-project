@@ -378,6 +378,7 @@ void Command::execute() {
 				
 				//source	
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
+/*
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 					char cmdline [4096];
 
@@ -446,13 +447,9 @@ void Command::execute() {
 					//closes file descriptor	
 					fclose(fp);
 
-					dup2(defaultin, 0);
-					dup2(defaultout, 1);
-					dup2(defaulterr, 2);
-
 
 					exit(0);
-
+*/
 				}
 		
 				//convert to char** from vector
