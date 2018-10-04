@@ -229,6 +229,7 @@ void Command::execute() {
 			//if error, prints error message
 			if (error < 0) {
 				fprintf(stderr, "/bin/sh: 1: cd: can't cd to %s\n", _simpleCommands[0]->_arguments[1]->c_str());
+				std::cerr << "can't do it\n";
 			}
 			clear();
 			Shell::prompt();
