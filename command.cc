@@ -381,12 +381,12 @@ void Command::execute() {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 					char cmdline [4096];
 
-					while (*fp != EOF) {
-						fgets(cmdline, 4095, fp) 
+					fgets(cmdline, 4095, fp); 
+					fgets(cmdline, 4095, fp); 
+					fgets(cmdline, 4095, fp); 
 		
 				
-						printf("%s\n", cmdline);
-					}
+					printf("%s\n", cmdline);
 					
 					fclose(fp);
 
