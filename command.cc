@@ -441,25 +441,25 @@ void Command::execute() {
 					
 					fclose(fp);
 
-					exit(0);
+					
 
-				}
+				} else {
 		
-				//convert to char** from vector
-				char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
-				unsigned int j;
-				for (j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
-					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
+					//convert to char** from vector
+					char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
+					unsigned int j;
+					for (j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
+						cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
+					}
+					cargument[j] = NULL;
+
+					//execute command
+					execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
+				
+					printf("command not found: %s\n", _simpleCommands[i]->_arguments[0]->c_str());
+
+					_exit(1);
 				}
-				cargument[j] = NULL;
-
-				//execute command
-				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
-			
-				printf("command not found: %s\n", _simpleCommands[i]->_arguments[0]->c_str());
-
-				_exit(1);
-			
 				
 			} else if (ret < 0) {
 				perror("fork");
