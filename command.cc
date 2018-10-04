@@ -383,8 +383,8 @@ void Command::execute() {
 
 					//iterates over each line in the file
 					while (fgets(cmdline, 4095, fp) != NULL) {
-						int defaultin = dup(0);
-						int defaultout = dup(1);
+						defaultin = dup(0);
+						defaultout = dup(1);
 
 						int fdpipein[2];
 						int fdpipeout[2];
@@ -448,12 +448,12 @@ void Command::execute() {
 
 
 					//resets defaults
-					dup2(defaultin, 0);
-					dup2(defaultout, 1);
-					dup2(defaulterr, 2);
-					close(defaultin);
-					close(defaultout);
-					close(defaulterr);
+					//dup2(defaultin, 0);
+					//dup2(defaultout, 1);
+					//dup2(defaulterr, 2);
+					//close(defaultin);
+					//close(defaultout);
+					//close(defaulterr);
 
 
 
