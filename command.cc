@@ -454,6 +454,10 @@ void Command::execute() {
 
 				}
 
+				close(defaultin);
+				close(defaultout);
+				close(defaulterr);
+
 				//convert to char** from vector
 				char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
 				unsigned int j;
@@ -461,7 +465,7 @@ void Command::execute() {
 					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
 				}
 				cargument[j] = NULL;
-				signal(SIGINT, SIG_DFL);
+
 				//execute command
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
 			
@@ -476,6 +480,9 @@ void Command::execute() {
 
 			}
 
+			dup2(defaultin, 0);
+			dup2(defaultout, 1);
+			dup2(defaulterr, 2);
 
 
 
