@@ -382,8 +382,8 @@ void Command::execute() {
 					char cmdline [4096];
 
 					while (fgets(cmdline, 4095, fp) != NULL) {
-						int tmpin = dup(0);
-						int tmpout = dup(1);
+						int defaultin = dup(0);
+						int defaultout = dup(1);
 
 						int fdpipein[2];
 						int fdpipeout[2];
@@ -410,10 +410,10 @@ void Command::execute() {
 							exit(1);
 						}
 						
-						dup2(tmpin, 0);
-						dup2(tmpout, 1);
-						close(tmpin);
-						close(tmpout);
+						dup2(defaultin, 0);
+						dup2(defaultout, 1);
+						close(defaultin);
+						close(defaultout);
 					
 						char ch;
 						char * buffer = (char *) malloc (4096);
