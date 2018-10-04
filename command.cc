@@ -441,7 +441,7 @@ void Command::execute() {
 						if (strlen(buffer) > 0) {
 							printf("%s\n", buffer);
 						}
-						waitpid(ret2, NULL, 0);
+
 		
 				
 					}
