@@ -378,7 +378,7 @@ void Command::execute() {
 					exit(0);
 				
 				}
-			
+/*			
 				//source	
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
@@ -453,11 +453,7 @@ void Command::execute() {
 					exit(0);
 
 				}
-
-				close(defaultin);
-				close(defaultout);
-				close(defaulterr);
-
+*/
 				//convert to char** from vector
 				char** cargument = new char*[_simpleCommands[i]->_arguments.size()];
 				unsigned int j;
@@ -480,9 +476,6 @@ void Command::execute() {
 
 			}
 
-			dup2(defaultin, 0);
-			dup2(defaultout, 1);
-			dup2(defaulterr, 2);
 
 
 
