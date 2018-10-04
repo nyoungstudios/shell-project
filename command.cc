@@ -281,8 +281,8 @@ void Command::execute() {
 		//printf("this is the number of simple commands: %d\n", _numberOfSimpleCommands);
 
 		//source	
-		if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
-			FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
+		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "source")) {
+			FILE *fp = fopen(_simpleCommands[0]->_arguments[1]->c_str(), "r");
 			char cmdline [4096];
 
 			//iterates over each line in the file
@@ -311,7 +311,7 @@ void Command::execute() {
 				if (ret2 == 0) {
 					execvp("/proc/self/exe", NULL);
 					_exit(1);
-				} else if (ret < 0) {
+				} else if (ret2 < 0) {
 					perror("fork");
 					exit(1);
 				}
