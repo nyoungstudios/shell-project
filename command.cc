@@ -376,11 +376,12 @@ void Command::execute() {
 				
 				}
 				
-					
+				//source	
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 					char cmdline [4096];
 
+					//iterates over each line in the file
 					while (fgets(cmdline, 4095, fp) != NULL) {
 						int defaultin = dup(0);
 						int defaultout = dup(1);
@@ -401,6 +402,7 @@ void Command::execute() {
 						dup2(fdpipeout[1], 1);
 						close(fdpipeout[1]);
 
+						//fork
 						int ret2 = fork();
 						if (ret2 == 0) {
 							execvp("/proc/self/exe", NULL);
@@ -431,6 +433,8 @@ void Command::execute() {
 
 						//sets terminating character
 						buffer[--k] = '\0';
+			
+						//if output, prints it
 						if (strlen(buffer) > 0) {
 							printf("%s\n", buffer);
 						}
@@ -438,8 +442,20 @@ void Command::execute() {
 		
 				
 					}
-					
+				
+					//closes file descriptor	
 					fclose(fp);
+
+
+					//resets defaults
+					dup2(defaultin, 0);
+					dup2(defaultout, 1);
+					dup2(defaulterr, 2);
+					close(defaultin);
+					close(defaultout);
+					close(defaulterr);
+
+
 
 					exit(0);
 
