@@ -446,6 +446,10 @@ void Command::execute() {
 					//closes file descriptor	
 					fclose(fp);
 
+					dup2(defaultin, 0);
+					dup2(defaultout, 1);
+					dup2(defaulterr, 2);
+
 
 					exit(0);
 
