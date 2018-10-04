@@ -431,7 +431,7 @@ void Command::execute() {
 
 						//sets terminating character
 						buffer[--i] = '\0';
-						printf("%s\n", buffer);
+						printf("%s", buffer);
 
 		
 				
