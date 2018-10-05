@@ -383,7 +383,7 @@ void Command::execute() {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 
 
-					/*
+					
 					char cmdline [100];
 					
 					//iterates over each line in the file
@@ -448,7 +448,7 @@ void Command::execute() {
 
 										
 					}
-					*/
+					
 					//closes file descriptor	
 					fclose(fp);
 					
