@@ -380,9 +380,9 @@ void Command::execute() {
 			
 				//source	
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
-					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
+					/*FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 					char cmdline [4096];
-					/*
+					
 					//iterates over each line in the file
 					while (fgets(cmdline, 4095, fp) != NULL) {
 				
@@ -444,13 +444,13 @@ void Command::execute() {
 
 										
 					}
-					*/
+					
 					//closes file descriptor	
 					fclose(fp);
 					
-
+					*/
 					exit(0);
-
+			
 				}
 
 				//convert to char** from vector
