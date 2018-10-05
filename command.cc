@@ -385,6 +385,17 @@ void Command::execute() {
 					
 					//iterates over each line in the file
 					while (fgets(cmdline, 100, fp) != NULL) {
+
+						if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "setenv")) {
+							int error = setenv(_simpleCommands[i]->_arguments[1]->c_str(), _simpleCommands[0]->_arguments[2]->c_str(), 1);
+							if (error < 0) {
+								perror("setenv");
+							}
+							clear();
+							Shell::prompt();
+							
+						} else {
+
 				
 						int defaultin = dup(0);
 						int defaultout = dup(1);
@@ -444,7 +455,7 @@ void Command::execute() {
 
 										
 					}
-					
+					}
 					//closes file descriptor	
 					fclose(fp);
 					
