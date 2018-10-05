@@ -382,7 +382,7 @@ void Command::execute() {
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 
-					yy_create_buffer(fp, lseek(fp, 0, SEEK_END)); 
+					yy_create_buffer(fp, 1); 
 
 					/*
 					char cmdline [100];
