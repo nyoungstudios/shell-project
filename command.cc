@@ -386,7 +386,7 @@ void Command::execute() {
 					//iterates over each line in the file
 					while (fgets(cmdline, 100, fp) != NULL) {
 
-						int error = setenv("aaa", "hola");
+						int error = setenv("aaa", "hola", 1);
 						if (error < 0) {
 							printf("fail\n");
 							perror("setenv");
