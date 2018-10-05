@@ -391,8 +391,10 @@ void Command::execute() {
 							if (error < 0) {
 								perror("setenv");
 							}
+							printf("yes\n");
 							clear();
 							Shell::prompt();
+						
 							
 						} else {
 
