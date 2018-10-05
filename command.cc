@@ -381,6 +381,10 @@ void Command::execute() {
 				//source	
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
+
+					yy_create_buffer(fp, lseek(fp, 0, SEEK_END)); 
+
+					/*
 					char cmdline [100];
 					
 					//iterates over each line in the file
@@ -445,7 +449,7 @@ void Command::execute() {
 
 										
 					}
-					
+					*/
 					//closes file descriptor	
 					fclose(fp);
 					
