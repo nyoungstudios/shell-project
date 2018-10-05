@@ -384,14 +384,7 @@ void Command::execute() {
 					char cmdline [100];
 					
 					//iterates over each line in the file
-					while (fgets(cmdline, 100, fp) != NULL) {
-
-						int error = setenv("aaa", "hola", 1);
-						if (error < 0) {
-							printf("fail\n");
-							perror("setenv");
-						}
-							
+					while (fgets(cmdline, 99, fp) != NULL) {
 
 				
 						int defaultin = dup(0);
