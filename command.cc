@@ -382,10 +382,10 @@ void Command::execute() {
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 					char cmdline [4096];
-
+					/*
 					//iterates over each line in the file
 					while (fgets(cmdline, 4095, fp) != NULL) {
-						/*
+				
 						int defaultin = dup(0);
 						int defaultout = dup(1);
 
@@ -442,13 +442,12 @@ void Command::execute() {
 							printf("%s\n", buffer);
 						}
 
-						*/
-				
+										
 					}
-				
+					*/
 					//closes file descriptor	
 					fclose(fp);
-
+					
 
 					exit(0);
 
