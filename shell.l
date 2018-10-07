@@ -150,6 +150,17 @@ void myunputc(int c) {
 	return WORD;
 }
 
+
+['][^\n\"]*['] {
+	//remove quotes and return word
+	const char *first = (const char *) yytext + 1;
+	char *last = (char *) yytext + strlen(yytext) - 1;
+	*last = '\0';
+	yylval.cpp_string = new std::string(first);
+	return WORD;
+}
+
+
 [^ \t\n\|\>\<\&]*[\\][^ \t\n]* {
 	int i = 0;
 	char * escape = (char *) malloc(strlen(yytext));
