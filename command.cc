@@ -390,7 +390,8 @@ void Command::execute() {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 
 
-					my_yyrestart(fp);
+					//my_yyrestart(fp);
+					yyparse();
 
 					/*	
 					char cmdline [100];

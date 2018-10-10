@@ -27,8 +27,7 @@ void my_yypush_buffer_state(YY_BUFFER_STATE new_buffer) {
 }
 
 void my_yyrestart(FILE *input_file) {
-	//yyrestart(input_file);
-	printf("hi\n");
+	yyrestart(input_file);
 }
 
 %}
