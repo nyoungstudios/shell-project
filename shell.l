@@ -22,6 +22,14 @@ void my_yy_create_buffer(FILE *file, int size) {
 	yy_create_buffer(file, size);
 }
 
+void my_yypush_buffer_state(YY_BUFFER_STATE new_buffer) {
+	yypush_buffer_state(new_buffer);
+}
+
+void my_yyrestart(FILE *input_file) {
+	yyrestart(input_file);
+}
+
 %}
 
 %%
