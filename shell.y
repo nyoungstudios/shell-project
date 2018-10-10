@@ -124,11 +124,13 @@ iomodifier_opt:
 		Shell::_currentCommand._errFile = $2;
 		Shell::_currentCommand._append = 1;
 		Shell::_currentCommand._outCounter++;
+		Shell::_currentCommand._errCounter++;
 	}
 	| GREATAMP WORD {
 		Shell::_currentCommand._outFile = $2;
 		Shell::_currentCommand._errFile = $2;
 		Shell::_currentCommand._outCounter++;
+		Shell::_currentCommand._errCounter++;
 	}	
 	| LESS WORD {
 		Shell::_currentCommand._inFile = $2;
@@ -136,7 +138,7 @@ iomodifier_opt:
 	}
 	| TWOGREAT WORD {
 		Shell::_currentCommand._errFile = $2;
-		Shell::_currentCommand._outCounter++;
+		Shell::_currentCommand._errCounter++;
 	}
   ;
 

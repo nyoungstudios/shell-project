@@ -43,6 +43,7 @@ Command::Command() {
 		_append = 0;
 		_inCounter = 0;
 		_outCounter = 0;
+		_errCounter = 0;
 
 }
 
@@ -93,8 +94,7 @@ void Command::clear() {
 
 		_outCounter = 0;
 
-	
-
+		_errCounter = 0;
 
 
 
@@ -260,7 +260,7 @@ void Command::execute() {
 	
 
 		//checks for multiple redirects
-		if (_inCounter > 1 || _outCounter > 1) {
+		if (_inCounter > 1 || _outCounter > 1 || _errCounter > 1) {
 			fprintf(stderr, "Ambiguous output redirect.\n");
 			clear();
 			Shell::prompt();
