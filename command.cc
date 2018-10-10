@@ -392,7 +392,6 @@ void Command::execute() {
 
 					//my_yy_create_buffer(fp, 100);
 					my_yyrestart(fp);
-					my_yyrestart(*defaultin);
 					//yyparse();
 
 
