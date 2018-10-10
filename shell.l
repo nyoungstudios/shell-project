@@ -19,7 +19,7 @@ void myunputc(int c) {
 }
 
 void my_yy_create_buffer(FILE *file, int size) {
-	yy_create_buffer(*file, size);
+	yy_create_buffer(file, size);
 }
 
 %}
