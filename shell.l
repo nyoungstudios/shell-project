@@ -18,8 +18,8 @@ void myunputc(int c) {
   unput(c);
 }
 
-void my_yy_create_buffer(FILE *file, int size) {
-	yy_create_buffer(file, size);
+YY_BUFFER_STATE my_yy_create_buffer(FILE *file, int size) {
+	return yy_create_buffer(file, size);
 }
 
 void my_yypush_buffer_state(YY_BUFFER_STATE new_buffer) {
