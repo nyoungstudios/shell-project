@@ -35,6 +35,7 @@
 extern void my_yy_create_buffer(FILE *file, int size);
 //extern void my_yypush_buffer_state(YY_BUFFER_STATE new_buffer);
 extern void my_yyrestart(FILE *input_file);
+extern void myunputc(int c);
 
 Command::Command() {
     // Initialize a new vector of Simple Commands
@@ -389,12 +390,13 @@ void Command::execute() {
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 
-					my_yy_create_buffer(fp, 100);
-					my_yyrestart(fp);
-					yyparse();
+					//my_yy_create_buffer(fp, 100);
+					//my_yyrestart(fp);
+					//yyparse();
 
 
-					/*	
+
+						
 					char cmdline [100];
 					
 					//iterates over each line in the file
@@ -453,13 +455,17 @@ void Command::execute() {
 						buffer[--k] = '\0';
 			
 						//if output, prints it
-						if (strlen(buffer) > 0) {
-							printf("%s\n", buffer);
+						//if (strlen(buffer) > 0) {
+						//	printf("%s\n", buffer);
+						//}
+
+						for (k = strlen(buffer); k >= 0; k--) {
+							myunput(buffer[k];
 						}
 
 										
 					}
-					*/
+					
 					//closes file descriptor	
 					fclose(fp);
 					
