@@ -460,7 +460,7 @@ void Command::execute() {
 						//}
 
 						for (k = strlen(buffer); k >= 0; k--) {
-							myunput(buffer[k]);
+							myunputc(buffer[k]);
 						}
 
 										
