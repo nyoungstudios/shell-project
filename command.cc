@@ -463,7 +463,8 @@ void Command::execute() {
 						//}
 
 						for (k = strlen(buffer); k >= 0; k--) {
-							myunputc(buffer[k]);
+							myunputc(buffer[k])
+							printf("%c", k);
 						}
 
 						
