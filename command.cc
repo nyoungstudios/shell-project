@@ -463,6 +463,8 @@ void Command::execute() {
 							myunputc(buffer[k]);
 						}
 
+						yyparse();
+
 										
 					}
 					
