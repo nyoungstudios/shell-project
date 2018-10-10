@@ -32,6 +32,8 @@
 #include "y.tab.hh"
 
 
+extern my_yy_create_buffer(FILE *file, int size);
+
 Command::Command() {
     // Initialize a new vector of Simple Commands
     _simpleCommands = std::vector<SimpleCommand *>();
@@ -385,7 +387,6 @@ void Command::execute() {
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 
-					extern my_yy_create_buffer(fp, 100);
 
 					/*	
 					char cmdline [100];
