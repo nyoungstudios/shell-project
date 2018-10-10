@@ -32,7 +32,7 @@
 #include "y.tab.hh"
 
 
-extern void my_yy_create_buffer(FILE *file, int size);
+extern YY_BUFFER_STATE my_yy_create_buffer(FILE *file, int size);
 //extern void my_yypush_buffer_state(YY_BUFFER_STATE new_buffer);
 extern void my_yyrestart(FILE *input_file);
 
