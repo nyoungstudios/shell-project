@@ -18,13 +18,14 @@ void myunputc(int c) {
   unput(c);
 }
 
-#define MY_YY_BUFFER_STATE YY_BUFFER_STATE
+
+typedef struct my_yy_buffer_state = yy_buffer_state;
 
 void my_yy_create_buffer(FILE *file, int size) {
 	yy_create_buffer(file, size);
 }
 
-void my_yypush_buffer_state(MY_YY_BUFFER_STATE new_buffer) {
+void my_yypush_buffer_state(YY_BUFFER_STATE new_buffer) {
 	yypush_buffer_state(new_buffer);
 }
 
