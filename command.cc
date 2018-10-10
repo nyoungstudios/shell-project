@@ -32,7 +32,7 @@
 #include "y.tab.hh"
 
 
-extern my_yy_create_buffer(FILE *file, int size);
+extern void my_yy_create_buffer(FILE *file, int size);
 
 Command::Command() {
     // Initialize a new vector of Simple Commands
