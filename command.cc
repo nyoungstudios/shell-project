@@ -385,7 +385,9 @@ void Command::execute() {
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 
-					
+					my_yy_create_buffer(fp, 100);
+
+					/*	
 					char cmdline [100];
 					
 					//iterates over each line in the file
@@ -450,6 +452,7 @@ void Command::execute() {
 
 										
 					}
+					*/
 					//closes file descriptor	
 					fclose(fp);
 					
