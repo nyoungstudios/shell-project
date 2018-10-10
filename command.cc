@@ -422,6 +422,8 @@ void Command::execute() {
 						dup2(fdpipeout[1], 1);
 						close(fdpipeout[1]);
 
+						/*
+
 						//fork
 						int ret2 = fork();
 						if (ret2 == 0) {
@@ -431,6 +433,7 @@ void Command::execute() {
 							perror("fork");
 							exit(1);
 						}
+						*/
 						
 						dup2(defaultin, 0);
 						dup2(defaultout, 1);
