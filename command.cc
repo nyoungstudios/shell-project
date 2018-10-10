@@ -402,14 +402,9 @@ void Command::execute() {
 					//iterates over each line in the file
 					while (fgets(cmdline, 99, fp) != NULL) {
 
-						int k;
-						for (k = strlen(cmdline); k >= 0; k--) {
-							myunputc(k);
-						}
-						yyparse();
 
 			
-						/*	
+							
 						int defaultin = dup(0);
 						int defaultout = dup(1);
 
@@ -471,7 +466,7 @@ void Command::execute() {
 							myunputc(buffer[k]);
 						}
 
-						*/
+						
 										
 					}
 					
