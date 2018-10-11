@@ -524,9 +524,11 @@ void Command::execute() {
 
     // Clear to prepare for next command
     clear();
-
-    // Print new prompt
-    Shell::prompt();
+		
+		if (!_source) {
+  	  // Print new prompt
+	    Shell::prompt();
+		}
 }
 
 SimpleCommand * Command::_currentSimpleCommand;

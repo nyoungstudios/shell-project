@@ -97,7 +97,7 @@ void my_yyrestart(FILE *input_file) {
 	yyparse();
 	fclose(fp);
 	yypop_buffer_state();
-
+	Shell::_currentCommand._source = false;
 	
 }
 
