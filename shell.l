@@ -89,9 +89,10 @@ void my_yyrestart(FILE *input_file) {
 
 [source ][^\n\t][^\n\t]* {
 	const char * first = (const char *) yytext + 7;
-	printf("%s\n", first);
+	FILE *fp = fopen(first, "r");
+	my_yy_create_buffer(fp, 100);
 
-	return;
+	
 }
 
 
