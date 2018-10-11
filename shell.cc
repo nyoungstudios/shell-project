@@ -69,7 +69,7 @@ int main() {
 	}
 
 
-	if (_source) {
+	if (!Shell::_currentCommand._source) {
   	Shell::prompt();
 	}
   yyparse();

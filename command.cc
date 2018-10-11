@@ -399,7 +399,7 @@ void Command::execute() {
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					fprintf(stderr, "source: not enough arguments\n");
 					clear();
-					if (_source) {
+					if (!_source) {
 						Shell::prompt();
 					}
 					exit(0);
