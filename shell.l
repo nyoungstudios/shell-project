@@ -91,6 +91,7 @@ void my_yyrestart(FILE *input_file) {
 	const char * first = (const char *) yytext + 7;
 	printf("%s\n", first);
 
+	exit(0);
 }
 
 
