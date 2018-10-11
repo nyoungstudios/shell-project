@@ -68,7 +68,7 @@ void myunputc(int c) {
 	return LESS;
 }
 
-"source "[^\n\t][^\n\t]* {
+"source "[^\n\t]* {
 	const char * first = (const char *) yytext + 7;
 	if (strlen(first) == 0) {
 		fprintf(stderr, "source: not enough arguments\n");
