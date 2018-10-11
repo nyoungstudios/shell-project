@@ -459,7 +459,7 @@ void Command::execute() {
 						//sets terminating character
 						buffer[--k] = '\0';
 			
-						if output, prints it
+						//if output, prints it
 						if (strlen(buffer) > 0) {
 							printf("%s\n", buffer);
 						}
@@ -473,7 +473,7 @@ void Command::execute() {
 					}
 					
 					//closes file descriptor	
-					//fclose(fp);
+					fclose(fp);
 					
 					
 					exit(0);
