@@ -46,7 +46,7 @@ void my_yyrestart(FILE *input_file) {
 }
 
 "^[[A" {
-	
+	printf("hi\n");	
 }
 
 ">>&" {
