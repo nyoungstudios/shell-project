@@ -394,6 +394,8 @@ void Command::execute() {
 					exit(0);
 							
 				}
+
+				//prints err for source
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
 					fprintf(stderr, "source: not enough arguments\n");
 					clear();
