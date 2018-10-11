@@ -416,7 +416,7 @@ void Command::execute() {
 				//execute command
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
 			
-				printf("command not found: %s\n", _simpleCommands[i]->_arguments[0]->c_str());
+				fprintf(stderr, "command not found: %s\n", _simpleCommands[i]->_arguments[0]->c_str());
 
 				_exit(1);
 			
