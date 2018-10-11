@@ -16,6 +16,8 @@ struct Command {
 	int _outCounter;
 	int _errCounter;
 
+	bool _source;
+
   Command();
   void insertSimpleCommand( SimpleCommand * simpleCommand );
 
