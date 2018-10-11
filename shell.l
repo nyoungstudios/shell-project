@@ -72,15 +72,15 @@ void myunputc(int c) {
 	const char * first = (const char *) yytext + 7;
 	FILE *fp = fopen(first, "r");
 	if (fp == NULL) {
-		printf("not fun\n");
+		fprintf(stderr, "cannot open %s: No such file\n", first);
 	} else {
-	Shell::_currentCommand._source = true;
-	YY_BUFFER_STATE myBufferState = yy_create_buffer(fp, 100);
-	yypush_buffer_state(myBufferState);
-	yyparse();
-	fclose(fp);
-	yypop_buffer_state();
-	Shell::_currentCommand._source = false;
+		Shell::_currentCommand._source = true;
+		YY_BUFFER_STATE myBufferState = yy_create_buffer(fp, 100);
+		yypush_buffer_state(myBufferState);
+		yyparse();
+		fclose(fp);
+		yypop_buffer_state();
+		Shell::_currentCommand._source = false;
 	}
 	
 }
