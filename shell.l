@@ -141,7 +141,6 @@ void my_yyrestart(FILE *input_file) {
 		unput(buffer[i]);
 	}
 
-	printf("%s\n", yytext);
 
 
 }
