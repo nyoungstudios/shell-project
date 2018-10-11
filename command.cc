@@ -256,7 +256,7 @@ void Command::execute() {
 		
 			
 			//exit(0);
-			clear():
+			clear();
 			Shell::prompt();
 			return;
 	
