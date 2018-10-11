@@ -392,10 +392,15 @@ void Command::execute() {
 						env++;
 					}
 					exit(0);
-				
-				
-				
-			
+							
+				}
+				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
+					fprintf(stderr, "source: not enough arguments\n");
+					clear();
+					if (_source) {
+						Shell::prompt();
+					}
+					exit(0);
 				}
 
 				//convert to char** from vector

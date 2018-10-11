@@ -68,11 +68,8 @@ void myunputc(int c) {
 	return LESS;
 }
 
-"source "[^\n\t]* {
+"source "[^\n\t][^\n\t]* {
 	const char * first = (const char *) yytext + 7;
-	if (strlen(first) == 0) {
-		fprintf(stderr, "source: not enough arguments\n");
-	}
 	FILE *fp = fopen(first, "r");
 	if (fp == NULL) {
 		fprintf(stderr, "cannot open %s: No such file\n", first);
