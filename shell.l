@@ -22,8 +22,8 @@ void myunputc(int c) {
 
 void my_yy_create_buffer(FILE *file, int size) {
 	YY_BUFFER_STATE myBufferState = yy_create_buffer(file, size);
-	fclose(file);
 	yypush_buffer_state(myBufferState);
+	fclose(file);
 	yyparse();
 	yypop_buffer_state();
 }
