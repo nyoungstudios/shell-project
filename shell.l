@@ -88,7 +88,7 @@ void my_yyrestart(FILE *input_file) {
 }
 
 [source ][^\n\t][^\n\t]* {
-	const char * first = (const char *) yytext + 6;
+	const char * first = (const char *) yytext + 7;
 	printf("%s\n", first);
 
 }
