@@ -133,7 +133,9 @@ void Command::print() {
 void Command::execute() {
     // Don't do anything if there are no simple commands
     if ( _simpleCommands.size() == 0 ) {
-        Shell::prompt();
+				if (!_source) {
+		  	  Shell::prompt();
+				}
         return;
     }
 	
@@ -147,7 +149,9 @@ void Command::execute() {
 		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "clear")) {
 			std::system("clear");
 			clear();
-			Shell::prompt();
+			if (!_source) {
+	  	  Shell::prompt();
+			}
 			return;
 		}
 
@@ -158,7 +162,9 @@ void Command::execute() {
 				perror("setenv");
 			}
 			clear();
-			Shell::prompt();
+			if (!_source) {
+	  	  Shell::prompt();
+			}
 			return;
 		}
 
@@ -169,7 +175,9 @@ void Command::execute() {
 				perror("unsetenv");
 			}
 			clear();
-			Shell::prompt();
+			if (!_source) {
+	  	  Shell::prompt();
+			}
 			return;
 		}
 
@@ -239,7 +247,9 @@ void Command::execute() {
 				fprintf(stderr, "cd: can't cd to %s\n", _simpleCommands[0]->_arguments[1]->c_str());
 			}
 			clear();
-			Shell::prompt();
+			if (!_source) {
+	  	  Shell::prompt();
+			}	
 			return;
 		}
 
@@ -267,7 +277,9 @@ void Command::execute() {
 		if (_inCounter > 1 || _outCounter > 1 || _errCounter > 1) {
 			fprintf(stderr, "Ambiguous output redirect.\n");
 			clear();
-			Shell::prompt();
+			if (!_source) {
+	  	  Shell::prompt();
+			}	
 			return;
 		}	
 		
@@ -277,7 +289,9 @@ void Command::execute() {
 			if (fdin < 0) {
 				fprintf(stderr, "cannot open %s: No such file\n", _inFile->c_str());
 				clear();
-				Shell::prompt();
+				if (!_source) {
+		  	  Shell::prompt();
+				}
 				return;
 			}
 		} else {
