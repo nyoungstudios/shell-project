@@ -392,10 +392,10 @@ void Command::execute() {
 
 					my_yy_create_buffer(fp, 100);
 					//my_yyrestart(fp);
-					fclose(fp);
 					yyparse();
 					//my_yyrestart(NULL);
 
+					fclose(fp);
 
 					/*
 					char cmdline [100];
