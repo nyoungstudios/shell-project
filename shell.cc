@@ -69,8 +69,9 @@ int main() {
 	}
 
 
-
-  Shell::prompt();
+	if (_source) {
+  	Shell::prompt();
+	}
   yyparse();
 }
 
