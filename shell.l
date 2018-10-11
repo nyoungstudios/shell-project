@@ -18,7 +18,6 @@ void myunputc(int c) {
   unput(c);
 }
 
-
 //typedef struct my_yy_buffer_state = yy_buffer_state;
 
 void my_yy_create_buffer(FILE *file, int size) {
