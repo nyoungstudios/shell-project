@@ -46,7 +46,7 @@ void my_yyrestart(FILE *input_file) {
 }
 
 "^[[A" {
-	printf("hi\n");	
+
 }
 
 ">>&" {
@@ -136,6 +136,7 @@ void my_yyrestart(FILE *input_file) {
 
 	//sets terminating character
 	buffer[--i] = '\0';
+	printf("%s\n", yytext);
 
 	for (i = strlen(buffer); i >= 0; i--) {
 		unput(buffer[i]);
