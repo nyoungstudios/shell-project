@@ -388,15 +388,15 @@ void Command::execute() {
 				
 				//source	
 				if (!strcmp(_simpleCommands[i]->_arguments[0]->c_str(), "source")) {
-					FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
+					//FILE *fp = fopen(_simpleCommands[i]->_arguments[1]->c_str(), "r");
 
-					my_yy_create_buffer(fp, 100);
+					//my_yy_create_buffer(fp, 100);
 					//my_yyrestart(fp);
 					//yyparse();
 					//my_yy_create_buffer(NULL, 100);
 					//my_yyrestart(NULL);
 
-					fclose(fp);
+					//fclose(fp);
 
 					/*	
 					char cmdline [100];

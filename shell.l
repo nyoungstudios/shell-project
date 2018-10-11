@@ -87,6 +87,13 @@ void my_yyrestart(FILE *input_file) {
 	return LESS;
 }
 
+[source ][^\n\t][^\n\t]* {
+	const char * first = (const char *) yytext + 6;
+	printf("%s\n", first);
+
+}
+
+
 [\$\(][^\n]*[\)] {
 	//get command
 	const char * first = (const char *) yytext + 2;
@@ -172,7 +179,7 @@ void my_yyrestart(FILE *input_file) {
 }
 
 
-['][^\n\"]*['] {
+['][^\n\']*['] {
 	//remove quotes and return word
 	const char *first = (const char *) yytext + 1;
 	char *last = (char *) yytext + strlen(yytext) - 1;
