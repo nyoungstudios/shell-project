@@ -392,8 +392,8 @@ void Command::execute() {
 
 					my_yy_create_buffer(fp, 100);
 					//my_yyrestart(fp);
-					//yyparse();
-					//my_yyrestart(NULL);
+					yyparse();
+					my_yyrestart(NULL);
 
 					fclose(fp);
 
