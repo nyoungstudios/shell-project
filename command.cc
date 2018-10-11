@@ -376,14 +376,12 @@ void Command::execute() {
 				my_yy_create_buffer(fp, 100);
 				my_yyrestart(fp);
 				yyparse();
-				my_yy_create_buffer(NULL, 100);
-				my_yyrestart(NULL);
 
 				fclose(fp);
 
 			
 				
-				exit(0);
+				//exit(0);
 		
 			}
 				
