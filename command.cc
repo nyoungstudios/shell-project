@@ -31,11 +31,6 @@
 
 #include "y.tab.hh"
 
-//extern typedef struct my_yy_buffer_state;
-extern void my_yy_create_buffer(FILE *file, int size);
-//extern void my_yypush_buffer_state(YY_BUFFER_STATE new_buffer);
-extern void my_yyrestart(FILE *input_file);
-extern void myunputc(int c);
 
 Command::Command() {
     // Initialize a new vector of Simple Commands

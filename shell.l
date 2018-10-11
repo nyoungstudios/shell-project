@@ -19,26 +19,6 @@ void myunputc(int c) {
   unput(c);
 }
 
-//typedef struct my_yy_buffer_state = yy_buffer_state;
-
-void my_yy_create_buffer(FILE *file, int size) {
-	YY_BUFFER_STATE myBufferState = yy_create_buffer(file, size);
-	yypush_buffer_state(myBufferState);
-	yyparse();
-	fclose(file);
-	yypop_buffer_state();
-}
-
-void my_yypush_buffer_state(YY_BUFFER_STATE new_buffer) {
-	yypush_buffer_state(new_buffer);
-}
-
-void my_yyrestart(FILE *input_file) {
-	yyrestart(input_file);
-}
-
-
-
 
 %}
 
