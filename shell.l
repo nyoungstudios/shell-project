@@ -90,7 +90,7 @@ void my_yyrestart(FILE *input_file) {
 "source "[^\n\t][^\n\t]* {
 	const char * first = (const char *) yytext + 7;
 	FILE *fp = fopen(first, "r");
-	_source = true;
+	Shell::_source = true;
 	YY_BUFFER_STATE myBufferState = yy_create_buffer(fp, 100);
 	yypush_buffer_state(myBufferState);
 	yyparse();
