@@ -71,6 +71,9 @@ void myunputc(int c) {
 "source "[^\n\t][^\n\t]* {
 	const char * first = (const char *) yytext + 7;
 	FILE *fp = fopen(first, "r");
+	if (fp == NULL) {
+		printf("not fun\n");
+	} else {
 	Shell::_currentCommand._source = true;
 	YY_BUFFER_STATE myBufferState = yy_create_buffer(fp, 100);
 	yypush_buffer_state(myBufferState);
@@ -78,6 +81,7 @@ void myunputc(int c) {
 	fclose(fp);
 	yypop_buffer_state();
 	Shell::_currentCommand._source = false;
+	}
 	
 }
 
