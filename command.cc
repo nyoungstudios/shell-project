@@ -193,8 +193,9 @@ void Command::execute() {
 
 			} else if ((const char) *_simpleCommands[0]->_arguments[1]->c_str() == '~') {
 				//if cd to the home directory plus more path
-				std::string newPath = getenv("HOME");
-				
+				std::string newPath = getenv("HOME");	
+				std::string pwd = getenv("PWD");
+
 				std::string secondPart = (const char *) (_simpleCommands[0]->_arguments[1]->c_str() + 1);
 
 				if ((const char) *(_simpleCommands[0]->_arguments[1]->c_str() + 1) == '/') {
@@ -205,7 +206,6 @@ void Command::execute() {
 				}
 				error = chdir(newPath.c_str());
 				
-				std::string pwd = getenv("PWD");
 				if (error >= 0) {
 					setenv("PWD", newPath.c_str(), 1);
 					setenv("OLDPWD", pwd.c_str(), 1);
