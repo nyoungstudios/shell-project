@@ -80,7 +80,7 @@ int main() {
 		source(fp);
 	}
 
-	printf("%s\n", getenv("baseball"));
+	//printf("%s\n", getenv("baseball"));
 
 	if (!Shell::_currentCommand._source) {
   	Shell::prompt();
