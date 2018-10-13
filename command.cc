@@ -185,6 +185,9 @@ void Command::execute() {
 				error = chdir(getenv("HOME"));
 				std::string pwd = getenv("PWD");
 				std::string home = getenv("HOME");
+
+				
+				printf("%s\n", home.c_str());
 				
 				if (error >= 0) {
 					setenv("PWD", home.c_str(), 1);
@@ -205,9 +208,7 @@ void Command::execute() {
 					newPath += secondPart;
 				}
 	
-				printf("%s\n", newPath.c_str());
 				error = chdir(newPath.c_str());
-				printf("%s\n", newPath.c_str());
 				
 				if (error >= 0) {
 					setenv("PWD", newPath.c_str(), 1);
