@@ -77,7 +77,7 @@ int main() {
 	FILE *fp = fopen(path.c_str(), "r");
 
 	if (fp != NULL) {
-		//source(fp);
+		source(fp);
 	}
 
 	if (!Shell::_currentCommand._source) {
