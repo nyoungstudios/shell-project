@@ -78,7 +78,7 @@ int main() {
 
 	if (fp != NULL) {
 		source(fp);
-		close(fp);
+		fclose(fp);
 	}
 
 	printf("%s\n", getenv("baseball"));
