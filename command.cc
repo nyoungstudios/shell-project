@@ -209,6 +209,7 @@ void Command::execute() {
 				if (error >= 0) {
 					setenv("PWD", newPath.c_str(), 1);
 					setenv("OLDPWD", pwd.c_str(), 1);
+					printf("%s\n", newPath.c_str());
 				}
 
 
