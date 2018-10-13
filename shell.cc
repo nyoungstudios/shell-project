@@ -85,9 +85,7 @@ int main() {
 	if (!Shell::_currentCommand._source) {
   	Shell::prompt();
 	}
-	if (fp == NULL) {
-	  yyparse();
-	}
+  yyparse();
 }
 
 Command Shell::_currentCommand;
