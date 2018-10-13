@@ -68,6 +68,7 @@ int main() {
 		exit(1);
 	}
 
+	printf("hi\n");
 
 	if (!Shell::_currentCommand._source) {
   	Shell::prompt();
