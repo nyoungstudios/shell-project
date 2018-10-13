@@ -85,6 +85,7 @@ int main() {
 	if (!Shell::_currentCommand._source) {
   	Shell::prompt();
 	}
+	printf("hi\n");
   yyparse();
 }
 
