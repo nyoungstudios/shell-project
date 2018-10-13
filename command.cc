@@ -230,7 +230,7 @@ void Command::execute() {
 				error = chdir(_simpleCommands[0]->_arguments[1]->c_str());
 				std::string pwd = getenv("PWD");
 				std::string pwdString = pwd;
-				if ((const char *) (_simpleCommands[0]->_arguments[1]->c_str()) == '/') {
+				if ((const char *) *(_simpleCommands[0]->_arguments[1]->c_str()) == '/') {
 					pwdString = _simpleCommands[0]->_arguments[1]->c_str();
 				} else {
 					pwdString.append("/");
