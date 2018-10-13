@@ -83,7 +83,7 @@ int main() {
 	if (!Shell::_currentCommand._source) {
   	Shell::prompt();
 	}
-  yyparse();
+  //yyparse();
 }
 
 Command Shell::_currentCommand;
