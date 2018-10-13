@@ -70,10 +70,6 @@ int main() {
 		exit(1);
 	}
 
-	if (!Shell::_currentCommand._source) {
-  	Shell::prompt();
-	}
-
 	std::string path = getenv("HOME");
 	
 	path += "/.shellrc";
@@ -86,8 +82,9 @@ int main() {
 
 	printf("%s\n", getenv("baseball"));
 
-
-
+	if (!Shell::_currentCommand._source) {
+  	Shell::prompt();
+	}
   yyparse();
 }
 
