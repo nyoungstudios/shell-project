@@ -74,7 +74,7 @@ int main() {
 	
 	path += "/.shellrc";
 
-	FILE *fp = fopen(path, "r");
+	FILE *fp = fopen(path.c_str(), "r");
 
 	if (fp != NULL) {
 		source(fp);	
