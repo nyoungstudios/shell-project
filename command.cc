@@ -180,7 +180,7 @@ void Command::execute() {
 		//cd
 		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "cd")) {
 			int error;
-			if (_simpleCommands[0]->_arguments.size() == 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), '~')) {
+			if (_simpleCommands[0]->_arguments.size() == 1 || !strcmp(_simpleCommands[0]->_arguments[1]->c_str(), "~")) {
 				//if cd to home directory
 				error = chdir(getenv("HOME"));
 				std::string pwd = getenv("PWD");
