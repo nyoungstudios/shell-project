@@ -9,6 +9,8 @@
 
 int yyparse(void);
 
+extern void source(FILE *file);
+
 void Shell::prompt() {
 	/*
 	const char *name = "PROMPT";
@@ -72,10 +74,12 @@ int main() {
 	
 	path += "/.shellrc";
 
-	printf("%s\n", path.c_str());
+	FILE *fp = fopen(path, "r");
 
+	if (fp != NULL) {
+		source(fp);	
 
-	//FILE *fp = fopen(	
+	}
 
 	if (!Shell::_currentCommand._source) {
   	Shell::prompt();

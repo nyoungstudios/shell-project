@@ -19,6 +19,17 @@ void myunputc(int c) {
   unput(c);
 }
 
+void source(FILE *file) {
+		Shell::_currentCommand._source = true;
+		YY_BUFFER_STATE myBufferState = yy_create_buffer(file, 100);
+		yypush_buffer_state(myBufferState);
+		yyparse();
+		fclose(file);
+		yypop_buffer_state();
+		Shell::_currentCommand._source = false;
+
+}
+
 
 %}
 
