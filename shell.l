@@ -27,7 +27,6 @@ void source(FILE *file) {
 		fclose(file);
 		yypop_buffer_state();
 		Shell::_currentCommand._source = false;
-		yyrestart(NULL);
 
 }
 
