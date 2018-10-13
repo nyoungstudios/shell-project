@@ -186,9 +186,7 @@ void Command::execute() {
 				std::string pwd = getenv("PWD");
 				std::string home = getenv("HOME");
 
-				
-				printf("%s\n", home.c_str());
-				
+					
 				if (error >= 0) {
 					setenv("PWD", home.c_str(), 1);
 					setenv("OLDPWD", pwd.c_str(), 1);
@@ -229,6 +227,7 @@ void Command::execute() {
 
 			} else {
 				//if cd to any other path
+				printf("hi\n");
 				error = chdir(_simpleCommands[0]->_arguments[1]->c_str());
 				std::string pwd = getenv("PWD");
 				std::string pwdString = pwd;
