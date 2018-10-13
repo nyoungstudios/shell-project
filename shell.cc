@@ -68,7 +68,12 @@ int main() {
 		exit(1);
 	}
 
-	std::string home = getenv("HOME");
+	std::string path = getenv("HOME");
+	
+	path += "/.shellrc";
+
+	printf("%s\n", path.c_str());
+
 
 	//FILE *fp = fopen(	
 
