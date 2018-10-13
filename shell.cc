@@ -77,10 +77,10 @@ int main() {
 	FILE *fp = fopen(path.c_str(), "r");
 
 	if (fp != NULL) {
-		//source(fp);
+		source(fp);
 	}
 
-	//printf("%s\n", getenv("baseball"));
+	printf("%s\n", getenv("baseball"));
 
 	if (!Shell::_currentCommand._source) {
   	Shell::prompt();
