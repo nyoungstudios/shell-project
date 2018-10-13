@@ -227,12 +227,15 @@ void Command::execute() {
 
 			} else {
 				//if cd to any other path
-				printf("hi\n");
 				error = chdir(_simpleCommands[0]->_arguments[1]->c_str());
 				std::string pwd = getenv("PWD");
 				std::string pwdString = pwd;
-				pwdString.append("/");
-				pwdString.append(_simpleCommands[0]->_arguments[1]->c_str());
+				if ((const char *) (_simpleCommands[0]->_arguments[1]->c_str()) == '/') {
+					pwdString = _simpleCommands[0]->_arguments[1]->c_str();
+				} else {
+					pwdString.append("/");
+					pwdString.append(_simpleCommands[0]->_arguments[1]->c_str());
+				}
 
 				if (error >= 0) {
 					setenv("PWD", pwdString.c_str(), 1);
