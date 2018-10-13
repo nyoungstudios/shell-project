@@ -68,8 +68,9 @@ int main() {
 		exit(1);
 	}
 
-	unput(1);
-	
+	std::string home = getenv("HOME");
+
+	//FILE *fp = fopen(	
 
 	if (!Shell::_currentCommand._source) {
   	Shell::prompt();
