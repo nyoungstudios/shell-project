@@ -9,7 +9,7 @@
 
 int yyparse(void);
 
-extern void source(FILE *file);
+extern void source(FILE *file, bool firstTry);
 
 void Shell::prompt() {
 	/*
