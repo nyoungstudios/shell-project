@@ -90,17 +90,9 @@ void source(FILE *file, bool firstTry) {
 		fprintf(stderr, "cannot open %s: No such file\n", first);
 	} else {
 		source(fp, false);
-		//Shell::_currentCommand._source = true;
-		//YY_BUFFER_STATE myBufferState = yy_create_buffer(fp, 100);
-		//yypush_buffer_state(myBufferState);
-		//yyparse();
-		//fclose(fp);
-		//yypop_buffer_state();
-		//Shell::_currentCommand._source = false;
 	}
 	
 }
-
 
 [\$\(][^\n]*[\)] {
 	//get command
@@ -162,10 +154,7 @@ void source(FILE *file, bool firstTry) {
 		unput(buffer[i]);
 	}
 
-
-
 }
-
 
 [\$\{][^\n]*[\}] {
 	const char * first = (const char *) yytext + 2;
@@ -186,7 +175,6 @@ void source(FILE *file, bool firstTry) {
 	return WORD;
 }
 
-
 ['][^\n\']*['] {
 	//remove quotes and return word
 	const char *first = (const char *) yytext + 1;
@@ -195,7 +183,6 @@ void source(FILE *file, bool firstTry) {
 	yylval.cpp_string = new std::string(first);
 	return WORD;
 }
-
 
 [^ \t\n\|\>\<\&]*[\\][^ \t\n]* {
 	int i = 0;
