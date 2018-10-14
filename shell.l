@@ -259,9 +259,10 @@ void source(FILE *file, bool firstTry) {
 			home = "/homes/";
 			home += second;
 		}
-		yylval.cpp_string = new std::string(home); 	
-	} else {
-	  yylval.cpp_string = new std::string(yytext);	
+		yytext = home;		
+		//yylval.cpp_string = new std::string(home); 	
 	}
+	yylval.cpp_string = new std::string(yytext);	
+	
   return WORD;
 }
