@@ -238,7 +238,7 @@ void Command::execute() {
 				}
 
 				if (error >= 0) {
-					setenv("PWD", realpath(pwdString.c_str()), 1);
+					setenv("PWD", pwdString.c_str(), 1);
 					setenv("OLDPWD", pwd.c_str(), 1);
 				}
 			}
