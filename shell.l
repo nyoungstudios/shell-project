@@ -156,7 +156,7 @@ void source(FILE *file, bool firstTry) {
 
 }
 
-[\$\{][^\n]*[\}] {
+"${"[^\n]*"}" {
 	const char * first = (const char *) yytext + 2;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
