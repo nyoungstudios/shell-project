@@ -19,7 +19,7 @@ void myunputc(int c) {
   unput(c);
 }
 
-void source(FILE *file) {
+void source(FILE *file, bool firstTry) {
 		Shell::_currentCommand._source = true;
 		YY_BUFFER_STATE myBufferState = yy_create_buffer(file, 100);
 		yypush_buffer_state(myBufferState);
@@ -29,7 +29,9 @@ void source(FILE *file) {
 		yy_flush_buffer(myBufferState);
 		Shell::_currentCommand._source = false;
 		YY_BUFFER_STATE newBufferState = yy_create_buffer(NULL, 100);
-		yyrestart(stdin);
+		if (firstTry) {
+			yyrestart(stdin);
+		}
 }
 
 
@@ -87,7 +89,7 @@ void source(FILE *file) {
 	if (fp == NULL) {
 		fprintf(stderr, "cannot open %s: No such file\n", first);
 	} else {
-		source(fp);
+		source(fp, false);
 		//Shell::_currentCommand._source = true;
 		//YY_BUFFER_STATE myBufferState = yy_create_buffer(fp, 100);
 		//yypush_buffer_state(myBufferState);
