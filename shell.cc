@@ -77,8 +77,8 @@ int main() {
 	FILE *fp = fopen(path.c_str(), "r");
 
 	if (fp != NULL) {
-		//source(fp);
-		//printf("%s\n", getenv("baseball"));
+		source(fp);
+		printf("%s\n", getenv("baseball"));
 	}
 
 
