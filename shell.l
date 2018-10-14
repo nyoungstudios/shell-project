@@ -28,6 +28,8 @@ void source(FILE *file) {
 		yypop_buffer_state();
 		yy_flush_buffer(myBufferState);
 		Shell::_currentCommand._source = false;
+		YY_BUFFER_STATE newBufferState = yy_create_buffer(NULL, 100);
+		yypush_buffer_state(newBufferState);
 
 }
 
