@@ -35,7 +35,7 @@ void source(FILE *file, bool firstTry) {
 }
 
 
-char * expandEnv(char *str) {
+std::string expandEnv(char *str) {
 	std::string command;
 	int i;
 
