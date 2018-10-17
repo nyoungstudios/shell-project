@@ -445,7 +445,7 @@ void Command::execute() {
 		if (!_background) {
 			waitpid(ret, NULL, 0);
 		} else {
-			//printf("%d\n", ret);
+			//sets background PID variable so can reference in shell.l file
 			backgroundPID = ret;
 		}	
 
