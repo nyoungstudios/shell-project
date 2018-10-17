@@ -38,18 +38,25 @@ void source(FILE *file, bool firstTry) {
 void expandEnv(char *str) {
 	std::string command;
 	int i;
+
+	//iterates over all characters
 	for (i = 0; i < strlen(str) - 1; i++) {
+
 		if (*(str + i) == '$' && *(str + i + 1) == '{') {
-			std::string varName;	
+			//variable name for environment variable name
+			std::string varName;
+			
+			//iterates over environment variable name
 			for (i = i + 2; i < strlen(str); i++) {
+
+				//checks if end of environment variable name	
 				if (*(str + i) == '}') {
 					char *var = getenv(varName.c_str());
-					if (var == 0) {
-
-					} else {
+					if (var != 0) {
 						//printf("%s\n", var);
 						command += var;
 					}
+					break;
 				} else {
 					varName += *(str + i);
 					//printf("%c", *(str + i));
