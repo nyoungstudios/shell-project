@@ -21,6 +21,7 @@ void myunputc(int c) {
 }
 
 extern char *shellpath;
+int backgroundPID;
 
 //function for source
 void source(FILE *file, bool firstTry) {

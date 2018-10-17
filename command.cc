@@ -31,6 +31,8 @@
 
 #include "y.tab.hh"
 
+extern int backgroundPID;
+
 
 Command::Command() {
     // Initialize a new vector of Simple Commands
