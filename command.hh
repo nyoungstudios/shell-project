@@ -3,6 +3,8 @@
 
 #include "simpleCommand.hh"
 
+char *lastCommand;
+
 // Command Data Structure
 
 struct Command {
