@@ -5,6 +5,7 @@
 
 char *lastCommand;
 
+
 // Command Data Structure
 
 struct Command {
