@@ -423,8 +423,10 @@ void Command::execute() {
 				cargument[j] = NULL;
 
 				//execute command
-				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
+				int test = execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
 				
+				printf("test: %d\n", test);
+
 				fprintf(stderr, "command not found: %s\n", _simpleCommands[i]->_arguments[0]->c_str());
 
 				_exit(1);
