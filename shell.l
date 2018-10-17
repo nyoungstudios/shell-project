@@ -21,6 +21,7 @@ void myunputc(int c) {
 }
 
 extern char *shellpath;
+extern std::string lastCommand;
 
 //function for source
 void source(FILE *file, bool firstTry) {
