@@ -148,7 +148,11 @@ std::string expandEnv(char *str) {
 	printf("%s\n", text.c_str());
 	FILE *fp = fopen(text.c_str(), "r");
 	if (fp == NULL) {
-		fprintf(stderr, "cannot open %s: No such file\n", first);
+		if (strlen(text.c_str()) == 0) {
+			fprintf(stderr, "source: not enough arguments");
+		} else {
+			fprintf(stderr, "cannot open %s: No such file\n", text.c_str());
+		}
 	} else {
 		source(fp, false);
 	}
