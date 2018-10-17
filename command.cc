@@ -311,7 +311,7 @@ void Command::execute() {
 		//iterates over all the simple commands
 		for (int i = 0; i < _numberOfSimpleCommands; i++) {
 				
-			int last = setenv("_", _simpleCommands[i]->_arguments[_numberOfSimpleCommands - 1]->c_str(), 1);
+			int last = setenv("_", _simpleCommands[i]->_arguments[_simpleCommands[i]->_arguments.size() - 1]->c_str(), 1);
 					
 			dup2(fdin, 0);
 			close(fdin);
