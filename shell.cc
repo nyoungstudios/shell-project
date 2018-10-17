@@ -50,6 +50,7 @@ int main() {
 
 	int error;
 
+	//signal handler for control c
 	struct sigaction sa1;
 	sa1.sa_handler = controlC;
 	sigemptyset(&sa1.sa_mask);
@@ -60,6 +61,7 @@ int main() {
 		exit(1);
 	}
 
+	//signal handler for zombie processes
 	struct sigaction sa2;
 	sa2.sa_handler = zombie;
 	sa2.sa_flags = SA_RESTART;
@@ -70,6 +72,7 @@ int main() {
 		exit(1);
 	}
 
+	//reads default source
 	std::string path = getenv("HOME");
 	
 	path += "/.shellrc";
@@ -80,7 +83,12 @@ int main() {
 		source(fp, true);
 	}
 
+	//for shell path
+	printf("%s\n", argv[0]);
 
+
+
+	//prints prompt and parses
 	if (!Shell::_currentCommand._source) {
   	Shell::prompt();
 	}
