@@ -44,6 +44,11 @@ void expandEnv(char *str) {
 			for (i = i + 2; i < strlen(str); i++) {
 				if (*(str + i) == '}') {
 					char *var = getenv(varName.c_str());
+					if (var == 0) {
+
+					} else {
+						printf("%s\n", var);
+					}
 				} else {
 					varName += *(str + i);
 					printf("%c", *(str + i));
