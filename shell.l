@@ -161,7 +161,9 @@ void source(FILE *file, bool firstTry) {
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
 	std::string var = getenv(first);
+	if (first != 0) {
 	yylval.cpp_string = new std::string(var);
+	}
 	return WORD;
 
 }
