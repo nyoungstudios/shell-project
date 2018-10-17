@@ -3,7 +3,7 @@
 
 #include "simpleCommand.hh"
 
-char *lastCommand;
+//char *lastCommand;
 
 // Command Data Structure
 
