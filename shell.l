@@ -63,7 +63,6 @@ std::string expandEnv(char *str) {
 						var = shellpath;
 					} else if (!strcmp(varName.c_str(), "$")) {
 						sprintf(var, "%d", getpid());
-						printf("%s\n", var);
 					} else if (!strcmp(varName.c_str(), "?")) {
 
 					} else if (!strcmp(varName.c_str(), "!")) {
