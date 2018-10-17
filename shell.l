@@ -66,7 +66,9 @@ std::string expandEnv(char *str) {
 		} else {
 			command += *(str + i);
 		}
-	}	
+	}
+
+	//checks for last character	
 	if (*(str + strlen(str) - 1) != '}') {
 		command += *(str + strlen(str) - 1);
 	}
@@ -199,7 +201,7 @@ std::string expandEnv(char *str) {
 
 "${"[^\n]*"}" {
 	std::string text = expandEnv((char *) yytext);
-	printf("%s\n", text.c_str());
+	yyval.cpp_string = new std::string(text);
 
 	/*
 	const char * first = (const char *) yytext + 2;
@@ -212,7 +214,7 @@ std::string expandEnv(char *str) {
 		yylval.cpp_string = new std::string(var);
 	}
 	*/
-	//return WORD;
+	return WORD;
 
 }
 
