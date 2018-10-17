@@ -72,7 +72,7 @@ char * expandEnv(char *str) {
 	}
 	//printf("%s\n", command.c_str());
 	//printf("\n");
-	return (char *) command.c_str();
+	return command;
 }
 
 
@@ -198,8 +198,8 @@ char * expandEnv(char *str) {
 }
 
 "${"[^\n]*"}" {
-	char * text =	expandEnv((char *) yytext);
-	printf("%s\n", text);
+	std::string text = expandEnv((char *) yytext);
+	printf("%s\n", text.c_str());
 
 	/*
 	const char * first = (const char *) yytext + 2;
