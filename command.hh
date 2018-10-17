@@ -3,8 +3,6 @@
 
 #include "simpleCommand.hh"
 
-std::string lastCommand;
-
 // Command Data Structure
 
 struct Command {
