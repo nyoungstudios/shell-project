@@ -35,6 +35,17 @@ void source(FILE *file, bool firstTry) {
 }
 
 
+void expandEnv(char *str) {
+	int i;
+	for (i = 0; i < strlen(str); i++) {
+		printf("%c", *(str + i));
+	}	
+	prinf("\n");
+
+
+}
+
+
 %}
 
 %%
@@ -158,6 +169,7 @@ void source(FILE *file, bool firstTry) {
 
 "${"[^\n]*"}" {
 	printf("yes\n");
+	expandEnv((char *) yytext);
 	const char * first = (const char *) yytext + 2;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
