@@ -443,7 +443,8 @@ void Command::execute() {
 
 		//checks if not background. If true, waits for command to finish
 		if (!_background) {
-			waitpid(ret, NULL, 0);
+			int test = waitpid(ret, NULL, 0);
+			printf("%s\n", test);
 		} else {
 			//sets background PID variable so can reference in shell.l file
 			backgroundPID = ret;
