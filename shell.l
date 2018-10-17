@@ -53,7 +53,7 @@ void expandEnv(char *str) {
 			command += *(str + i);
 		}
 	}	
-	printf("%s\n", command);
+	printf("%s\n", command->c_str());
 
 
 }
