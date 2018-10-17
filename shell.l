@@ -68,6 +68,7 @@ std::string expandEnv(char *str) {
 					} else if (!strcmp(varName.c_str(), "!")) {
 
 					} else if (!strcmp(varName.c_str(), "_")) {
+						printf("hi\n");
 						var = lastCommand;
 					} else {
 						var = getenv(varName.c_str());
