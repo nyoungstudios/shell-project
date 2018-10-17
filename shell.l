@@ -47,11 +47,12 @@ void expandEnv(char *str) {
 					if (var == 0) {
 
 					} else {
-						printf("%s\n", var);
+						//printf("%s\n", var);
+						command += var;
 					}
 				} else {
 					varName += *(str + i);
-					printf("%c", *(str + i));
+					//printf("%c", *(str + i));
 				}
 				
 			}
@@ -59,7 +60,7 @@ void expandEnv(char *str) {
 			command += *(str + i);
 		}
 	}	
-	//printf("%s\n", command.c_str());
+	printf("%s\n", command.c_str());
 	printf("\n");
 
 
@@ -188,7 +189,6 @@ void expandEnv(char *str) {
 }
 
 "${"[^\n]*"}" {
-	printf("yes\n");
 	expandEnv((char *) yytext);
 	const char * first = (const char *) yytext + 2;
 	char *last = (char *) yytext + strlen(yytext) - 1;
