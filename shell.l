@@ -59,7 +59,7 @@ std::string expandEnv(char *str) {
 				if (*(str + i) == '}') {
 					char *var;	
 					if (!strcmp(varName.c_str(), "SHELL")) {
-						//printf("shell: %s\n", argv[0]);
+						var = shellpath;
 					} else if (!strcmp(varName.c_str(), "$")) {
 
 					} else if (!strcmp(varName.c_str(), "?")) {
