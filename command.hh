@@ -3,7 +3,7 @@
 
 #include "simpleCommand.hh"
 
-//std::string lastCommand;
+std::string lastCommand;
 
 // Command Data Structure
 
