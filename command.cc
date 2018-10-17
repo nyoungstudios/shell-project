@@ -32,6 +32,8 @@
 #include "y.tab.hh"
 
 
+char *lastCommand;
+
 Command::Command() {
     // Initialize a new vector of Simple Commands
     _simpleCommands = std::vector<SimpleCommand *>();
@@ -416,6 +418,7 @@ void Command::execute() {
 				unsigned int j;
 				for (j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
 					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
+					lastCommand = cargument[j];
 				}
 				cargument[j] = NULL;
 
