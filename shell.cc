@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
 	char actualpath [256];
 	char *ptr;
 	ptr = realpath(argv[0], actualpath);
-	//printf("%s\n", realpath(argv[0]));
+	printf("%s\n", actualpath;
 
 
 
