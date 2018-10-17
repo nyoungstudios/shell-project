@@ -72,7 +72,7 @@ void expandEnv(char *str) {
 	}
 	//printf("%s\n", command.c_str());
 	//printf("\n");
-	str = command.c_str();
+	str = (char *) command.c_str();
 }
 
 
