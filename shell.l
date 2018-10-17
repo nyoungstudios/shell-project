@@ -19,6 +19,9 @@ void myunputc(int c) {
   unput(c);
 }
 
+extern char *shellpath;
+
+
 //function for source
 void source(FILE *file, bool firstTry) {
 		Shell::_currentCommand._source = true;

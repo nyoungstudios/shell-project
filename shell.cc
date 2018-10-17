@@ -90,7 +90,7 @@ int main(int argc, char **argv) {
 	char *ptr;
 	ptr = realpath(argv[0], actualpath);
 	shellpath = actualpath;
-	printf("%s\n", shellpath);
+	//printf("%s\n", shellpath);
 
 
 
