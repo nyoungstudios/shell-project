@@ -145,6 +145,7 @@ std::string expandEnv(char *str) {
 "source "[^\n\t][^\n\t]* {
 	const char * first = (const char *) yytext + 7;
 	std::string text = expandEnv((char *) first);
+	printf("%s\n", text.c_str());
 	FILE *fp = fopen(text.c_str(), "r");
 	if (fp == NULL) {
 		fprintf(stderr, "cannot open %s: No such file\n", first);
