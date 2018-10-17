@@ -162,7 +162,7 @@ void source(FILE *file, bool firstTry) {
 	*last = '\0';
 	char *valid = getenv(first);
 	if (valid == 0) {
-		yylval.cpp_string = "\n";
+		yylval.cpp_string = new std::string("\n");
 	} else {
 		std::string var = getenv(first);
 		yylval.cpp_string = new std::string(var);
