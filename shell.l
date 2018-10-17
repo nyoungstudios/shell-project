@@ -54,7 +54,20 @@ std::string expandEnv(char *str) {
 
 				//checks if end of environment variable name	
 				if (*(str + i) == '}') {
-					char *var = getenv(varName.c_str());
+					char *var;	
+					if (!strcmp(varName.c_str(), "SHELL") {
+
+					} else if (!strcmp(varName.c_str(), "$") {
+
+					} else if (!strcmp(varName.c_str(), "?") {
+
+					} else if (!strcmp(varName.c_str(), "!") {
+
+					} else if (!strcmp(varName.c_str(), "_") {
+
+					} else {
+						*var = getenv(varName.c_str());
+					}
 					if (var != 0) {
 						//printf("%s\n", var);
 						command += var;
