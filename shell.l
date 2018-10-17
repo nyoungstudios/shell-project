@@ -67,6 +67,9 @@ void expandEnv(char *str) {
 			command += *(str + i);
 		}
 	}	
+	if (*(str + strlen(str) - 1) != '}') {
+		command += *(str + strlen(str) - 1);
+	}
 	printf("%s\n", command.c_str());
 	printf("\n");
 
