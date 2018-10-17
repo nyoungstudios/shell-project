@@ -212,7 +212,8 @@ std::string expandEnv(char *str) {
 	const char *first = (const char *) yytext + 1;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
-	yylval.cpp_string = new std::string(first);
+	std::string text = expandEnv((char *) first);
+	yylval.cpp_string = new std::string(text);
 	return WORD;
 }
 
@@ -221,7 +222,8 @@ std::string expandEnv(char *str) {
 	const char *first = (const char *) yytext + 1;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
-	yylval.cpp_string = new std::string(first);
+	std::string text = expandEnv((char *) first);
+	yylval.cpp_string = new std::string(text);
 	return WORD;
 }
 
