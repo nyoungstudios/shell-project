@@ -419,6 +419,7 @@ void Command::execute() {
 				for (j = 0; j < _simpleCommands[i]->_arguments.size(); j++) {
 					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
 					lastCommand = cargument[j];
+					printf("%s\n", lastCommand);
 				}
 				cargument[j] = NULL;
 
