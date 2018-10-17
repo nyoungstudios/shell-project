@@ -28,7 +28,7 @@ void source(FILE *file, bool firstTry) {
 		yypop_buffer_state();
 		yy_flush_buffer(myBufferState);
 		Shell::_currentCommand._source = false;
-		YY_BUFFER_STATE newBufferState = yy_create_buffer(NULL, 100);
+		//YY_BUFFER_STATE newBufferState = yy_create_buffer(NULL, 100);
 		if (firstTry) {
 			yyrestart(stdin);
 		}
