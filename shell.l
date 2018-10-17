@@ -145,11 +145,10 @@ std::string expandEnv(char *str) {
 "source "[^\n\t][^\n\t]* {
 	const char * first = (const char *) yytext + 7;
 	std::string text = expandEnv((char *) first);
-	printf("%s\n", text.c_str());
 	FILE *fp = fopen(text.c_str(), "r");
 	if (fp == NULL) {
 		if (strlen(text.c_str()) == 0) {
-			fprintf(stderr, "source: not enough arguments");
+			fprintf(stderr, "source: not enough arguments\n");
 		} else {
 			fprintf(stderr, "cannot open %s: No such file\n", text.c_str());
 		}
