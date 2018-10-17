@@ -66,7 +66,7 @@ std::string expandEnv(char *str) {
 					} else if (!strcmp(varName.c_str(), "?")) {
 						sprintf(var, "%d", 0);
 					} else if (!strcmp(varName.c_str(), "!")) {
-
+						sprintf(var, "%d", backgroundPID);
 					} else if (!strcmp(varName.c_str(), "_")) {
 						var = getenv(varName.c_str());
 					} else {
