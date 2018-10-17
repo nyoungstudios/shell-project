@@ -40,7 +40,7 @@ void expandEnv(char *str) {
 	int i;
 	for (i = 0; i < strlen(str) - 1; i++) {
 		if (*(str + i) == '$' && *(str + i + 1) == '{') {
-			std::string varName = new std::string("");	
+			std::string varName;	
 			for (i = i + 2; i < strlen(str); i++) {
 				if (*(str + i) == '}') {
 					char *var = getenv(varName.c_str());
