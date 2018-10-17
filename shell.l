@@ -19,6 +19,7 @@ void myunputc(int c) {
   unput(c);
 }
 
+//function for source
 void source(FILE *file, bool firstTry) {
 		Shell::_currentCommand._source = true;
 		YY_BUFFER_STATE myBufferState = yy_create_buffer(file, 100);
@@ -29,12 +30,14 @@ void source(FILE *file, bool firstTry) {
 		yy_flush_buffer(myBufferState);
 		Shell::_currentCommand._source = false;
 		//YY_BUFFER_STATE newBufferState = yy_create_buffer(NULL, 100);
+
+		//first try flag
 		if (firstTry) {
 			yyrestart(stdin);
 		}
 }
 
-
+//function to expand environment variables
 std::string expandEnv(char *str) {
 	std::string command;
 	int i;
