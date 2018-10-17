@@ -32,7 +32,7 @@
 #include "y.tab.hh"
 
 
-char *lastCommand;
+//char *lastCommand;
 
 Command::Command() {
     // Initialize a new vector of Simple Commands
