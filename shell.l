@@ -201,7 +201,7 @@ std::string expandEnv(char *str) {
 
 "${"[^\n]*"}" {
 	std::string text = expandEnv((char *) yytext);
-	yyval.cpp_string = new std::string(text);
+	yylval.cpp_string = new std::string(text);
 
 	/*
 	const char * first = (const char *) yytext + 2;
