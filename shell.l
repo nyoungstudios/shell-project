@@ -43,7 +43,7 @@ void expandEnv(char *str) {
 			
 			for (i = i + 2; i < strlen(str); i++) {
 				if (*(str + i) == '}') {
-					char *var = getenv();
+					char *var = getenv("HOME");
 				} else {
 					printf("%c", *(str + i));
 				}
