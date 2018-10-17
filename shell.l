@@ -40,7 +40,7 @@ void expandEnv(char *str) {
 	for (i = 0; i < strlen(str); i++) {
 		printf("%c", *(str + i));
 	}	
-	printf("\n");
+	//printf("\n");
 
 
 }
