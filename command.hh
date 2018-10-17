@@ -4,7 +4,7 @@
 #include "simpleCommand.hh"
 
 char *lastCommand;
-char *newLastCommand;
+char *newLastCommand = "";
 
 // Command Data Structure
 
