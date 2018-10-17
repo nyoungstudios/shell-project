@@ -158,7 +158,7 @@ std::string expandEnv(char *str) {
 	
 }
 
-"$("[^\n]*")" {
+"$("[^\n)$]*")" {
 	//get command
 	const char * first = (const char *) yytext + 2;
 	char *last = (char *) yytext + strlen(yytext) - 1;
