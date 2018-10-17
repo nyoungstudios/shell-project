@@ -418,8 +418,8 @@ void Command::execute() {
 					cargument[j] = const_cast< char* >(_simpleCommands[i]->_arguments[j]->c_str());
 				}
 				cargument[j] = NULL;
-				lastCommand = cargument[j - 1];
-				printf("%s\n", lastCommand);
+				//lastCommand = cargument[j - 1];
+				//printf("%s\n", lastCommand);
 
 				//execute command
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
