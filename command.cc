@@ -445,7 +445,8 @@ void Command::execute() {
 		if (!_background) {
 			waitpid(ret, NULL, 0);
 		} else {
-			printf("%d\n", ret);
+			//printf("%d\n", ret);
+			backgroundPID = ret;
 		}	
 
 		//resets defaults
