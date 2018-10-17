@@ -70,10 +70,9 @@ void expandEnv(char *str) {
 	if (*(str + strlen(str) - 1) != '}') {
 		command += *(str + strlen(str) - 1);
 	}
-	printf("%s\n", command.c_str());
-	printf("\n");
-
-
+	//printf("%s\n", command.c_str());
+	//printf("\n");
+	str = command.c_str();
 }
 
 
@@ -200,6 +199,9 @@ void expandEnv(char *str) {
 
 "${"[^\n]*"}" {
 	expandEnv((char *) yytext);
+	printf("%s\n", yytext);
+
+	/*
 	const char * first = (const char *) yytext + 2;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
@@ -209,6 +211,7 @@ void expandEnv(char *str) {
 	} else {
 		yylval.cpp_string = new std::string(var);
 	}
+	*/
 	return WORD;
 
 }
