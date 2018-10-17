@@ -35,7 +35,7 @@ void source(FILE *file, bool firstTry) {
 }
 
 
-void expandEnv(char *str) {
+char * expandEnv(char *str) {
 	std::string command;
 	int i;
 
@@ -72,7 +72,7 @@ void expandEnv(char *str) {
 	}
 	//printf("%s\n", command.c_str());
 	//printf("\n");
-	str = (char *) command.c_str();
+	return (char *) command.c_str();
 }
 
 
@@ -198,8 +198,8 @@ void expandEnv(char *str) {
 }
 
 "${"[^\n]*"}" {
-	expandEnv((char *) yytext);
-	printf("%s\n", yytext);
+	char * text =	expandEnv((char *) yytext);
+	printf("%s\n", text);
 
 	/*
 	const char * first = (const char *) yytext + 2;
@@ -212,7 +212,7 @@ void expandEnv(char *str) {
 		yylval.cpp_string = new std::string(var);
 	}
 	*/
-	return WORD;
+	//return WORD;
 
 }
 
