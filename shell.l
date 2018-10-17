@@ -203,17 +203,6 @@ std::string expandEnv(char *str) {
 	std::string text = expandEnv((char *) yytext);
 	yylval.cpp_string = new std::string(text);
 
-	/*
-	const char * first = (const char *) yytext + 2;
-	char *last = (char *) yytext + strlen(yytext) - 1;
-	*last = '\0';
-	char *var = getenv(first);
-	if (var == 0) {
-		yylval.cpp_string = new std::string("");
-	} else {
-		yylval.cpp_string = new std::string(var);
-	}
-	*/
 	return WORD;
 
 }
