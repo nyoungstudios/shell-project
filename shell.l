@@ -64,7 +64,7 @@ std::string expandEnv(char *str) {
 					} else if (!strcmp(varName.c_str(), "$")) {
 						sprintf(var, "%d", getpid());
 					} else if (!strcmp(varName.c_str(), "?")) {
-
+						sprintf(var, "%d", 0);
 					} else if (!strcmp(varName.c_str(), "!")) {
 
 					} else if (!strcmp(varName.c_str(), "_")) {
