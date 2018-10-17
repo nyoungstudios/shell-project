@@ -419,6 +419,7 @@ void Command::execute() {
 				}
 				cargument[j] = NULL;
 				lastCommand = cargument[j - 1];
+				printf("%s\n");
 
 				//execute command
 				execvp(_simpleCommands[i]->_arguments[0]->c_str(), cargument);
