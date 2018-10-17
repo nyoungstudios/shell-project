@@ -11,6 +11,8 @@ int yyparse(void);
 
 extern void source(FILE *file, bool firstTry);
 
+char *shellpath;
+
 void Shell::prompt() {
 	/*
 	const char *name = "PROMPT";
@@ -84,7 +86,7 @@ int main(int argc, char **argv) {
 	}
 
 	//for shell path
-	printf("%s\n", argv[0]);
+	printf("%s\n", realpath(argv[0]));
 
 
 
