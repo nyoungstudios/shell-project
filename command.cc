@@ -442,6 +442,8 @@ void Command::execute() {
 		//checks if not background. If true, waits for command to finish
 		if (!_background) {
 			waitpid(ret, NULL, 0);
+		} else {
+			printf("%d\n", ret);
 		}	
 
 		//resets defaults
