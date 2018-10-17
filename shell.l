@@ -160,9 +160,12 @@ void source(FILE *file, bool firstTry) {
 	const char * first = (const char *) yytext + 2;
 	char *last = (char *) yytext + strlen(yytext) - 1;
 	*last = '\0';
-	std::string var = getenv(first);
-	if (first != 0) {
-	yylval.cpp_string = new std::string(var);
+	char *valid = getenv(first);
+	if (valid == 0) {
+		yyval.cpp_string = "\n";
+	} else {
+		std::string var = getenv(first);
+		yylval.cpp_string = new std::string(var);
 	}
 	return WORD;
 
