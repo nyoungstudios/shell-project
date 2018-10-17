@@ -40,11 +40,12 @@ void expandEnv(char *str) {
 	int i;
 	for (i = 0; i < strlen(str) - 1; i++) {
 		if (*(str + i) == '$' && *(str + i + 1) == '{') {
-			
+			std::string varName = new std::string("");	
 			for (i = i + 2; i < strlen(str); i++) {
 				if (*(str + i) == '}') {
-					char *var = getenv("HOME");
+					char *var = getenv(varName.c_str());
 				} else {
+					varName += *(str + i);
 					printf("%c", *(str + i));
 				}
 				
@@ -53,7 +54,8 @@ void expandEnv(char *str) {
 			command += *(str + i);
 		}
 	}	
-	printf("%s\n", command.c_str());
+	//printf("%s\n", command.c_str());
+	printf("\n");
 
 
 }
