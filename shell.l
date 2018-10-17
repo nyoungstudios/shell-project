@@ -67,7 +67,8 @@ std::string expandEnv(char *str) {
 					} else if (!strcmp(varName.c_str(), "!")) {
 
 					} else if (!strcmp(varName.c_str(), "_")) {
-						printf("%ld\n", Shell::_currentCommand._simpleCommands.size());
+						//printf("%ld\n", Shell::_currentCommand._simpleCommands.size());
+						var = getenv(varName.c_str());
 					} else {
 						var = getenv(varName.c_str());
 					}
