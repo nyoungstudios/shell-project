@@ -86,8 +86,8 @@ int main(int argc, char **argv) {
 	}
 
 	//for shell path
-	char actualpath [PATH_MAX + 1]
-	char *ptr;
+	char actualpath [256]
+	char *ptr = realpath(argv[0], actualpath);
 	//printf("%s\n", realpath(argv[0]));
 
 
