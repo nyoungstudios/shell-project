@@ -39,8 +39,9 @@ void expandEnv(char *str) {
 	int i;
 	for (i = 0; i < strlen(str) - 1; i++) {
 		if (*(str + i) == '$' && *(str + i + 1) == '{') {
-			i = i + 2;
-			printf("%c", *(str + i));
+			for (i = i + 2; i < strlen(str); i++) {
+				printf("%c", *(str + i));
+			}
 		}
 	}	
 	printf("\n");
