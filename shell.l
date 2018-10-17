@@ -36,15 +36,24 @@ void source(FILE *file, bool firstTry) {
 
 
 void expandEnv(char *str) {
+	std::string command;
 	int i;
 	for (i = 0; i < strlen(str) - 1; i++) {
 		if (*(str + i) == '$' && *(str + i + 1) == '{') {
+			
 			for (i = i + 2; i < strlen(str); i++) {
-				printf("%c", *(str + i));
+				if (*(str + i) == '}') {
+					char *var = getenv();
+				} else {
+					printf("%c", *(str + i));
+				}
+				
 			}
+		} else {
+			command += *(str + i);
 		}
 	}	
-	printf("\n");
+	printf("%s\n", command);
 
 
 }
