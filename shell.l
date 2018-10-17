@@ -21,7 +21,7 @@ void myunputc(int c) {
 }
 
 extern char *shellpath;
-
+extern char *lastCommand;
 
 //function for source
 void source(FILE *file, bool firstTry) {
@@ -68,7 +68,7 @@ std::string expandEnv(char *str) {
 					} else if (!strcmp(varName.c_str(), "!")) {
 
 					} else if (!strcmp(varName.c_str(), "_")) {
-
+						var = lastCommand;
 					} else {
 						var = getenv(varName.c_str());
 					}
