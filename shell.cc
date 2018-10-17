@@ -46,7 +46,7 @@ void zombie(int sig) {
 }
 
 
-int main(int argc. char **argv) {
+int main(int argc, char **argv) {
 
 	int error;
 
