@@ -302,7 +302,7 @@ std::string expandEnv(char *str) {
 			home = "/homes/";
 			home += second;
 		}
-		std::string text = expandEnv((char *) home);
+		std::string text = expandEnv((char *) home.c_str());
 		yylval.cpp_string = new std::string(text); 	
 	} else {
 		std::string text = expandEnv((char *) yytext);
