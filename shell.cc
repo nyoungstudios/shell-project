@@ -40,7 +40,7 @@ void controlC(int sig) {
 	printf("\n");
 	Shell::_currentCommand.clear();
 	Shell::prompt();
-	printf("\r                  ");
+	printf("\r");
 	
 }
 
