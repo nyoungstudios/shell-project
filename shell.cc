@@ -37,7 +37,7 @@ void Shell::prompt() {
 }
 
 void controlC(int sig) {
-	printf("\n\r                                      ");
+	printf("             \r\n");
 	Shell::_currentCommand.clear();
 	Shell::prompt();
 	
