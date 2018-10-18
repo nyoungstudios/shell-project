@@ -161,7 +161,7 @@ background_optional:
 void expandWildcardsIfNecessary(std::string *arg) {
 	
 	if (strchr(arg->c_str(), '*') || strchr(arg->c_str(), '?')) {
-		printf("test\n");
+		//printf("test\n");
 	} else {
 		Command::_currentSimpleCommand->insertArgument(arg);
 	}
