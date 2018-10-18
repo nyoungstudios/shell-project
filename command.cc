@@ -468,7 +468,6 @@ void Command::execute() {
 		if (!_source) {
   	  // Print new prompt
 	    Shell::prompt();
-			printf("hi\n");
 		}
 }
 
