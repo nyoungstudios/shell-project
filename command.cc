@@ -474,7 +474,7 @@ void Command::execute() {
 			if (errorred == -1) {
 				perror("sigaction");
 				exit(1);
-			} else if (errorred == 0) {	
+			} else if (errorred > 0) {	
 	    	Shell::prompt();
 			}
 		}
