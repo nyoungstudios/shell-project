@@ -39,7 +39,7 @@ void Shell::prompt() {
 void controlC(int sig) {
 	printf("\n");
 	Shell::_currentCommand.clear();
-	//Shell::prompt();
+	Shell::prompt();
 	
 }
 
