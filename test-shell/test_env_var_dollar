@@ -8,6 +8,4 @@ input_str=$'echo ${$}'
 ../shell <<< "$input_str" 2>&1 > shell-out & pid=$!
 sleep 1
 diff <(cat shell-out) <(echo $pid)
-#echo $(cat shell-out) 
-#echo $(echo $pid)
 exit $?
