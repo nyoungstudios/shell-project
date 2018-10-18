@@ -467,16 +467,7 @@ void Command::execute() {
 		
 		if (!_source) {
   	  // Print new prompt
-			struct sigaction sa1;
-			sigemptyset(&sa1.sa_mask);
-			sa1.sa_flags = SA_RESTART;
-			int errorred = sigaction(SIGINT, &sa1, NULL);
-			if (errorred == -1) {
-				perror("sigaction");
-				exit(1);
-			} else if (errorred > 0) {	
-	    	Shell::prompt();
-			}
+	    Shell::prompt();
 		}
 }
 
