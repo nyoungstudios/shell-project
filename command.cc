@@ -32,7 +32,7 @@
 #include "y.tab.hh"
 
 extern int backgroundPID;
-
+extern int lastExitCode;
 
 Command::Command() {
     // Initialize a new vector of Simple Commands
@@ -445,7 +445,8 @@ void Command::execute() {
 		if (!_background) {
 			int status;
 			waitpid(ret, &status, 0);
-			printf("%d\n", WEXITSTATUS(status));
+			lastExitCode = WEXITSTATUS(status);
+			
 		} else {
 			//sets background PID variable so can reference in shell.l file
 			backgroundPID = ret;

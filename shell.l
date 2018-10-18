@@ -22,6 +22,7 @@ void myunputc(int c) {
 
 extern char *shellpath;
 int backgroundPID;
+int lastExitCode;
 
 //function for source
 void source(FILE *file, bool firstTry) {
@@ -64,7 +65,7 @@ std::string expandEnv(char *str) {
 					} else if (!strcmp(varName.c_str(), "$")) {
 						sprintf(var, "%d", getpid());
 					} else if (!strcmp(varName.c_str(), "?")) {
-						sprintf(var, "%d", 0);
+						sprintf(var, "%d", lastExitCode);
 					} else if (!strcmp(varName.c_str(), "!")) {
 						sprintf(var, "%d", backgroundPID);
 					} else if (!strcmp(varName.c_str(), "_")) {
