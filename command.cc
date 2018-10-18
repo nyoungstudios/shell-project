@@ -445,7 +445,7 @@ void Command::execute() {
 		if (!_background) {
 			int status;
 			waitpid(ret, &status, 0);
-			printf("%d\n", status);
+			printf("%d\n", WEXITSTATUS(status));
 		} else {
 			//sets background PID variable so can reference in shell.l file
 			backgroundPID = ret;
