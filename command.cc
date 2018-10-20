@@ -312,7 +312,8 @@ void Command::execute() {
 
 		//iterates over all the simple commands
 		for (int i = 0; i < _numberOfSimpleCommands; i++) {
-				
+			
+			//sets last command argument as environment variable
 			setenv("_", _simpleCommands[i]->_arguments[_simpleCommands[i]->_arguments.size() - 1]->c_str(), 1);
 					
 			dup2(fdin, 0);
@@ -444,12 +445,8 @@ void Command::execute() {
 		//checks if not background. If true, waits for command to finish
 		if (!_background) {
 			int status;
+			lastExitCode = WEXITSTATUS(status);
 			waitpid(ret, &status, 0);
-			if (WIFEXITED(status)) {
-				lastExitCode = WEXITSTATUS(status);
-			} else {
-				lastExitCode = 0;
-			}
 			
 		} else {
 			//sets background PID variable so can reference in shell.l file
