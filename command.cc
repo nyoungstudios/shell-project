@@ -445,7 +445,11 @@ void Command::execute() {
 		if (!_background) {
 			int status;
 			waitpid(ret, &status, 0);
-			lastExitCode = WEXITSTATUS(status);
+			if (WIFEXITED(status)) {
+				lastExitCode = WEXITSTATUS(status);
+			} else {
+				lastExitCode = 0;
+			}
 			
 		} else {
 			//sets background PID variable so can reference in shell.l file
