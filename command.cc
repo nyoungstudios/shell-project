@@ -437,22 +437,20 @@ void Command::execute() {
 			}
 
 
-			//checks if not background. If true, waits for command to finish
-			if (!_background) {
-				int status;
-				waitpid(ret, &status, 0);
-				lastExitCode = WEXITSTATUS(status);
-				
-			} else {
-				//sets background PID variable so can reference in shell.l file
-				backgroundPID = ret;
-			}	
-
-
-
 
 
 		}
+
+		//checks if not background. If true, waits for command to finish
+		if (!_background) {
+			int status;
+			waitpid(ret, &status, 0);
+			lastExitCode = WEXITSTATUS(status);
+			
+		} else {
+			//sets background PID variable so can reference in shell.l file
+			backgroundPID = ret;
+		}	
 
 		//resets defaults
 		dup2(defaultin, 0);
