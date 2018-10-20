@@ -22,7 +22,7 @@ void myunputc(int c) {
 
 extern char *shellpath;
 int backgroundPID;
-int lastExitCode = 0;
+int lastExitCode;
 
 //function for source
 void source(FILE *file, bool firstTry) {
