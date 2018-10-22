@@ -251,6 +251,8 @@ void Command::execute() {
 			//if error, prints error message
 			if (error < 0) {
 				fprintf(stderr, "cd: can't cd to %s\n", _simpleCommands[0]->_arguments[1]->c_str());
+			} else {
+				lastExitCode = 0;
 			}
 			clear();
 			if (!_source) {
