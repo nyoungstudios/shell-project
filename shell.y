@@ -245,7 +245,8 @@ void expandWildCards(char *prefix, char *arg) {
 			perror("opendir");
 			return;
 		}
-		printf("%s\n", dir);
+	
+		printf("hi\n");
 		struct dirent *ent;
 		regmatch_t match;
 
