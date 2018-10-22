@@ -184,7 +184,7 @@ void expandWildcardsIfNecessary(std::string *arg) {
 		}
 		maxEntries = 20;
 		nEntries = 0;
-		
+		free(entries);	
 		entries = (char **) malloc(1000);		
 
 	} else {
