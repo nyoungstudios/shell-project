@@ -181,6 +181,7 @@ void expandWildcardsIfNecessary(std::string *arg) {
 		qsort(entries, nEntries, sizeof(char *), cmpfunc);
 		for (int i = 0; i < nEntries; i++) {
 			Command::_currentSimpleCommand->insertArgument(new std::string(entries[i]));
+			printf("%s\n", entries[i]);
 		}
 
 	} else {
