@@ -14,24 +14,27 @@ extern void source(FILE *file, bool firstTry);
 char *shellpath;
 
 void Shell::prompt() {
-	/*
-	const char *name = "PROMPT";
-	char *value = getenv(name);
-
-	const char *error = "ON_ERROR";
-	char *errorValue = getenv(error);
-
-	const char *exitCode = "$?";
-	char *exitValue = getenv(exitCode);
-	char *zero = (char*) "0";
-
-	if (errorValue != NULL && strcmp(exitValue, zero)) {
-		printf("%s\n", errorValue);
-	}
-	*/
-
 	if (isatty(0)) {
-		printf("myshell>");
+		
+		const char *name = "PROMPT";
+		char *value = getenv(name);
+
+		const char *error = "ON_ERROR";
+		char *errorValue = getenv(error);
+
+		const char *exitCode = "$?";
+		char *exitValue = getenv(exitCode);
+		char *zero = (char*) "0";
+
+		if (errorValue != NULL && strcmp(exitValue, zero)) {
+			printf("%s\n", errorValue);
+		}
+	
+		if (value != NULL) {
+			printf("%s", value);
+		} else {
+			printf("myshell>");
+		}
 		fflush(stdout);
 	}
 }
