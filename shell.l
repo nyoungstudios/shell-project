@@ -111,8 +111,9 @@ std::string expandEnv(char *str) {
   /* Discard spaces and tabs */
 }
 
-"^[[A" {
-
+"ls 2> /dev/null" {
+	yylval.cpp_string = "ls";
+	return WORD;
 }
 
 ">>&" {
