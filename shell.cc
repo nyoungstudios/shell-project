@@ -11,7 +11,7 @@ int yyparse(void);
 
 extern void source(FILE *file, bool firstTry);
 
-extern lastExitCode;
+extern int lastExitCode;
 
 char *shellpath;
 
