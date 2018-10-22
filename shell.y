@@ -200,7 +200,7 @@ void expandWildCards(char *prefix, char *arg) {
 		*(save++) = *(temp++);
 	}
 
-	while (*temp != '/' && *temp) {
+	while (*(temp++) != '/' && *temp) {
 		*(save++) = *(temp++);
 	}
 	*save = '\0';
