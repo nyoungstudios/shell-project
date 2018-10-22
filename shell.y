@@ -100,7 +100,7 @@ argument:
   WORD {
     //printf("   Yacc: insert argument \"%s\"\n", $1->c_str());
     //Command::_currentSimpleCommand->insertArgument( $1 );
-		expandWildcardsIfNecessary($1->c_str());
+		expandWildcardsIfNecessary((char *) $1->c_str());
   }
   ;
 
@@ -109,7 +109,7 @@ command_word:
     //printf("   Yacc: insert command \"%s\"\n", $1->c_str());
     Command::_currentSimpleCommand = new SimpleCommand();
     //Command::_currentSimpleCommand->insertArgument( $1 );
-		expandWildcardsIfNecessary($1->c_str());
+		expandWildcardsIfNecessary((char *) $1->c_str());
   }
   ;
 
