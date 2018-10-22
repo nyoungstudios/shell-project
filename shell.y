@@ -277,6 +277,7 @@ void expandWildCards(char *prefix, char *arg) {
 
 					if (ent->d_name[0] == '.') {
 						if (arg[0] == '.') {
+							printf("hi\n");
 							entries[nEntries++] = (argument[0] != '\0')?strdup(argument):strdup(ent->d_name);
 						}
 					} else {
