@@ -177,7 +177,7 @@ void expandWildcardsIfNecessary(std::string *arg) {
 	
 	if (strchr(arg->c_str(), '*') || strchr(arg->c_str(), '?')) {
 		//printf("test: %s\n", arg->c_str());
-		//expandWildCards(NULL, (char *) arg->c_str());
+		expandWildCards(NULL, (char *) arg->c_str());
 		//qsort(entries, nEntries, sizeof(char *), cmpfunc);
 		//for (int i = 0; i < nEntries; i++) {
 		//	Command::_currentSimpleCommand->insertArgument(new std::string(entries[i]));
@@ -204,6 +204,8 @@ void expandWildCards(char *prefix, char *arg) {
 		*(save++) = *(temp++);
 	}
 	*save = '\0';
+
+	printf("%s\n", dir);
 
 	if (strchr(dir, '*') || strchr(dir, '?')) {
 		if (!prefix && arg[0] == '/') {
