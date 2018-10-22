@@ -11,6 +11,8 @@ int yyparse(void);
 
 extern void source(FILE *file, bool firstTry);
 
+extern lastExitCode;
+
 char *shellpath;
 
 void Shell::prompt() {
@@ -22,11 +24,11 @@ void Shell::prompt() {
 		const char *error = "ON_ERROR";
 		char *errorValue = getenv(error);
 
-		const char *exitCode = "$?";
-		char *exitValue = getenv(exitCode);
-		char *zero = (char*) "0";
+		//const char *exitCode = "$?";
+		//char *exitValue = getenv(exitCode);
+		//char *zero = (char*) "0";
 
-		if (errorValue != NULL && strcmp(exitValue, zero)) {
+		if (errorValue != NULL && strcmp(lastExitCode, "0")) {
 			printf("%s\n", errorValue);
 		}
 	
