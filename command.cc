@@ -156,12 +156,13 @@ void Command::execute() {
 
 		//setenv
 		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "setenv")) {
-			printf("%ld\n", _simpleCommands[0]->_arguments.size());
-			int error = setenv(_simpleCommands[0]->_arguments[1]->c_str(), _simpleCommands[0]->_arguments[2]->c_str(), 1);
-			if (error < 0) {
-				perror("setenv");
+			if(_simpleCommands[0]->_arguments.size() > 3) {
+				int error = setenv(_simpleCommands[0]->_arguments[1]->c_str(), _simpleCommands[0]->_arguments[2]->c_str(), 1);
+				if (error < 0) {
+					perror("setenv");
+				}
+				lastExitCode = 0;
 			}
-			lastExitCode = 0;
 			clear();
 			if (!_source) {
 	  	  Shell::prompt();
