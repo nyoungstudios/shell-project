@@ -163,7 +163,7 @@ background_optional:
 
 %%
 
-int maxEntries = 30;
+int maxEntries = 20;
 int nEntries = 0;
 char **entries;
 
