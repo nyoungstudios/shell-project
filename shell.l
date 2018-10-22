@@ -76,8 +76,6 @@ std::string expandEnv(char *str) {
 					if (var != 0) {
 						//printf("%s\n", var);
 						command += var;
-						free(var);
-						var = (char *) malloc(200);
 					}
 					break;
 				} else {
