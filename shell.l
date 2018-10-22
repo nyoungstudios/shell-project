@@ -160,9 +160,9 @@ std::string expandEnv(char *str) {
 	} else if (!strcmp(first, "!")) {
 		sprintf(var, "%d", backgroundPID);
 	} else if (!strcmp(first, "_")) {
-		var = getenv(varName.c_str());
+		var = getenv(first);
 	} else {
-		var = getenv(varName.c_str());
+		var = getenv(first);
 	}
 	
 	yylval.cpp_string = new std::string(var);
