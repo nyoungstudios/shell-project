@@ -148,7 +148,7 @@ std::string expandEnv(char *str) {
 	return LESS;
 }
 
-"$"[^\n\t][^\n\t]* {	
+"$"[^\n\t{}()][^\n\t{}()]* {	
 	const char * first = (const char *) yytext + 1;
 	printf("%s\n", first);
 
