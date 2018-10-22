@@ -28,7 +28,7 @@ void Shell::prompt() {
 		//char *exitValue = getenv(exitCode);
 		//char *zero = (char*) "0";
 
-		if (errorValue != NULL && strcmp(lastExitCode, "0")) {
+		if (errorValue != NULL && lastExitCode != 0) {
 			printf("%s\n", errorValue);
 		}
 	
