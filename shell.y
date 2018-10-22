@@ -205,8 +205,6 @@ void expandWildCards(char *prefix, char *arg) {
 	}
 	*save = '\0';
 
-	printf("%s\n", dir);
-
 	if (strchr(dir, '*') || strchr(dir, '?')) {
 		if (!prefix && arg[0] == '/') {
 			prefix = strdup("/");
@@ -247,7 +245,7 @@ void expandWildCards(char *prefix, char *arg) {
 			perror("opendir");
 			return;
 		}
-
+		printf("%s\n", dir);
 		struct dirent *ent;
 		regmatch_t match;
 
