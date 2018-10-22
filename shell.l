@@ -164,8 +164,11 @@ std::string expandEnv(char *str) {
 	} else {
 		var = getenv(first);
 	}
-	
-	yylval.cpp_string = new std::string(var);
+	if (var != 0) {	
+		yylval.cpp_string = new std::string(var);
+	} else {
+		yylval.cpp_string = new std::string("");
+	}
 	return WORD;
 }
 
