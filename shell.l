@@ -150,8 +150,23 @@ std::string expandEnv(char *str) {
 
 "$"[^\n\t{}()][^\n\t{}()]* {	
 	const char * first = (const char *) yytext + 1;
-	printf("%s\n", first);
-
+	char *var = (char *) malloc(200);
+	if (!strcmp(first, "SHELL")) {
+		var = shellpath;
+	} else if (!strcmp(first, "$")) {
+		sprintf(var, "%d", getpid());
+	} else if (!strcmp(first, "?")) {
+		sprintf(var, "%d", lastExitCode);
+	} else if (!strcmp(first, "!")) {
+		sprintf(var, "%d", backgroundPID);
+	} else if (!strcmp(first, "_")) {
+		var = getenv(varName.c_str());
+	} else {
+		var = getenv(varName.c_str());
+	}
+	
+	yylval.cpp_string = new std::string(var);
+	return WORD;
 }
 
 "source "[^\n\t][^\n\t]* {
