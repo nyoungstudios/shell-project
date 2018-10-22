@@ -18,15 +18,9 @@ char *shellpath;
 void Shell::prompt() {
 	if (isatty(0)) {
 		
-		const char *name = "PROMPT";
-		char *value = getenv(name);
+		char *value = getenv("PROMPT");
 
-		const char *error = "ON_ERROR";
-		char *errorValue = getenv(error);
-
-		//const char *exitCode = "$?";
-		//char *exitValue = getenv(exitCode);
-		//char *zero = (char*) "0";
+		char *errorValue = getenv("ON_ERROR");
 
 		if (errorValue != NULL && lastExitCode != 0) {
 			printf("%s\n", errorValue);
