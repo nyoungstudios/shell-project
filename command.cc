@@ -161,8 +161,8 @@ void Command::execute() {
 				if (error < 0) {
 					perror("setenv");
 				}
-				lastExitCode = 0;
 			}
+			lastExitCode = 0;
 			clear();
 			if (!_source) {
 	  	  Shell::prompt();
