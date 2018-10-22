@@ -176,12 +176,11 @@ int cmpfunc(const void *file1, const void *file2) {
 void expandWildcardsIfNecessary(std::string *arg) {
 	
 	if (strchr(arg->c_str(), '*') || strchr(arg->c_str(), '?')) {
-		//printf("test\n");
+		printf("testi: %s\n", arg->c_str());
 		expandWildCards(NULL, (char *) arg->c_str());
 		qsort(entries, nEntries, sizeof(char *), cmpfunc);
 		for (int i = 0; i < nEntries; i++) {
 			Command::_currentSimpleCommand->insertArgument(new std::string(entries[i]));
-			printf("%s\n", entries[i]);
 		}
 
 	} else {
