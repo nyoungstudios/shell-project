@@ -182,6 +182,10 @@ void expandWildcardsIfNecessary(std::string *arg) {
 		for (int i = 0; i < nEntries; i++) {
 			Command::_currentSimpleCommand->insertArgument(new std::string(entries[i]));
 		}
+		maxEntries = 20;
+		nEntries = 0;
+		
+		entries = (char **) malloc(1000);		
 
 	} else {
 		Command::_currentSimpleCommand->insertArgument(arg);
@@ -277,7 +281,6 @@ void expandWildCards(char *prefix, char *arg) {
 
 					if (ent->d_name[0] == '.') {
 						if (arg[0] == '.') {
-							//printf("hi\n");
 							entries[nEntries++] = (argument[0] != '\0')?strdup(argument):strdup(ent->d_name);
 						}
 					} else {
