@@ -59,7 +59,7 @@ std::string expandEnv(char *str) {
 
 				//checks if end of environment variable name	
 				if (*(str + i) == '}') {
-					char *var;	
+					char *var = (char *) malloc (200);	
 					if (!strcmp(varName.c_str(), "SHELL")) {
 						var = shellpath;
 					} else if (!strcmp(varName.c_str(), "$")) {
