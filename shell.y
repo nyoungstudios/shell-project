@@ -248,9 +248,10 @@ void expandWildCards(char *prefix, char *arg) {
 	
 		struct dirent *ent;
 		regmatch_t match;
+		
+		printf("%s\n", readdir(dir));	
 
 		while ((ent == readdir(dir)) != NULL) {
-			printf("hi\n");
 			if (!regexec(&re, ent->d_name, 1, &match, 0)) {
 				if (*temp) {
 					if (ent->d_type == DT_DIR) {
