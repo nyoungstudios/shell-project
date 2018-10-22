@@ -41,6 +41,7 @@
 
 void expandWildcardsIfNecessary(std::string * arg);
 void expandWildCards(char *prefix, char *arg);
+int cmpfunc(const void *file1, const void *file2);
 void yyerror(const char * s);
 int yylex();
 
@@ -166,11 +167,22 @@ int maxEntries = 20;
 int nEntries = 0;
 char **entries;
 
+int cmpfunc(const void *file1, const void *file2) {
+	const char *_file1 = *(const char **) file1;
+	const char *_file2 = *(const char **) file2;
+	return strcmp(_file1, _file2);
+}
 
 void expandWildcardsIfNecessary(std::string *arg) {
 	
 	if (strchr(arg->c_str(), '*') || strchr(arg->c_str(), '?')) {
-		printf("test\n");
+		//printf("test\n");
+		expandWildCards(NULL, arg->c_str());
+		qsort(entries, nEntries, sizeof(char *), cmpfunc);
+		for (int i = 0; i < nEntries; i++) {
+			Command::_currentSimpleCommand->insertArgument(entries[i]);
+		}
+
 	} else {
 		Command::_currentSimpleCommand->insertArgument(arg);
 	}
