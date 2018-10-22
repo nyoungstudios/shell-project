@@ -37,6 +37,7 @@
 #include <string.h>
 
 void expandWildcardsIfNecessary(std::string * arg);
+void expandWildCards(char *prefix, char *arg);
 void yyerror(const char * s);
 int yylex();
 
