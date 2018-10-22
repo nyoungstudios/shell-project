@@ -148,6 +148,12 @@ std::string expandEnv(char *str) {
 	return LESS;
 }
 
+"$"[^\n\t][^\n\t]* {	
+	const char * first = (const char *) yytext + 1;
+	printf("%s\n", first);
+
+}
+
 "source "[^\n\t][^\n\t]* {
 	const char * first = (const char *) yytext + 7;
 	std::string text = expandEnv((char *) first);
