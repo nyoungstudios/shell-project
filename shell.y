@@ -250,7 +250,7 @@ void expandWildCards(char *prefix, char *arg) {
 		regmatch_t match;
 			
 
-		while ((ent == readdir(dir)) != NULL) {
+		while ((ent = readdir(dir)) != NULL) {
 			if (!regexec(&re, ent->d_name, 1, &match, 0)) {
 				if (*temp) {
 					if (ent->d_type == DT_DIR) {
