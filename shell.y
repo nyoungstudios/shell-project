@@ -262,7 +262,7 @@ void expandWildCards(char *prefix, char *arg) {
 						} else {
 							sprintf(nPrefix, "%s/%s", toOpen, ent->d_name);
 						}
-						expandWildCards(nPrefix, (*temp == '/')?temp:temp);
+						expandWildCards(nPrefix, (*temp == '/')?++temp:temp);
 					}
 				} else {
 					if (nEntries == maxEntries) {
