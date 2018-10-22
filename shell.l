@@ -76,7 +76,6 @@ std::string expandEnv(char *str) {
 					if (var != 0) {
 						//printf("%s\n", var);
 						command += var;
-						free(var);
 					}
 					break;
 				} else {
