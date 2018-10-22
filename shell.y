@@ -177,7 +177,7 @@ void expandWildcardsIfNecessary(std::string *arg) {
 	
 	if (strchr(arg->c_str(), '*') || strchr(arg->c_str(), '?')) {
 		//printf("test\n");
-		expandWildCards(NULL, arg->c_str());
+		expandWildCards(NULL, (char *) arg->c_str());
 		qsort(entries, nEntries, sizeof(char *), cmpfunc);
 		for (int i = 0; i < nEntries; i++) {
 			Command::_currentSimpleCommand->insertArgument(entries[i]);
