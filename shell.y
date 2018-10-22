@@ -36,7 +36,6 @@
 #include "shell.hh"
 #include <string.h>
 #include <cstdio>
-#include <string>
 
 void expandWildcardsIfNecessary(std::string * arg);
 void expandWildCards(char *prefix, char *arg);
