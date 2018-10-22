@@ -39,7 +39,7 @@
 #include <regex.h>
 #include <dirent.h>
 
-void expandWildcardsIfNecessary(char *arg);
+void expandWildcardsIfNecessary(std::string * arg);
 void expandWildCards(char *prefix, char *arg);
 int cmpfunc(const void *file1, const void *file2);
 void yyerror(const char * s);
@@ -100,7 +100,7 @@ argument:
   WORD {
     //printf("   Yacc: insert argument \"%s\"\n", $1->c_str());
     //Command::_currentSimpleCommand->insertArgument( $1 );
-		expandWildcardsIfNecessary((char *) $1->c_str());
+		expandWildcardsIfNecessary($1);
   }
   ;
 
@@ -109,7 +109,7 @@ command_word:
     //printf("   Yacc: insert command \"%s\"\n", $1->c_str());
     Command::_currentSimpleCommand = new SimpleCommand();
     //Command::_currentSimpleCommand->insertArgument( $1 );
-		expandWildcardsIfNecessary((char *) $1->c_str());
+		expandWildcardsIfNecessary($1);
   }
   ;
 
@@ -173,19 +173,18 @@ int cmpfunc(const void *file1, const void *file2) {
 	return strcmp(_file1, _file2);
 }
 
-void expandWildcardsIfNecessary(char *arg) {
+void expandWildcardsIfNecessary(std::string *arg) {
 	
-	if (strchr(arg, '*') || strchr(arg, '?')) {
+	if (strchr(arg->c_str(), '*') || strchr(arg->c_str(), '?')) {
 		//printf("test: %s\n", arg->c_str());
-		expandWildCards(NULL, arg);
+		expandWildCards(NULL, (char *) arg->c_str());
 		qsort(entries, nEntries, sizeof(char *), cmpfunc);
 		for (int i = 0; i < nEntries; i++) {
-			printf("hi\n");
 			Command::_currentSimpleCommand->insertArgument(new std::string(entries[i]));
 		}
 
 	} else {
-		Command::_currentSimpleCommand->insertArgument(new std::string(arg));
+		Command::_currentSimpleCommand->insertArgument(arg);
 	}
 	return;
 
