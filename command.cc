@@ -145,6 +145,7 @@ void Command::execute() {
 		//clear
 		if (!strcmp(_simpleCommands[0]->_arguments[0]->c_str(), "clear")) {
 			std::system("clear");
+			lastExitCode = 0;
 			clear();
 			if (!_source) {
 	  	  Shell::prompt();
@@ -158,6 +159,7 @@ void Command::execute() {
 			if (error < 0) {
 				perror("setenv");
 			}
+			lastExitCode = 0;
 			clear();
 			if (!_source) {
 	  	  Shell::prompt();
@@ -171,6 +173,7 @@ void Command::execute() {
 			if (error < 0) {
 				perror("unsetenv");
 			}
+			lastExitCode = 0;
 			clear();
 			if (!_source) {
 	  	  Shell::prompt();
