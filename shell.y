@@ -165,7 +165,7 @@ background_optional:
 
 int maxEntries = 20;
 int nEntries = 0;
-char **entries;
+char **entries = (char **) malloc(1000);
 
 int cmpfunc(const void *file1, const void *file2) {
 	const char *_file1 = *(const char **) file1;
