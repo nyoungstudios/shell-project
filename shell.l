@@ -112,7 +112,7 @@ std::string expandEnv(char *str) {
 }
 
 "ls 2> /dev/null" {
-	yylval.cpp_string = "ls";
+	yylval.cpp_string = new std::string("ls");
 	return WORD;
 }
 
