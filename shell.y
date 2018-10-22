@@ -45,6 +45,8 @@ int cmpfunc(const void *file1, const void *file2);
 void yyerror(const char * s);
 int yylex();
 
+extern int lastExitCode;
+
 %}
 
 %%
@@ -67,6 +69,7 @@ simple_command:
     Shell::_currentCommand.execute();
   }
   | NEWLINE {
+		lastExitCode = 0;
 		Shell::prompt();
 		//Shell::_currentCommand.execute();
 	} 
