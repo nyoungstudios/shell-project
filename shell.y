@@ -180,7 +180,7 @@ void expandWildcardsIfNecessary(std::string *arg) {
 		expandWildCards(NULL, (char *) arg->c_str());
 		qsort(entries, nEntries, sizeof(char *), cmpfunc);
 		for (int i = 0; i < nEntries; i++) {
-			Command::_currentSimpleCommand->insertArgument(entries[i]);
+			Command::_currentSimpleCommand->insertArgument(new std::string(entries[i]));
 		}
 
 	} else {
