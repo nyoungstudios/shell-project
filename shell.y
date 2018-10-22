@@ -166,29 +166,36 @@ background_optional:
 
 %%
 
+//intial variables
 int maxEntries = 20;
 int nEntries = 0;
 char **entries = (char **) malloc(1000);
 
+//compare function
 int cmpfunc(const void *file1, const void *file2) {
 	const char *_file1 = *(const char **) file1;
 	const char *_file2 = *(const char **) file2;
 	return strcmp(_file1, _file2);
 }
 
+//inital function to test if argument needs to be expanded
 void expandWildcardsIfNecessary(std::string *arg) {
-	//printf("%s\n", arg->c_str());	
+	//if statement to test if contains * or ?	
 	if (strchr(arg->c_str(), '*') || strchr(arg->c_str(), '?')) {
-		//printf("test: %s\n", arg->c_str());
 		expandWildCards(NULL, (char *) arg->c_str());
+
+		//if statement for zero entries
 		if (nEntries == 0) {
 			Command::_currentSimpleCommand->insertArgument(arg);
 		} else {
+			//sorts and adds all entries
 			qsort(entries, nEntries, sizeof(char *), cmpfunc);
 			for (int i = 0; i < nEntries; i++) {
 				Command::_currentSimpleCommand->insertArgument(new std::string(entries[i]));
 			}
 		}
+		
+		//resets inital variables
 		maxEntries = 20;
 		nEntries = 0;
 		free(entries);	
@@ -201,6 +208,7 @@ void expandWildcardsIfNecessary(std::string *arg) {
 
 }
 
+//recursive function to expand wildcards
 void expandWildCards(char *prefix, char *arg) {
 
 	char *temp = arg;
