@@ -208,7 +208,7 @@ char * read_line() {
 					line_length = strlen(line_buffer);
 					
 					//history_index=(history_index+1)%history_length;
-				} else if (history_index == history_length) {
+				} else if (history_index == history_length - 1) {
 					// Erase old line
 					// Print backspaces
 					int i = 0;
