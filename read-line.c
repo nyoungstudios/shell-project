@@ -179,7 +179,7 @@ char * read_line() {
 
 	printf("this is the line: %d\n", strcmp(line_buffer, ""));
 
-	if (line_buffer = 10) {
+	if (line_buffer == 10) {
 
 		//update history
 		history[history_length] = (char *) malloc(strlen(line_buffer) * sizeof(char) + 1);
