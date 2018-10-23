@@ -23,7 +23,6 @@ char line_buffer[MAX_BUFFER_LINE];
 // Yours have to be updated.
 int history_index = 0;
 char * history [] = {
-  ""
 };
 int history_length = sizeof(history)/sizeof(char *);
 
