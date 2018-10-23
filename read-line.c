@@ -166,6 +166,9 @@ char * read_line() {
 
 				// Copy line from history
 				if (history_index != 0) {
+					if (history_length == history_index) {
+						history_index--;
+					}
 					strcpy(line_buffer, history[history_index]);
 					line_length = strlen(line_buffer);
 					if (history_index > 1) {
@@ -209,7 +212,7 @@ char * read_line() {
 					line_length = strlen(line_buffer);
 					history_index++;	
 					//history_index=(history_index+1)%history_length;
-				} else if (history_index == history_length - 1) {
+				} else if (history_index >= history_length) {
 					/*
 					// Erase old line
 					// Print backspaces
@@ -230,10 +233,11 @@ char * read_line() {
 						ch = 8;
 						write(1,&ch,1);
 					}*/
+
+					history_index--;
 				}
 				// echo line
 				write(1, line_buffer, line_length);
-				//history_index--;
 
 			}
       
