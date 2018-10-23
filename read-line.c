@@ -167,14 +167,6 @@ char * read_line() {
 
 				if (strcmp(line_buffer, "") != 10 && strcmp(line_buffer, "") != 32) {
 					history_index = history_length - 1;
-				} else {
-					for (int j = history_length - 1; j >= 0; j--) {
-						if (!strcmp(line_buffer, history[j])) {
-							history_index = j - 1;
-							break;
-						}
-					}
-					history_index = history_length - 1;
 				} 
 	
 					
