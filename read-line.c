@@ -206,7 +206,7 @@ char * read_line() {
 				if (history_length > 1 && history_index < history_length - 1) {
 					strcpy(line_buffer, history[history_index]);
 					line_length = strlen(line_buffer);
-					
+					history_index++;	
 					//history_index=(history_index+1)%history_length;
 				} else if (history_index == history_length) {
 					// Erase old line
