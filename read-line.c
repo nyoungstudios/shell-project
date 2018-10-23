@@ -22,8 +22,7 @@ char line_buffer[MAX_BUFFER_LINE];
 // This history does not change. 
 // Yours have to be updated.
 int history_index = 0;
-char * history [] = {
-};
+char * history [];
 int history_length = sizeof(history)/sizeof(char *);
 
 void read_line_print_usage()
