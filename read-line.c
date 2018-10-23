@@ -177,13 +177,17 @@ char * read_line() {
   line_length++;
   line_buffer[line_length]=0;
 
-	printf("this is the line: %s\n", line_buffer);
+	//printf("this is the line: %s\n", line_buffer);
 
-	//update history
-	history[history_length] = (char *) malloc(strlen(line_buffer) * sizeof(char) + 1);
-	strcpy(history[history_length++], line_buffer);
-	history[history_length - 1][strlen(line_buffer) - 1] = '\0';
-	history_index = history_length - 1;	
+	if (strcmp(line_buffer, "")) {
+
+		//update history
+		history[history_length] = (char *) malloc(strlen(line_buffer) * sizeof(char) + 1);
+		strcpy(history[history_length++], line_buffer);
+		history[history_length - 1][strlen(line_buffer) - 1] = '\0';
+		history_index = history_length - 1;	
+
+	}
 
 
   return line_buffer;
