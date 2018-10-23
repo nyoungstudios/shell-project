@@ -164,7 +164,7 @@ char * read_line() {
 					write(1,&ch,1);
 				}	
 			
-				if (history_index >= history_length - 1) {
+				if (history_index < history_length - 1) {
 					history_index--;
 				}
 				// Copy line from history
