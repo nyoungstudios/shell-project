@@ -182,6 +182,12 @@ char * read_line() {
   line_length++;
   line_buffer[line_length]=0;
 
+	//update history
+	history[history_length] = (char *) malloc(strlen(line_buffer) * sizeof(char) + 1);
+	strcpy(history[history_length - 1][strlen(line_buffer) - 1] = '\0';
+	history_index = history_length - 1;	
+
+
   return line_buffer;
 }
 
