@@ -214,7 +214,7 @@ char * read_line() {
 				// Copy line from history
 			
 				//printf("b--------%d--------%d--------\n", history_length, history_index);
-				if (histArrowFlag == 1 && history_index != 1) {
+				if (histArrowFlag == 1 && history_index != 1 && history_index != history_length - 1) {
 					history_index++;
 				}			
 	
