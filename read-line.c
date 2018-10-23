@@ -179,10 +179,9 @@ char * read_line() {
 					line_length = strlen(line_buffer);
 					if (history_index > 1) {
 						history_index--;
-						histArrowFlag = 0;
-					} else {
-						histArrowFlag = 1;
 					}
+					histArrowFlag = 1;
+				
 					//history_index=(history_index-1)%history_length;
 				}
 
@@ -215,7 +214,7 @@ char * read_line() {
 				// Copy line from history
 			
 				//printf("b--------%d--------%d--------\n", history_length, history_index);
-				if (histArrowFlag == 1) {
+				if (histArrowFlag == 1 && history_index != 1) {
 					history_index++;
 				}			
 	
