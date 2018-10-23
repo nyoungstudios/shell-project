@@ -177,6 +177,8 @@ char * read_line() {
   line_length++;
   line_buffer[line_length]=0;
 
+	printf("this is the line: %d\n", strcmp(line_buffer, ""));
+
 	//checks for empty line
 	if (strcmp(line_buffer, "") != 10) {
 
