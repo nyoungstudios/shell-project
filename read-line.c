@@ -293,6 +293,7 @@ char * read_line() {
 
 	printf("--------%d--------%d--------\n", history_length, history_index);
 
+	free(temp_line);
   return line_buffer;
 }
 
