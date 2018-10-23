@@ -189,6 +189,7 @@ char * read_line() {
 		if (histFlag) {
 			//if first item
 			history[0] = line_buffer;
+			history[0][strlen(line_buffer) - 1] = '\0';
 			histFlag = 0;
 		} else {
 			//if any other item
