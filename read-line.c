@@ -188,7 +188,7 @@ char * read_line() {
 		//update history
 		if (histFlag) {
 			//if first item
-			strcpy(history[0], line_buffer);
+			history[0] = line_buffer;
 		} else {
 			//if any other item
 			history[history_length] = (char *) malloc(strlen(line_buffer) * sizeof(char) + 1);
