@@ -145,6 +145,11 @@ char * read_line() {
       if (ch1==91 && ch2==65) {
 				// Up arrow. Print next line in history.
 
+				if (history_index == history_length - 1) {
+					temp_line = (char *) malloc(sizeof(line_buffer) * sizeof(char) + 1);
+					strcpy(temp_line, line_buffer);	
+				}
+
 
 				//printf("--------%d--------%d--------\n", history_length, history_index);
 				// Erase old line
@@ -248,6 +253,9 @@ char * read_line() {
 					}*/
 					//printf("hi\n");
 					//history_index--;
+					strcpy(line_buffer, temp_line);
+					line_length = strlen(line_buffer);
+
 					histArrowFlag = 0;
 				}
 				// echo line
