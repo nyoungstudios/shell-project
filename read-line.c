@@ -41,6 +41,8 @@ void read_line_print_usage()
 int histArrowFlag = 1;
 
 
+char *temp_line;
+
 /* 
  * Input a line with some basic editing.
  */
@@ -143,6 +145,7 @@ char * read_line() {
       if (ch1==91 && ch2==65) {
 				// Up arrow. Print next line in history.
 
+
 				printf("--------%d--------%d--------\n", history_length, history_index);
 				// Erase old line
 				// Print backspaces
@@ -206,7 +209,7 @@ char * read_line() {
 
 				// Copy line from history
 			
-				//printf("--------%d--------%d--------\n", history_length, history_index);
+				printf("b--------%d--------%d--------\n", history_length, history_index);
 				if (history_length > 1 && history_index < history_length - 1) {
 					strcpy(line_buffer, history[++history_index]);
 					line_length = strlen(line_buffer);
@@ -239,6 +242,7 @@ char * read_line() {
 				// echo line
 				write(1, line_buffer, line_length);
 
+				printf("a--------%d--------%d--------\n", history_length, history_index);
 			}
       
     }
