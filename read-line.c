@@ -177,6 +177,8 @@ char * read_line() {
   line_length++;
   line_buffer[line_length]=0;
 
+	printf("this is the line: %s\n", line_buffer);
+
 	//update history
 	history[history_length] = (char *) malloc(strlen(line_buffer) * sizeof(char) + 1);
 	strcpy(history[history_length++], line_buffer);
