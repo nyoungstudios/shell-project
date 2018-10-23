@@ -174,6 +174,7 @@ char * read_line() {
 							break;
 						}
 					}
+					history_index = history_length - 1;
 				} 
 	
 					
