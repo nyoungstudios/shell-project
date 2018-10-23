@@ -186,20 +186,11 @@ char * read_line() {
 	if (strcmp(line_buffer, "") != 10 && strcmp(line_buffer, "") != 32) {
 
 		//update history
-		if (histFlag) {
-			//if first item
-			history[history_length] = (char *) malloc(strlen(line_buffer) * sizeof(char) + 1);
-			history[0] = line_buffer;
-			history[0][strlen(line_buffer) - 1] = '\0';
-			histFlag = 0;
-		} else {
-			//if any other item
-			history[history_length] = (char *) malloc(strlen(line_buffer) * sizeof(char) + 1);
-			strcpy(history[history_length++], line_buffer);
-	
-			history[history_length - 1][strlen(line_buffer) - 1] = '\0';
-			history_index = history_length - 1;	
-		}
+		history[history_length] = (char *) malloc(strlen(line_buffer) * sizeof(char) + 1);
+		strcpy(history[history_length++], line_buffer);
+
+		history[history_length - 1][strlen(line_buffer) - 1] = '\0';
+		history_index = history_length - 1;	
 
 	}
 
