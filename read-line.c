@@ -229,7 +229,10 @@ char * read_line() {
 
 	}
 
-  write(1, history, strlen(history));
+
+	for(int i = 0; i < history_length; i++) {
+		printf("%s\n", history[i]);
+	}
 
   return line_buffer;
 }
