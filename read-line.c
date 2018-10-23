@@ -236,7 +236,7 @@ char * read_line() {
 						ch = 8;
 						write(1,&ch,1);
 					}*/
-
+					printf("hi\n");
 					history_index--;
 				}
 				// echo line
