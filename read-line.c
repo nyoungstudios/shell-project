@@ -197,6 +197,7 @@ char * read_line() {
 				}	
 
 				// Copy line from history
+				printf("index: %d\n", history_index);
 				if (history_length > 0 && history_index <= history_length - 1) {
 					strcpy(line_buffer, history[++history_index]);
 					line_length = strlen(line_buffer);
