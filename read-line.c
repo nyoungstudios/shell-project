@@ -210,6 +210,7 @@ char * read_line() {
 					history_index++;	
 					//history_index=(history_index+1)%history_length;
 				} else if (history_index == history_length - 1) {
+					/*
 					// Erase old line
 					// Print backspaces
 					int i = 0;
@@ -228,7 +229,7 @@ char * read_line() {
 					for (i =0; i < line_length; i++) {
 						ch = 8;
 						write(1,&ch,1);
-					}
+					}*/
 				}
 				// echo line
 				write(1, line_buffer, line_length);
