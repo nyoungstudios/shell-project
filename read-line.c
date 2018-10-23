@@ -38,7 +38,7 @@ void read_line_print_usage()
 }
 
 //flag for first item in history
-int histArrowFlag = 1;
+int histArrowFlag = -1;
 
 
 char *temp_line;
@@ -168,7 +168,9 @@ char * read_line() {
 				}	
 	
 
-	
+				if (histArrowFlag == 0) {
+					history_index--;
+				}	
 					
 
 				// Copy line from history
@@ -177,6 +179,7 @@ char * read_line() {
 					line_length = strlen(line_buffer);
 					if (history_index > 1) {
 						history_index--;
+						histArrowFlag = 1;
 					}
 					//history_index=(history_index-1)%history_length;
 				}
@@ -210,9 +213,15 @@ char * read_line() {
 				// Copy line from history
 			
 				//printf("b--------%d--------%d--------\n", history_length, history_index);
+				if (histArrowFlag == 1) {
+					history_index++;
+				}			
+	
 				if (history_length > 1 && history_index < history_length - 1) {
 					strcpy(line_buffer, history[++history_index]);
 					line_length = strlen(line_buffer);
+
+					histArrowFlag = 0;
 					//history_index++;	
 					//history_index=(history_index+1)%history_length;
 				} else if (history_index >= history_length - 1) {
