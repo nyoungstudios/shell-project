@@ -164,7 +164,7 @@ char * read_line() {
 					write(1,&ch,1);
 				}	
 			
-				if (history_index > 1) {
+				if (history_index < history_length) {
 					history_index--;
 				}
 				// Copy line from history
@@ -173,6 +173,8 @@ char * read_line() {
 					line_length = strlen(line_buffer);
 
 					//history_index=(history_index-1)%history_length;
+				} else {
+					history_index++;	
 				}
 
 				// echo line
