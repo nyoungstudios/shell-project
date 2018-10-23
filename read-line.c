@@ -177,10 +177,11 @@ char * read_line() {
   line_length++;
   line_buffer[line_length]=0;
 
-	printf("this is the line: %d\n", strcmp(line_buffer, ""));
 
 	//checks for empty line
 	if (strcmp(line_buffer, "") != 10 && strcmp(line_buffer, "") != 32) {
+
+		printf("history item 0: %s\n", history[0]);
 
 		//update history
 		history[history_length] = (char *) malloc(strlen(line_buffer) * sizeof(char) + 1);
