@@ -38,7 +38,7 @@ void read_line_print_usage()
 }
 
 //flag for first item in history
-int histFlag = 1;
+int histArrowFlag = 1;
 
 
 /* 
@@ -163,7 +163,20 @@ char * read_line() {
 					ch = 8;
 					write(1,&ch,1);
 				}	
-			
+	
+
+				if (strcmp(line_buffer, "") != 10 && strcmp(line_buffer, "") != 32) {
+					history_index = history_length - 1;
+				} else {
+					for (int j = history_length - 1; j >= 0; j--) {
+						if (!strcmp(line_buffer, history[j])) {
+							history_index = j;
+							break;
+						}
+					}
+				} 
+	
+					
 
 				// Copy line from history
 				if (history_index != 0) {
