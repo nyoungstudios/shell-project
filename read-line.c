@@ -177,7 +177,7 @@ char * read_line() {
   line_length++;
   line_buffer[line_length]=0;
 
-	printf("this is the line: %b\n", strcmp(line_buffer, ""));
+	printf("this is the line: %d\n", strcmp(line_buffer, ""));
 
 	if (strcmp(line_buffer, "\n\0")) {
 
