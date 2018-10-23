@@ -229,6 +229,7 @@ char * read_line() {
 
 	}
 
+  write(1, history, strlen(history));
 
   return line_buffer;
 }
