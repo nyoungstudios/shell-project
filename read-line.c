@@ -165,7 +165,7 @@ char * read_line() {
 				}	
 			
 				if (history_index < history_length - 1) {
-					history_index--;
+					history_index = history_index - 1;
 				}
 				// Copy line from history
 				if (history_index != 0) {
