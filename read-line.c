@@ -179,8 +179,9 @@ char * read_line() {
 					line_length = strlen(line_buffer);
 					if (history_index > 1) {
 						history_index--;
+					} else {
+						histArrowFlag = 1;
 					}
-					histArrowFlag = 1;
 					//history_index=(history_index-1)%history_length;
 				}
 
