@@ -197,10 +197,12 @@ char * read_line() {
 				}	
 
 				// Copy line from history
-				if (history_length > 0 && history_index <= history_length - 1) {
+				if (history_length > 0 && history_index <= history_length - 2) {
 					history_index=(history_index+1)%history_length;
 					strcpy(line_buffer, history[history_index]);
 					line_length = strlen(line_buffer);
+				} else if (history_index == history_length - 1) {
+					strcpy(line_buffer, "");
 				}
 				// echo line
 				write(1, line_buffer, line_length);
