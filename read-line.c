@@ -170,7 +170,42 @@ char * read_line() {
 
 				// echo line
 				write(1, line_buffer, line_length);
-      }
+      } else if (ch1==91 && ch2==67) {
+				//Down arrow. Print previous line in history.
+				
+
+				// Erase old line
+				// Print backspaces
+				int i = 0;
+				for (i =0; i < line_length; i++) {
+					ch = 8;
+					write(1,&ch,1);
+				}
+
+				// Print spaces on top
+				for (i =0; i < line_length; i++) {
+					ch = ' ';
+					write(1,&ch,1);
+				}
+
+				// Print backspaces
+				for (i =0; i < line_length; i++) {
+					ch = 8;
+					write(1,&ch,1);
+				}	
+
+				// Copy line from history
+				if (history_length > 0 && history_index <= history_length - 1) {
+					strcpy(line_buffer, history[history_index++]);
+				} else if (history_index == history_length) {
+					history_index = history_length = 1;
+					strcpy(line_buffer, "");
+				}
+				line_length = strlen(line_buffer);
+				// echo line
+				write(1, line_buffer, line_length);
+
+			}
       
     }
 
