@@ -188,9 +188,9 @@ char * read_line() {
 		//update history
 		if (histFlag) {
 			//if first item
+			history[history_length] = (char *) malloc(strlen(line_buffer) * sizeof(char) + 1);
 			history[0] = line_buffer;
 			history[0][strlen(line_buffer) - 1] = '\0';
-			history_length++;
 			histFlag = 0;
 		} else {
 			//if any other item
