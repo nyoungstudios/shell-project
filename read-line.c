@@ -229,12 +229,12 @@ char * read_line() {
 
 	}
 
-
+	
 	for(int i = 0; i < history_length; i++) {
 		printf("%s\n", history[i]);
 	}
 
-	printf("--------------\n");
+	printf("--------%d--------\n", history_length);
 
   return line_buffer;
 }
