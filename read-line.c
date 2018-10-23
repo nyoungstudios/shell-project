@@ -168,7 +168,7 @@ char * read_line() {
 				if (history_index != 0) {
 					strcpy(line_buffer, history[history_index]);
 					line_length = strlen(line_buffer);
-					if (history_index > 0) {
+					if (history_index > 1) {
 						history_index--;
 					}
 					//history_index=(history_index-1)%history_length;
