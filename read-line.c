@@ -146,7 +146,7 @@ char * read_line() {
 				// Up arrow. Print next line in history.
 
 
-				printf("--------%d--------%d--------\n", history_length, history_index);
+				//printf("--------%d--------%d--------\n", history_length, history_index);
 				// Erase old line
 				// Print backspaces
 				int i = 0;
@@ -209,7 +209,7 @@ char * read_line() {
 
 				// Copy line from history
 			
-				printf("b--------%d--------%d--------\n", history_length, history_index);
+				//printf("b--------%d--------%d--------\n", history_length, history_index);
 				if (history_length > 1 && history_index < history_length - 1) {
 					strcpy(line_buffer, history[++history_index]);
 					line_length = strlen(line_buffer);
@@ -236,13 +236,13 @@ char * read_line() {
 						ch = 8;
 						write(1,&ch,1);
 					}*/
-					printf("hi\n");
+					//printf("hi\n");
 					//history_index--;
 				}
 				// echo line
 				write(1, line_buffer, line_length);
 
-				printf("a--------%d--------%d--------\n", history_length, history_index);
+				//printf("a--------%d--------%d--------\n", history_length, history_index);
 			}
       
     }
