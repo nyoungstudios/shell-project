@@ -143,6 +143,7 @@ char * read_line() {
       if (ch1==91 && ch2==65) {
 				// Up arrow. Print next line in history.
 
+				printf("--------%d--------%d--------\n", history_length, history_index);
 				// Erase old line
 				// Print backspaces
 				int i = 0;
@@ -197,6 +198,8 @@ char * read_line() {
 				}	
 
 				// Copy line from history
+			
+				printf("--------%d--------%d--------\n", history_length, history_index);
 				if (history_length > 0 && history_index <= history_length - 1) {
 					strcpy(line_buffer, history[history_index]);
 					line_length = strlen(line_buffer);
