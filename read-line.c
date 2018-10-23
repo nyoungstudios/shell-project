@@ -165,9 +165,6 @@ char * read_line() {
 				}	
 	
 
-				if (strcmp(line_buffer, "") != 10 && strcmp(line_buffer, "") != 32) {
-					history_index = history_length - 1;
-				} 
 	
 					
 
