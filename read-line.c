@@ -237,7 +237,7 @@ char * read_line() {
 						write(1,&ch,1);
 					}*/
 					printf("hi\n");
-					history_index--;
+					//history_index--;
 				}
 				// echo line
 				write(1, line_buffer, line_length);
