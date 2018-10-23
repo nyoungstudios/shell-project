@@ -234,6 +234,8 @@ char * read_line() {
 		printf("%s\n", history[i]);
 	}
 
+	printf("--------------\n");
+
   return line_buffer;
 }
 
