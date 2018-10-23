@@ -248,7 +248,7 @@ char * read_line() {
 					}*/
 					//printf("hi\n");
 					//history_index--;
-					hitsArrowFlag = 0;
+					histArrowFlag = 0;
 				}
 				// echo line
 				write(1, line_buffer, line_length);
