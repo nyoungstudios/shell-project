@@ -220,6 +220,7 @@ char * read_line() {
 					//history_index=(history_index-1)%history_length;
 				}
 				
+				line_length = strlen(line_buffer);
 				// echo line
 				write(1, line_buffer, line_length);
       } else if (ch1==91 && ch2==66 && startHistFlag) {
@@ -262,23 +263,22 @@ char * read_line() {
 					//history_index=(history_index+1)%history_length;
 				} else if (history_index >= history_length - 1) {
 				
-					printf("%d\n", line_loc);
 					// Erase old line
 					// Print backspaces
 					int i = 0;
-					for (i =0; i < strlen(history[history_index]); i++) {
+					for (i =0; i < line_length; i++) {
 						ch = 8;
 						write(1,&ch,1);
 					}
 
 					// Print spaces on top
-					for (i =0; i < strlen(history[history_index]); i++) {
+					for (i =0; i < line_length; i++) {
 						ch = ' ';
 						write(1,&ch,1);
 					}
 					
 					// Print backspaces
-					for (i =0; i < strlen(history[history_index]); i++) {
+					for (i =0; i < line_length; i++) {
 						ch = 8;
 						write(1,&ch,1);
 					}
