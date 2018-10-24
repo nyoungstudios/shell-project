@@ -265,14 +265,18 @@ char * read_line() {
 					// Erase old line
 					// Print backspaces
 					int i = 0;
-					
+					// Print backspaces
+					for (i =0; i < line_length; i++) {
+						ch = 8;
+						write(1,&ch,1);
+					}				
 					//printf("hi\n");
 					//history_index--;
 					//if(!strcmp(line_buffer, temp_line)) {
 					strcpy(line_buffer, temp_line);
 
 					// Print spaces on top
-					for (i =0; i < line_length + strlen(temp_line); i++) {
+					for (i =0; i < line_length; i++) {
 						ch = ' ';
 						write(1,&ch,1);
 					}
