@@ -270,7 +270,7 @@ char * read_line() {
 					//history_index--;
 					//if(!strcmp(line_buffer, temp_line)) {
 					strcpy(line_buffer, temp_line);
-
+					/*
 					// Print spaces on top
 					for (i =0; i < line_length; i++) {
 						ch = ' ';
@@ -283,6 +283,7 @@ char * read_line() {
 						write(1,&ch,1);
 					}
 					line_length = strlen(line_buffer);
+					*/
 					//}
 
 					histArrowFlag = 0;
