@@ -265,13 +265,6 @@ char * read_line() {
 					// Erase old line
 					// Print backspaces
 					int i = 0;
-					int ccc = 0;
-/*
-					for (i =0; i < line_length; i++) {
-						ccc = 8;
-						write(1,&ccc,1);
-					}
-*/
 					
 					//printf("hi\n");
 					//history_index--;
@@ -285,7 +278,7 @@ char * read_line() {
 					}
 					
 					// Print backspaces
-					for (i =0; i < line_length; i++) {
+					for (i =0; i < line_length + 3; i++) {
 						ch = 8;
 						write(1,&ch,1);
 					}
