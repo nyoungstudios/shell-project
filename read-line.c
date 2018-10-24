@@ -360,6 +360,9 @@ char * read_line() {
 			}
 
 
+		} else if (ch == 4) {
+			//delete
+			printf("hi\n");
 		}
 
   }
