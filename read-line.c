@@ -261,7 +261,7 @@ char * read_line() {
 					//history_index++;	
 					//history_index=(history_index+1)%history_length;
 				} else if (history_index >= history_length - 1) {
-					printf("%d\n", line_length);				
+					//printf("%d\n", line_length);				
 					// Erase old line
 					// Print backspaces
 					int i = 0;
@@ -269,7 +269,7 @@ char * read_line() {
 						ch = 8;
 						write(1,&ch,1);
 					}
-
+/*
 					// Print spaces on top
 					for (i =0; i < line_length; i++) {
 						ch = ' ';
@@ -280,7 +280,7 @@ char * read_line() {
 					for (i =0; i < line_length; i++) {
 						ch = 8;
 						write(1,&ch,1);
-					}
+					}*/
 					//printf("hi\n");
 					//history_index--;
 					//if(!strcmp(line_buffer, temp_line)) {
