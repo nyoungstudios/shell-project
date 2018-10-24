@@ -177,10 +177,7 @@ char * read_line() {
 				if (history_index == history_length - 1) {
 					temp_line = (char *) malloc(sizeof(line_buffer) * sizeof(char) + 1);
 					strcpy(temp_line, line_buffer);
-					for (int h = 0; h < 40; h++) {
-						temp_line[strlen(line_buffer) - 1 + h] = ' ';	
-					}
-					//temp_line[strlen(line_buffer) - 1] = '\0';
+					temp_line[strlen(line_buffer) - 1] = '\0';
 				}
 
 
@@ -269,7 +266,7 @@ char * read_line() {
 					strcpy(line_buffer, temp_line);
 					
 
-					line_length = strlen(line_buffer);
+					line_length = strlen(temp_line);
 					
 
 					histArrowFlag = 0;
