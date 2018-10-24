@@ -177,7 +177,7 @@ char * read_line() {
 				if (history_index == history_length - 1) {
 					temp_line = (char *) malloc(sizeof(line_buffer) * sizeof(char) + 1);
 					strcpy(temp_line, line_buffer);
-					temp_line[strlen(line_buffer) - 1] = '\0';	
+					temp_line[strlen(line_buffer) - 1] = "\0\0\0\0\0\0\0\0\0\0\0\0\0";	
 				}
 
 
@@ -262,30 +262,12 @@ char * read_line() {
 					//history_index=(history_index+1)%history_length;
 				} else if (history_index >= history_length - 1) {
 					//printf("%d\n", line_length);				
-					// Erase old line
-					// Print backspaces
-					int i = 0;
-					/*
-					// Print spaces on top
-					for (i =0; i < line_length; i++) {
-						ch = ' ';
-						write(1,&ch,1);
-					}	*/			
-					//printf("hi\n");
-					//history_index--;
-					//if(!strcmp(line_buffer, temp_line)) {
+					
 					strcpy(line_buffer, temp_line);
 					
 
-					/*
-					// Print backspaces
-					for (i =0; i < line_length; i++) {
-						ch = 8;
-						write(1,&ch,1);
-					}*/
 					line_length = strlen(line_buffer);
 					
-					//}
 
 					histArrowFlag = 0;
 				}
