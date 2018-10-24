@@ -101,10 +101,10 @@ char * read_line() {
 				}
 				int ccc = 27;
 				write(1, &ccc, 1);
-				ccc = 91;
-				write(1, &ccc, 1);
-				ccc = 68;
-				write(1, &ccc, 1);
+				//ccc = 91;
+				//write(1, &ccc, 1);
+				//ccc = 68;
+				//write(1, &ccc, 1);
 				//line_loc--;
 
 
