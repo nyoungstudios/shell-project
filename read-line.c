@@ -53,6 +53,8 @@ char * read_line() {
 
   line_length = 0;
 
+	int line_loc = line_length;
+
   // Read one line until enter is typed
   while (1) {
 
@@ -265,6 +267,53 @@ char * read_line() {
 				write(1, line_buffer, line_length);
 
 				//printf("a--------%d--------%d--------\n", history_length, history_index);
+			} else if (ch1==91 && ch2==68) {
+				//left arrow
+				if (line_loc > 0) {
+					ch = 27;
+					write(1, &ch, 1);
+					ch = 91;
+					write(1, &ch, 1);
+					ch = 68;
+					write(1, &ch, 1);
+					line_loc--;
+				}
+
+			} else if (ch1==91 && ch2==67) {
+				//right arrow
+				if (line_loc < line_length) {
+					ch = 27;
+					write(1, &ch, 1);
+					ch = 91;
+					write(1, &ch, 1);
+					ch = 67;
+					write(1, &ch, 1);
+					line_loc++;
+				}
+
+			} else if (ch1=79 && ch2==72) {
+				//home
+				while (line_loc > 0) {
+					ch = 27;
+					write(1, &ch, 1);
+					ch = 91;
+					write(1, &ch, 1);
+					ch = 68;
+					write(1, &ch, 1);
+					line_loc--;
+				}
+			} else if (ch1==79 && ch2==70) {
+				//end
+				while (line_loc != line_length) {
+					ch = 27;
+					write(1, &ch, 1);
+					ch = 91;
+					write(1, &ch, 1);
+					ch = 67;
+					write(1, &ch, 1);
+					line_loc++;
+				}
+
 			}
       
     }
