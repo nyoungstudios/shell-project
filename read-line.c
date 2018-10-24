@@ -103,8 +103,8 @@ char * read_line() {
 			if (line_loc == line_length) {
       	line_buffer[line_length]=ch;
       	line_length++;
+				line_loc++;
 			}
-			line_loc++;
     }
     else if (ch==10) {
       // <Enter> was typed. Return line
