@@ -265,22 +265,22 @@ char * read_line() {
 					// Erase old line
 					// Print backspaces
 					int i = 0;
-					for (i =0; i < line_length; i++) {
+					for (i =0; i < strlen(temp_line); i++) {
 						ch = 8;
 						write(1,&ch,1);
 					}
 
 					// Print spaces on top
-					for (i =0; i < line_length; i++) {
+					for (i =0; i < strlen(temp_line); i++) {
 						ch = ' ';
 						write(1,&ch,1);
 					}
-					/*
+					
 					// Print backspaces
 					for (i =0; i < line_length; i++) {
 						ch = 8;
 						write(1,&ch,1);
-					}*/
+					}
 					//printf("hi\n");
 					//history_index--;
 					//if(!strcmp(line_buffer, temp_line)) {
