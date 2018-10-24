@@ -335,7 +335,32 @@ char * read_line() {
 
 			}
       
-    }
+    } else if (ch == 1) {
+			//home
+			while (line_loc > 0) {
+				ch = 27;
+				write(1, &ch, 1);
+				ch = 91;
+				write(1, &ch, 1);
+				ch = 68;
+				write(1, &ch, 1);
+				line_loc--;
+			}
+
+		} else if (ch == 5) {
+			//end
+			while (line_loc != line_length) {
+				ch = 27;
+				write(1, &ch, 1);
+				ch = 91;
+				write(1, &ch, 1);
+				ch = 67;
+				write(1, &ch, 1);
+				line_loc++;
+			}
+
+
+		}
 
   }
 
