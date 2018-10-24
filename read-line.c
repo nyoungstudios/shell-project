@@ -269,7 +269,7 @@ char * read_line() {
 					//printf("hi\n");
 					//history_index--;
 					//if(!strcmp(line_buffer, temp_line)) {
-					strcpy(line_buffer, '\0');
+					strcpy(line_buffer, "\0");
 					/*
 					// Print spaces on top
 					for (i =0; i < line_length; i++) {
