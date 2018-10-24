@@ -97,7 +97,7 @@ std::string expandEnv(char *str) {
 					} else if (!strcmp(varName.c_str(), "$")) {
 						sprintf(var, "%d", getpid());
 					} else if (!strcmp(varName.c_str(), "?")) {
-						sprintf(var, "%d", lastExitCode);
+						sprintf(var, "%d", WEXITSTATUS);
 					} else if (!strcmp(varName.c_str(), "!")) {
 						sprintf(var, "%d", backgroundPID);
 					} else if (!strcmp(varName.c_str(), "_")) {
