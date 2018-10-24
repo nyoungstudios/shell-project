@@ -39,7 +39,7 @@ void read_line_print_usage()
 
 //flag for first item in history
 int histArrowFlag = -1;
-
+int startHistFlag = 0;
 
 char *temp_line;
 
@@ -142,7 +142,7 @@ char * read_line() {
       char ch2;
       read(0, &ch1, 1);
       read(0, &ch2, 1);
-      if (ch1==91 && ch2==65) {
+      if (ch1==91 && ch2==65 && startHistFlag) {
 				// Up arrow. Print next line in history.
 
 				if (history_index == history_length - 1) {
@@ -192,7 +192,7 @@ char * read_line() {
 				
 				// echo line
 				write(1, line_buffer, line_length);
-      } else if (ch1==91 && ch2==66) {
+      } else if (ch1==91 && ch2==66 && startHistFlag) {
 				//Down arrow. Print previous line in history.
 				
 
@@ -284,6 +284,7 @@ char * read_line() {
 		strcpy(history[history_length++], line_buffer);
 
 		history[history_length - 1][strlen(line_buffer) - 1] = '\0';
+		startHistFlag = 1;
 
 	}
 
