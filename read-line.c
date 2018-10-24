@@ -97,7 +97,7 @@ char * read_line() {
 			} else {
 				write(1,&ch,1);
 				for (int k = line_loc; k < line_length; k++) {
-					write(1, (line_buffer[k]), 1);
+					write(1, &(line_buffer[k]), 1);
 				}
 			}
 
