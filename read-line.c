@@ -270,18 +270,18 @@ char * read_line() {
 						ccc = 8;
 						write(1,&ccc,1);
 					}
-/*
+
 					// Print spaces on top
 					for (i =0; i < line_length; i++) {
-						ch = ' ';
-						write(1,&ch,1);
+						ccc = ' ';
+						write(1,&ccc,1);
 					}
 					
 					// Print backspaces
 					for (i =0; i < line_length; i++) {
-						ch = 8;
-						write(1,&ch,1);
-					}*/
+						ccc = 8;
+						write(1,&ccc,1);
+					}
 					//printf("hi\n");
 					//history_index--;
 					//if(!strcmp(line_buffer, temp_line)) {
