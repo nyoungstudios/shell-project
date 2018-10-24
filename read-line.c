@@ -178,8 +178,9 @@ char * read_line() {
 					temp_line = (char *) malloc(sizeof(line_buffer) * sizeof(char) + 1);
 					strcpy(temp_line, line_buffer);
 					for (int h = 0; h < 40; h++) {
-						temp_line[strlen(line_buffer) - 1 + h] = '\0';	
+						temp_line[strlen(line_buffer) - 1 + h] = ' ';	
 					}
+					temp_line[strlen(line_buffer) - 1] = '\0';
 				}
 
 
