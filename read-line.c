@@ -266,10 +266,17 @@ char * read_line() {
 					// Print backspaces
 					int i = 0;
 					int ccc = 0;
+/*
 					for (i =0; i < line_length; i++) {
 						ccc = 8;
 						write(1,&ccc,1);
 					}
+*/
+					
+					//printf("hi\n");
+					//history_index--;
+					//if(!strcmp(line_buffer, temp_line)) {
+					strcpy(line_buffer, temp_line);
 
 					// Print spaces on top
 					for (i =0; i < line_length; i++) {
@@ -282,10 +289,6 @@ char * read_line() {
 						ccc = 8;
 						write(1,&ccc,1);
 					}
-					//printf("hi\n");
-					//history_index--;
-					//if(!strcmp(line_buffer, temp_line)) {
-					strcpy(line_buffer, temp_line);
 					line_length = strlen(line_buffer);
 					//}
 
