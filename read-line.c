@@ -253,7 +253,6 @@ char * read_line() {
 					}*/
 					//printf("hi\n");
 					//history_index--;
-					strcpy(line_buffer, "");
 					strcpy(line_buffer, temp_line);
 					line_length = strlen(line_buffer);
 
