@@ -92,9 +92,14 @@ char * read_line() {
 
 
       // Do echo
-			//if (line_loc == line_length) {
+			if (line_loc == line_length) {
       	write(1,&ch,1);
-			//}
+			} else {
+				write(1,&ch,1);
+				for (int k = line_loc; k < line_length; k++) {
+					write(1, (line_buffer[k]), 1);
+				}
+			}
 
       // If max number of character reached return.
       if (line_length==MAX_BUFFER_LINE-2) break; 
