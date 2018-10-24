@@ -107,9 +107,15 @@ char * read_line() {
       // add char to buffer.
 			if (line_loc == line_length) {
       	line_buffer[line_length]=ch;
-      	line_length++;
-				line_loc++;
+			} else {
+				for (int k = line_loc; k < line_length; k++) {
+					line_buffer[k + 1] = line_buffer[k];
+				}
+				line_buffer[line_loc]=ch;
 			}
+     	line_length++;
+			line_loc++;
+
     }
     else if (ch==10) {
       // <Enter> was typed. Return line
