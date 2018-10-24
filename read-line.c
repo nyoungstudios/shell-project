@@ -225,7 +225,7 @@ char * read_line() {
       } else if (ch1==91 && ch2==66 && startHistFlag) {
 				//Down arrow. Print previous line in history.
 				
-
+				/*
 				// Erase old line
 				// Print backspaces
 				int i = 0;
@@ -244,7 +244,7 @@ char * read_line() {
 				for (i =0; i < line_length; i++) {
 					ch = 8;
 					write(1,&ch,1);
-				}	
+				}	*/
 
 				// Copy line from history
 			
