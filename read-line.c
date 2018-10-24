@@ -278,7 +278,7 @@ char * read_line() {
 					}
 					
 					// Print backspaces
-					for (i =0; i < line_length + strlen(temp_line); i++) {
+					for (i =0; i < line_length; i++) {
 						ch = 8;
 						write(1,&ch,1);
 					}
