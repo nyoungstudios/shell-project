@@ -281,7 +281,7 @@ char * read_line() {
 					for (i =0; i < 40; i++) {
 						ch = 8;
 						write(1,&ch,1);
-					}*
+					}
 					strcpy(line_buffer, temp_line);
 					
 
