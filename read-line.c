@@ -278,6 +278,12 @@ char * read_line() {
 					//if(!strcmp(line_buffer, temp_line)) {
 					strcpy(line_buffer, temp_line);
 
+					// Print backspaces
+					for (i =0; i < line_length; i++) {
+						ch = 8;
+						write(1,&ch,1);
+					}
+
 					// Print spaces on top
 					for (i =0; i < line_length; i++) {
 						ch = ' ';
