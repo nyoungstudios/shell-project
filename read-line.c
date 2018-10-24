@@ -262,7 +262,7 @@ char * read_line() {
 					//history_index=(history_index+1)%history_length;
 				} else if (history_index >= history_length - 1) {
 				
-					printf("%d\n", strlen(history[history_index - 1]));
+					printf("%ld\n", strlen(history[history_index - 1]));
 					// Erase old line
 					// Print backspaces
 					int i = 0;
