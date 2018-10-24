@@ -291,7 +291,7 @@ char * read_line() {
 					line_loc++;
 				}
 
-			} else if (ch1=79 && ch2==72) {
+			} else if (ch1==79 && ch2==72) {
 				//home
 				while (line_loc > 0) {
 					ch = 27;
