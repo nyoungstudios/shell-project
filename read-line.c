@@ -41,7 +41,7 @@ void read_line_print_usage()
 int histArrowFlag = -1;
 
 
-char *temp_line;
+char *temp_line = "";
 
 /* 
  * Input a line with some basic editing.
