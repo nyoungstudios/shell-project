@@ -147,7 +147,8 @@ char * read_line() {
 
 				if (history_index == history_length - 1) {
 					temp_line = (char *) malloc(sizeof(line_buffer) * sizeof(char) + 1);
-					strcpy(temp_line, line_buffer);	
+					strcpy(temp_line, line_buffer);
+					temp_line[strlen(temp_line)] = '\0';	
 				}
 
 
