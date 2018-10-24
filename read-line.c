@@ -55,6 +55,14 @@ char * read_line() {
 
 	int line_loc = line_length;
 
+
+	if (!startHistFlag) {
+		temp_line = (char *) malloc(sizeof(line_buffer) * sizeof(char) + 1);
+		strcpy(temp_line, line_buffer);
+		temp_line[strlen(line_buffer) - 1] = '\0';	
+
+	}
+
   // Read one line until enter is typed
   while (1) {
 
