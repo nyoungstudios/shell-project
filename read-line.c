@@ -264,7 +264,7 @@ char * read_line() {
 					//printf("%d\n", line_length);				
 					// Erase old line
 					// Print backspaces
-					//int i = 0;
+					int i = 0;
 					/*
 					// Print spaces on top
 					for (i =0; i < line_length; i++) {
@@ -277,6 +277,11 @@ char * read_line() {
 					strcpy(line_buffer, "                                       \0");
 					
 					write(1, line_buffer, 40);
+					// Print backspaces
+					for (i =0; i < 40; i++) {
+						ch = 8;
+						write(1,&ch,1);
+					}*
 					strcpy(line_buffer, temp_line);
 					
 
@@ -285,9 +290,9 @@ char * read_line() {
 					for (i =0; i < line_length; i++) {
 						ch = 8;
 						write(1,&ch,1);
-					}
+					}*/
 					line_length = strlen(line_buffer);
-					*/
+					
 					//}
 
 					histArrowFlag = 0;
