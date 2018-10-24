@@ -292,6 +292,8 @@ char * read_line() {
 	}
 
 	printf("--------%d--------%d--------\n", history_length, history_index);
+	temp_line = (char *) malloc(sizeof("") * sizeof(char) + 1);
+	strcpy(temp_line, "");	
 
   return line_buffer;
 }
