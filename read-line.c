@@ -99,15 +99,14 @@ char * read_line() {
 				for (int k = line_loc; k < line_length; k++) {
 					write(1, &(line_buffer[k]), 1);
 				}
-				for (int k = 0; k < line_length - line_loc; k++) {
-					ch = 27;
-					write(1, &ch, 1);
-					ch = 91;
-					write(1, &ch, 1);
-					ch = 68;
-					write(1, &ch, 1);
-					line_loc--;
-				}
+				int ccc = 27;
+				write(1, &cc, 1);
+				ccc = 91;
+				write(1, &ccc, 1);
+				ccc = 68;
+				write(1, &ccc, 1);
+				//line_loc--;
+
 
 			}
 
