@@ -388,6 +388,8 @@ char * read_line() {
 
 	history_index = history_length - 1;	
 	
+	histArrowFlag = -1;
+
 	for(int i = 0; i < history_length; i++) {
 		printf("%s\n", history[i]);
 	}
