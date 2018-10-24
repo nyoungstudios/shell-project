@@ -84,6 +84,7 @@ char * read_line() {
 
 					// Remove one character from buffer
 					line_length--;
+					line_loc--;
 				}
 				continue;
 			
@@ -98,7 +99,10 @@ char * read_line() {
 
       // add char to buffer.
       line_buffer[line_length]=ch;
-      line_length++;
+			if (line_loc == line_length) {
+      	line_length++;
+			}
+			line_loc++;
     }
     else if (ch==10) {
       // <Enter> was typed. Return line
@@ -132,6 +136,7 @@ char * read_line() {
 
 				// Remove one character from buffer
 				line_length--;
+				line_loc--;
 			}
     }
     else if (ch==27) {
