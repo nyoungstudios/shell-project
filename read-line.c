@@ -253,9 +253,10 @@ char * read_line() {
 					}*/
 					//printf("hi\n");
 					//history_index--;
-					printf("hi: %d\n", strcmp(line_buffer, temp_line));
-					strcpy(line_buffer, temp_line);
-					line_length = strlen(line_buffer);
+					if(!strcmp(line_buffer, temp_line)) {
+						strcpy(line_buffer, temp_line);
+						line_length = strlen(line_buffer);
+					}
 
 					histArrowFlag = 0;
 				}
