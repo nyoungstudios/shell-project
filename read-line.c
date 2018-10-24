@@ -272,13 +272,13 @@ char * read_line() {
 					strcpy(line_buffer, temp_line);
 
 					// Print spaces on top
-					for (i =0; i < line_length; i++) {
+					for (i =0; i < line_length + strlen(temp_line); i++) {
 						ch = ' ';
 						write(1,&ch,1);
 					}
 					
 					// Print backspaces
-					for (i =0; i < line_length; i++) {
+					for (i =0; i < line_length + strlen(temp_line); i++) {
 						ch = 8;
 						write(1,&ch,1);
 					}
