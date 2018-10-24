@@ -274,14 +274,6 @@ char * read_line() {
 					//printf("hi\n");
 					//history_index--;
 					//if(!strcmp(line_buffer, temp_line)) {
-					strcpy(line_buffer, "                                       \0");
-					
-					write(1, line_buffer, 40);
-					// Print backspaces
-					for (i =0; i < 40; i++) {
-						ch = 8;
-						write(1,&ch,1);
-					}
 					strcpy(line_buffer, temp_line);
 					
 
