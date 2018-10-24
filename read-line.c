@@ -280,14 +280,14 @@ char * read_line() {
 
 					// Print spaces on top
 					for (i =0; i < line_length; i++) {
-						ccc = ' ';
-						write(1,&ccc,1);
+						ch = ' ';
+						write(1,&ch,1);
 					}
 					
 					// Print backspaces
 					for (i =0; i < line_length; i++) {
-						ccc = 8;
-						write(1,&ccc,1);
+						ch = 8;
+						write(1,&ch,1);
 					}
 					line_length = strlen(line_buffer);
 					//}
