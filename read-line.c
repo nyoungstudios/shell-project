@@ -99,6 +99,16 @@ char * read_line() {
 				for (int k = line_loc; k < line_length; k++) {
 					write(1, &(line_buffer[k]), 1);
 				}
+				for (int k = 0; k < line_length - line_loc; k++) {
+					ch = 27;
+					write(1, &ch, 1);
+					ch = 91;
+					write(1, &ch, 1);
+					ch = 68;
+					write(1, &ch, 1);
+					line_loc--;
+				}
+
 			}
 
       // If max number of character reached return.
