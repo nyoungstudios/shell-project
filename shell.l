@@ -14,6 +14,7 @@
 #include "shell.hh"
 #include <unistd.h>
 #include <sys/wait.h>
+#include <sys/types.h>
 
 //////////start of edit mode////////////
 
