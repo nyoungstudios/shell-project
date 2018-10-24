@@ -282,10 +282,10 @@ char * read_line() {
 		strcpy(history[history_length++], line_buffer);
 
 		history[history_length - 1][strlen(line_buffer) - 1] = '\0';
-		history_index = history_length - 1;	
 
 	}
 
+	history_index = history_length - 1;	
 	
 	for(int i = 0; i < history_length; i++) {
 		printf("%s\n", history[i]);
