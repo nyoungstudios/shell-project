@@ -100,7 +100,7 @@ char * read_line() {
 					write(1, &(line_buffer[k]), 1);
 				}
 				int ccc = 27;
-				write(1, &cc, 1);
+				write(1, &ccc, 1);
 				ccc = 91;
 				write(1, &ccc, 1);
 				ccc = 68;
