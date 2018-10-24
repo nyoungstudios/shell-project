@@ -180,7 +180,7 @@ char * read_line() {
 					for (int h = 0; h < 40; h++) {
 						temp_line[strlen(line_buffer) - 1 + h] = ' ';	
 					}
-					temp_line[strlen(line_buffer) - 1] = '\0';
+					//temp_line[strlen(line_buffer) - 1] = '\0';
 				}
 
 
