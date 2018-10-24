@@ -13,6 +13,7 @@
 #include "y.tab.hh"
 #include "shell.hh"
 #include <unistd.h>
+#include <sys/wait.h>
 
 //////////start of edit mode////////////
 
