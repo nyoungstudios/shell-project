@@ -110,7 +110,7 @@ char * read_line() {
 			if (line_loc == line_length) {
       	line_buffer[line_length]=ch;
 			} else {
-				for (int k = line_loc; k < line_length; k++) {
+				for (int k = line_length; k >= line_loc; k--) {
 					line_buffer[k + 1] = line_buffer[k];
 				}
 				line_buffer[line_loc]=ch;
