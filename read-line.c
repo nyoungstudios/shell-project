@@ -442,7 +442,7 @@ char * read_line() {
 					}
 
 					//updates line buffer
-					for (int k = line_loc - 1; k < line_length - 1; k++) {
+					for (int k = line_loc; k < line_length - 1; k++) {
 						line_buffer[k] = line_buffer[k+1];
 					}
 
