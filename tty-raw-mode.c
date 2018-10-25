@@ -24,3 +24,9 @@ void tty_raw_mode(void)
      
 	tcsetattr(0,TCSANOW,&tty_attr);
 }
+
+void tty_term_mode(void) {
+	tcsetattr(0, TCSANOW, &tty_attr);
+	
+}
+
