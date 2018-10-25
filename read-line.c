@@ -401,7 +401,7 @@ char * read_line() {
 				if (line_length > 0 && line_loc != line_length) {
 
 					//shift character back one
-					for (int k = line_loc + 1; k < line_length; k++) {
+					for (int k = line_loc + 1; k < line_length + 1; k++) {
 						write(1, &(line_buffer[k]), 1);
 					}
 
@@ -426,7 +426,7 @@ char * read_line() {
 					// Print backspaces
 					//ch = ' ';
 					//write(1, &ch,1);
-
+/*
 					//shifts characters back one
 					for (int k = line_loc; k < line_length; k++) {
 						write(1, &(line_buffer[k]), 1);
@@ -448,7 +448,7 @@ char * read_line() {
 
 					// Remove one character from buffer
 					line_length--;
-
+*/
 
 				}
 
