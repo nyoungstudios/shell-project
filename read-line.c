@@ -424,8 +424,8 @@ char * read_line() {
 					line_length--;
 					
 					// Print backspaces
-					//ch = ' ';
-					//write(1, &ch,1);
+					ch = ' ';
+					write(1, &ch,1);
 
 					//shifts characters back one
 					for (int k = line_loc; k < line_length; k++) {
