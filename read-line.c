@@ -423,8 +423,8 @@ char * read_line() {
 					
 					
 					// Print backspaces
-					ch = 8;
-					write(1, &ch,1);
+					//ch = ' ';
+					//write(1, &ch,1);
 
 					//shifts characters back one
 					for (int k = line_loc; k < line_length; k++) {
