@@ -106,7 +106,12 @@ char * read_line() {
 						for (i =0; i < line_length - line_loc + 1; i++) {
 							ch = 8;
 							write(1,&ch,1);
-						}	
+						}
+						for (int k = line_loc - 1; k < line_length - 1; k++) {
+							line_buffer[k] = line_buffer[k+1];
+						}
+						
+							
 
 					}
 
