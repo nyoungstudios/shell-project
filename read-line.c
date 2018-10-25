@@ -414,7 +414,7 @@ char * read_line() {
 
 		} else if (ch == 4) {
 			//delete
-			if (line_length > 0) {
+			if (line_length > 0 && line_loc != line_length) {
 
 				// Print backspaces
 				int i = 0;
@@ -451,6 +451,8 @@ char * read_line() {
 				// Remove one character from buffer
 				line_length--;
 				line_loc--;
+			} else {
+				printf("hi");
 			}
 
 
