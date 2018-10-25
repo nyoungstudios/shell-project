@@ -424,6 +424,30 @@ char * read_line() {
 					// Remove one character from buffer
 					line_length--;
 
+					// Print backspaces
+					ch = 8;
+					write(1, &ch,1);
+
+					//shifts characters back one
+					for (int k = line_loc; k < line_length; k++) {
+						write(1, &(line_buffer[k]), 1);
+					}
+
+					//prints space
+					write(1, &space, 1);
+
+					// Print backspaces
+					for (i =0; i < line_length - line_loc + 1; i++) {
+						ch = 8;
+						write(1,&ch,1);
+					}
+
+					//updates line buffer
+					for (int k = line_loc - 1; k < line_length - 1; k++) {
+						line_buffer[k] = line_buffer[k+1];
+					}
+	
+
 				}
 
 			}
