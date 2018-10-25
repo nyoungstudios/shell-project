@@ -180,7 +180,7 @@ char * read_line() {
 				if (history_index == history_length - 1) {
 				  line_buffer[line_length]=10;
 				  line_length++;
-				  line_buffer[line_length]=0;
+				  //line_buffer[line_length]=0;
 					temp_line = (char *) malloc(line_length * sizeof(char) + 1);
 					strcpy(temp_line, line_buffer);
 					temp_line[line_length] = '\0';
