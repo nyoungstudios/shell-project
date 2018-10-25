@@ -87,6 +87,13 @@ char * read_line() {
 						write(1,&ch,1);
 
 					} else {
+						// Print backspaces
+						int i = 0;
+						for (i =0; i < line_length - line_loc + 1; i++) {
+							ch = 8;
+							write(1,&ch,1);
+						}
+
 						for (int k = line_loc; k < line_length; k++) {
 							write(1, &(line_buffer[k]), 1);
 						}
@@ -95,8 +102,8 @@ char * read_line() {
 						// Print backspaces
 						int i = 0;
 						for (i =0; i < line_length - line_loc + 1; i++) {
-							int ccc = 8;
-							write(1,&ccc,1);
+							ch = 8;
+							write(1,&ch,1);
 						}	
 
 					}
