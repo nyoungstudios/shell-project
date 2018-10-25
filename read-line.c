@@ -13,7 +13,6 @@
 #define MAX_BUFFER_LINE 2048
 
 extern void tty_raw_mode(void);
-extern void tty_term_mode(void);
 
 // Buffer where line is stored
 int line_length;
