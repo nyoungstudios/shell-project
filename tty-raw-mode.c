@@ -28,7 +28,6 @@ void tty_raw_mode(void)
 }
 
 void tty_term_mode(void) {
-	tcsetattr(0, TCSANOW, &tty_attr);
-	
+	tcsetattr(0, TCSANOW, &tty_attr);	
 }
 
