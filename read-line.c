@@ -381,11 +381,15 @@ char * read_line() {
 	
 	histArrowFlag = -1;
 
+	/*
 	for(int i = 0; i < history_length; i++) {
 		printf("%s\n", history[i]);
 	}
+	*/
 
-	printf("--------%d--------%d--------\n", history_length, history_index);
+	//printf("--------%d--------%d--------\n", history_length, history_index);
+	
+
 	temp_line = (char *) malloc(sizeof("") * sizeof(char) + 1);
 	strcpy(temp_line, "");	
 
