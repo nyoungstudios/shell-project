@@ -273,7 +273,7 @@ char * read_line() {
 					
 					//printf("%s\n", temp_line);				
 
-					histArrowFlag = 1;
+					histArrowFlag = 0;
 				}
 				// echo line
 				write(1, line_buffer, line_length);
