@@ -426,7 +426,7 @@ char * read_line() {
 				//write(1, &ch, 1);
 				//line_loc++;
 			
-				ch = 127;
+				ch = 8;
 				write(1, &ch,1);
 				//line_loc--;
 
