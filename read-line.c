@@ -268,7 +268,7 @@ char * read_line() {
 
 					line_length = strlen(temp_line);
 					
-					printf("%d\n", line_length);				
+					printf("%s\n", temp_line);				
 
 					histArrowFlag = 0;
 				}
