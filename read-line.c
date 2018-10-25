@@ -478,7 +478,7 @@ char * read_line() {
 				for (int k = line_loc; k < line_length - 1; k++) {
 					line_buffer[k] = line_buffer[k+1];
 				}
-
+				line_loc--;
 
 				// Print backspaces
 				ch = 8;
