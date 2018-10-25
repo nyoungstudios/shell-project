@@ -104,8 +104,8 @@ char * read_line() {
 				// Print backspaces
 				int i = 0;
 				for (i =0; i < line_length - line_loc; i++) {
-					ch = 8;
-					write(1,&ch,1);
+					int ccc = 8;
+					write(1,&ccc,1);
 				}
 			}
 
