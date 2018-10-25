@@ -421,6 +421,7 @@ char * read_line() {
 						line_buffer[k] = line_buffer[k+1];
 					}
 					
+					line_length--;
 					
 					// Print backspaces
 					//ch = ' ';
@@ -446,7 +447,6 @@ char * read_line() {
 					}
 
 					// Remove one character from buffer
-					line_length--;
 					line_length--;
 
 
