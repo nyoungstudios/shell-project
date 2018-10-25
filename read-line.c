@@ -447,6 +447,7 @@ char * read_line() {
 
 					// Remove one character from buffer
 					line_length--;
+					line_length--;
 
 
 				}
