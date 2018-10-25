@@ -424,11 +424,11 @@ char * read_line() {
 				write(1, &ch, 1);
 				ch = 67;
 				write(1, &ch, 1);
-				line_loc++;
+				//line_loc++;
 			
 				ch = 8;
 				write(1, &ch,1);
-				line_loc--;
+				//line_loc--;
 
 				for (int k = line_loc; k < line_length; k++) {
 					write(1, &(line_buffer[k]), 1);
@@ -451,8 +451,7 @@ char * read_line() {
 				// Remove one character from buffer
 				line_length--;
 				line_loc--;
-			} else {
-				printf("hi\n");
+
 			}
 
 
