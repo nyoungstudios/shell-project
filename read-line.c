@@ -178,9 +178,6 @@ char * read_line() {
 				// Up arrow. Print next line in history.
 
 				if (history_index == history_length - 1) {
-				  //line_buffer[line_length]=10;
-				  //line_length++;
-				  //line_buffer[line_length]=0;
 					temp_line = (char *) malloc(line_length * sizeof(char) + 1);
 					strcpy(temp_line, line_buffer);
 					temp_line[line_length] = '\0';
@@ -276,7 +273,7 @@ char * read_line() {
 					
 					//printf("%s\n", temp_line);				
 
-					histArrowFlag = 0;
+					histArrowFlag = 1;
 				}
 				// echo line
 				write(1, line_buffer, line_length);
