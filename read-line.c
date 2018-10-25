@@ -89,7 +89,13 @@ char * read_line() {
 							write(1, &(line_buffer[k]), 1);
 						}
 						char space = ' ';
-						write(1, &space, 1);		
+						write(1, &space, 1);
+						// Print backspaces
+						int i = 0;
+						for (i =0; i < line_length - line_loc + 1; i++) {
+							int ccc = 8;
+							write(1,&ccc,1);
+						}					
 
 					}
 
