@@ -88,6 +88,8 @@ char * read_line() {
 						for (int k = line_loc; k < line_length; k++) {
 							write(1, &(line_buffer[k]), 1);
 						}
+						char space = ' ';
+						write(1, &space, 1);		
 
 					}
 
