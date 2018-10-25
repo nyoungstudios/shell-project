@@ -252,7 +252,7 @@ char * read_line() {
 				// Copy line from history
 			
 				//printf("b--------%d--------%d--------\n", history_length, history_index);
-				if (histArrowFlag == 1 && history_index != 1) {
+				if (histArrowFlag == 1 && history_index != 0) {
 					history_index++;
 				}			
 	
@@ -264,14 +264,12 @@ char * read_line() {
 					//history_index++;	
 					//history_index=(history_index+1)%history_length;
 				} else if (history_index >= history_length - 1) {
-					//printf("%d\n", line_length);				
-					
+					//down arrow for going to temp 					
 					strcpy(line_buffer, temp_line);
 					
 
 					line_length = strlen(temp_line);
 					
-					//printf("%s\n", temp_line);				
 
 					histArrowFlag = -1;
 				}
