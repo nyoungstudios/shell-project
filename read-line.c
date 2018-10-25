@@ -397,10 +397,10 @@ char * read_line() {
 				}
 
 			}
+			printf("%d.%d\n", ch1, ch2);
       
     } else if (ch == 1) {
 			//home
-			printf("hi\n");
 			while (line_loc > 0) {
 				ch = 27;
 				write(1, &ch, 1);
