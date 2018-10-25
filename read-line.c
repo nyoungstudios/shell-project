@@ -396,8 +396,38 @@ char * read_line() {
 					line_loc++;
 				}
 
+			} else if (ch1==91 && ch2==51) {
+				//delete
+				if (line_length > 0 && line_loc != line_length) {
+
+					//shift character back one
+					for (int k = line_loc + 1; k < line_length; k++) {
+						write(1, &(line_buffer[k]), 1);
+					}
+
+					//print space
+					char space = ' ';
+					write(1, &space, 1);
+
+					// Print backspaces
+					int i = 0;
+					for (i =0; i < line_length - line_loc; i++) {
+						ch = 8;
+						write(1,&ch,1);
+					}
+				
+					//update buffer
+					for (int k = line_loc; k < line_length - 1; k++) {
+						line_buffer[k] = line_buffer[k+1];
+					}
+					
+					// Remove one character from buffer
+					line_length--;
+
+				}
+
 			}
-			printf("%d.%d\n", ch1, ch2);
+			//printf("%d.%d\n", ch1, ch2);
       
     } else if (ch == 1) {
 			//home
