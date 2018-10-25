@@ -435,7 +435,7 @@ char * read_line() {
 					write(1, &space, 1);
 
 					// Print backspaces
-					for (i =0; i < line_length - line_loc + 1; i++) {
+					for (i =0; i < line_length - line_loc; i++) {
 						ch = 8;
 						write(1,&ch,1);
 					}
