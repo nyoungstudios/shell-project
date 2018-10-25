@@ -416,27 +416,13 @@ char * read_line() {
 			//delete
 			if (line_length > 0 && line_loc != line_length) {
 
-				// Print backspaces
-				int i = 0;
-				//ch = 27;
-				//write(1, &ch, 1);
-				//ch = 91;
-				//write(1, &ch, 1);
-				//ch = 67;
-				//write(1, &ch, 1);
-				//line_loc++;
-			
-				//ch = 8;
-				//write(1, &ch,1);
-				//line_loc--;
-
 				for (int k = line_loc + 1; k < line_length; k++) {
 					write(1, &(line_buffer[k]), 1);
 				}
 				char space = ' ';
 				write(1, &space, 1);
 				// Print backspaces
-				i = 0;
+				int i = 0;
 				for (i =0; i < line_length - line_loc; i++) {
 					ch = 8;
 					write(1,&ch,1);
@@ -450,7 +436,6 @@ char * read_line() {
 
 				// Remove one character from buffer
 				line_length--;
-				//line_loc--;
 
 			}
 
