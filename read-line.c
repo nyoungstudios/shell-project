@@ -100,7 +100,7 @@ char * read_line() {
 						char space = ' ';
 						write(1, &space, 1);
 						// Print backspaces
-						int i = 0;
+						i = 0;
 						for (i =0; i < line_length - line_loc + 1; i++) {
 							ch = 8;
 							write(1,&ch,1);
