@@ -418,12 +418,12 @@ char * read_line() {
 
 				// Print backspaces
 				int i = 0;
-				ch = 27;
-				write(1, &ch, 1);
-				ch = 91;
-				write(1, &ch, 1);
-				ch = 67;
-				write(1, &ch, 1);
+				int ccc = 27;
+				write(1, &ccc, 1);
+				ccc = 91;
+				write(1, &ccc, 1);
+				ccc = 67;
+				write(1, &ccc, 1);
 				//line_loc++;
 			
 				ch = 8;
