@@ -70,21 +70,23 @@ char * read_line() {
 			if (ch == 127) {
 				if (line_length > 0) {
 
-					// <backspace> was typed. Remove previous character read.
+					if (line_length == line_loc) {
 
-					// Go back one character
-					ch = 8;
-					write(1,&ch,1);
+						// <backspace> was typed. Remove previous character read.
 
-					// Write a space to erase the last character read
-					ch = ' ';
-					write(1,&ch,1);
+						// Go back one character
+						ch = 8;
+						write(1,&ch,1);
 
-					// Go back one character
-					ch = 8;
-					write(1,&ch,1);
+						// Write a space to erase the last character read
+						ch = ' ';
+						write(1,&ch,1);
 
-					if (line_length != line_loc) {
+						// Go back one character
+						ch = 8;
+						write(1,&ch,1);
+
+					} else {
 						for (int k = line_loc; k < line_length; k++) {
 							write(1, &(line_buffer[k]), 1);
 						}
@@ -95,7 +97,7 @@ char * read_line() {
 						for (i =0; i < line_length - line_loc + 1; i++) {
 							int ccc = 8;
 							write(1,&ccc,1);
-						}					
+						}	
 
 					}
 
