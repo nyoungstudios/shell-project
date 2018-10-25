@@ -9,7 +9,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include <termios.h>
 
 #define MAX_BUFFER_LINE 2048
 
@@ -494,8 +493,6 @@ char * read_line() {
 
 	temp_line = (char *) malloc(sizeof("") * sizeof(char) + 1);
 	strcpy(temp_line, "");	
-
-	tcsetattr(0, TCSANOW, &tty_attr);
 
   return line_buffer;
 }
