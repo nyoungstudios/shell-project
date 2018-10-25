@@ -400,6 +400,7 @@ char * read_line() {
       
     } else if (ch == 1) {
 			//home
+			printf("hi\n");
 			while (line_loc > 0) {
 				ch = 27;
 				write(1, &ch, 1);
