@@ -181,7 +181,6 @@ char * read_line() {
 					temp_line = (char *) malloc(sizeof(line_buffer) * sizeof(char) + 1);
 					strcpy(temp_line, line_buffer);
 					temp_line[strlen(line_buffer) - 1] = '\0';
-					printf("hi: %sasdf\n", temp_line);
 				}
 
 
@@ -265,14 +264,14 @@ char * read_line() {
 					//history_index++;	
 					//history_index=(history_index+1)%history_length;
 				} else if (history_index >= history_length - 1) {
-					printf("%d\n", line_length);				
+					//printf("%d\n", line_length);				
 					
 					strcpy(line_buffer, temp_line);
 					
 
 					line_length = strlen(temp_line);
 					
-					printf("%s\n", temp_line);				
+					//printf("%s\n", temp_line);				
 
 					histArrowFlag = 0;
 				}
