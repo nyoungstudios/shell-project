@@ -178,7 +178,7 @@ char * read_line() {
 				// Up arrow. Print next line in history.
 
 				if (history_index == history_length - 1) {
-					printf(".%s.\n", line_length);
+					printf(".%d.\n", line_length);
 					temp_line = (char *) malloc(sizeof(line_buffer) * sizeof(char) + 1);
 					strcpy(temp_line, line_buffer);
 					temp_line[strlen(temp_line) - 1] = '\0';
