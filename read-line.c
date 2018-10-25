@@ -422,8 +422,8 @@ char * read_line() {
 				//write(1, &ch, 1);
 				//ch = 91;
 				//write(1, &ch, 1);
-				ch = ' ';
-				write(1, &ch, 1);
+				//ch = ' ';
+				//write(1, &ch, 1);
 				//line_loc++;
 			
 				ch = 8;
