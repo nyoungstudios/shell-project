@@ -101,6 +101,12 @@ char * read_line() {
 					write(1, &(line_buffer[k]), 1);
 				}
 
+				// Print backspaces
+				int i = 0;
+				for (i =0; i < line_length - line_loc; i++) {
+					ch = 8;
+					write(1,&ch,1);
+				}
 			}
 
       // If max number of character reached return.
