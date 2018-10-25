@@ -122,6 +122,7 @@ char * read_line() {
 				temp_line = (char *) malloc(sizeof(line_buffer) * sizeof(char) + 1);
 				strcpy(temp_line, line_buffer);
 				temp_line[strlen(line_buffer) - 1] = '\0';
+				printf("hi: %s\n", temp_line);
 
 			}
 
