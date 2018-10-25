@@ -214,7 +214,7 @@ char * read_line() {
 				// Copy line from history
 				if (history_index != 0) {
 					strcpy(line_buffer, history[history_index]);
-					line_length = strlen(line_buffer);
+					line_length = strlen(history[history_index]);
 					if (history_index > 1) {
 						history_index--;
 					}
@@ -258,7 +258,7 @@ char * read_line() {
 	
 				if (history_length > 1 && history_index < history_length - 1) {
 					strcpy(line_buffer, history[++history_index]);
-					line_length = strlen(line_buffer);
+					line_length = strlen(history[history_index - 1);
 
 					histArrowFlag = 0;
 					//history_index++;	
