@@ -373,7 +373,7 @@ char * read_line() {
 					line_loc++;
 				}
 
-			} else if (ch1==79 && ch2==72) {
+			} else if (ch1==91 && ch2==72) {
 				//home
 				while (line_loc > 0) {
 					ch = 27;
@@ -384,7 +384,7 @@ char * read_line() {
 					write(1, &ch, 1);
 					line_loc--;
 				}
-			} else if (ch1==79 && ch2==70) {
+			} else if (ch1==91 && ch2==70) {
 				//end
 				while (line_loc != line_length) {
 					ch = 27;
@@ -397,7 +397,7 @@ char * read_line() {
 				}
 
 			}
-			printf("%d.%d\n", ch1, ch2);
+			//printf("%d.%d\n", ch1, ch2);
       
     } else if (ch == 1) {
 			//home
