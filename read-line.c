@@ -53,6 +53,7 @@ char * read_line() {
 
   line_length = 0;
 
+	//used for current cursor location
 	int line_loc = line_length;
 
 
@@ -91,17 +92,23 @@ char * read_line() {
 						ch = 8;
 						write(1, &ch,1);
 
+						//shifts characters back one
 						for (int k = line_loc; k < line_length; k++) {
 							write(1, &(line_buffer[k]), 1);
 						}
+	
+						//prints space
 						char space = ' ';
 						write(1, &space, 1);
+
 						// Print backspaces
 						int i = 0;
 						for (i =0; i < line_length - line_loc + 1; i++) {
 							ch = 8;
 							write(1,&ch,1);
 						}
+	
+						//updates line buffer
 						for (int k = line_loc - 1; k < line_length - 1; k++) {
 							line_buffer[k] = line_buffer[k+1];
 						}
@@ -200,17 +207,23 @@ char * read_line() {
 					ch = 8;
 					write(1, &ch,1);
 
+					//shifts characters back one
 					for (int k = line_loc; k < line_length; k++) {
 						write(1, &(line_buffer[k]), 1);
 					}
+
+					//prints space
 					char space = ' ';
 					write(1, &space, 1);
+
 					// Print backspaces
 					int i = 0;
 					for (i =0; i < line_length - line_loc + 1; i++) {
 						ch = 8;
 						write(1,&ch,1);
 					}
+
+					//updates line buffer
 					for (int k = line_loc - 1; k < line_length - 1; k++) {
 						line_buffer[k] = line_buffer[k+1];
 					}
@@ -238,6 +251,7 @@ char * read_line() {
       if (ch1==91 && ch2==65 && startHistFlag) {
 				// Up arrow. Print next line in history.
 
+				//stores value in temp
 				if (history_index == history_length - 1) {
 					temp_line = (char *) malloc(line_length * sizeof(char) + 1);
 					strcpy(temp_line, line_buffer);
@@ -266,7 +280,7 @@ char * read_line() {
 					write(1,&ch,1);
 				}	
 	
-
+				//checks if last arrow was down arrow	
 				if (histArrowFlag == 0) {
 					history_index--;
 				}	
@@ -313,11 +327,14 @@ char * read_line() {
 				// Copy line from history
 			
 				//printf("b--------%d--------%d--------\n", history_length, history_index);
+
+				//checks if last arrow was up arrow
 				if (histArrowFlag == 1 && history_index != 0) {
 					history_index++;
 				}			
 	
 				if (history_length > 1 && history_index < history_length - 1) {
+					//down arrow when in history
 					strcpy(line_buffer, history[++history_index]);
 					line_length = strlen(line_buffer);
 
@@ -416,24 +433,27 @@ char * read_line() {
 			//delete
 			if (line_length > 0 && line_loc != line_length) {
 
+				//shift character back one
 				for (int k = line_loc + 1; k < line_length; k++) {
 					write(1, &(line_buffer[k]), 1);
 				}
+
+				//print space
 				char space = ' ';
 				write(1, &space, 1);
+
 				// Print backspaces
 				int i = 0;
 				for (i =0; i < line_length - line_loc; i++) {
 					ch = 8;
 					write(1,&ch,1);
 				}
+			
+				//update buffer
 				for (int k = line_loc; k < line_length - 1; k++) {
 					line_buffer[k] = line_buffer[k+1];
 				}
 				
-						
-
-
 				// Remove one character from buffer
 				line_length--;
 
