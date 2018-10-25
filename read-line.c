@@ -422,12 +422,10 @@ char * read_line() {
 				//write(1, &ch, 1);
 				//ch = ' ';
 				//write(1, &ch, 1);
-				ch = ' ';
-				write(1, &ch, 1);
+				int ccc = ' ';
+				write(1, &ccc, 1);
 				//line_loc++;
 			
-				ch = 8;
-				write(1, &ch,1);
 				ch = 8;
 				write(1, &ch,1);
 				//line_loc--;
