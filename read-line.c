@@ -181,26 +181,59 @@ char * read_line() {
       line_buffer[0]=0;
       break;
     }
-    else if (ch == 8) {
+    else if (ch == 8) {	
 			if (line_length > 0) {
-				// <backspace> was typed. Remove previous character read.
 
-				// Go back one character
-				ch = 8;
-				write(1,&ch,1);
+				if (line_length == line_loc) {
 
-				// Write a space to erase the last character read
-				ch = ' ';
-				write(1,&ch,1);
+					// <backspace> was typed. Remove previous character read.
 
-				// Go back one character
-				ch = 8;
-				write(1,&ch,1);
+					// Go back one character
+					ch = 8;
+					write(1,&ch,1);
+
+					// Write a space to erase the last character read
+					ch = ' ';
+					write(1,&ch,1);
+
+					// Go back one character
+					ch = 8;
+					write(1,&ch,1);
+
+				} else {
+					// Print backspaces
+					int i = 0;
+					//for (i =0; i < line_length - line_loc + 1; i++) {
+					//	ch = 8;
+					//	write(1,&ch,1);
+					//}
+					ch = 8;
+					write(1, &ch,1);
+
+					for (int k = line_loc; k < line_length; k++) {
+						write(1, &(line_buffer[k]), 1);
+					}
+					char space = ' ';
+					write(1, &space, 1);
+					// Print backspaces
+					i = 0;
+					for (i =0; i < line_length - line_loc + 1; i++) {
+						ch = 8;
+						write(1,&ch,1);
+					}
+					for (int k = line_loc - 1; k < line_length - 1; k++) {
+						line_buffer[k] = line_buffer[k+1];
+					}
+					
+						
+
+				}
 
 				// Remove one character from buffer
 				line_length--;
 				line_loc--;
 			}
+
     }
     else if (ch==27) {
       // Escape sequence. Read two chars more
