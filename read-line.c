@@ -261,13 +261,14 @@ char * read_line() {
 					//history_index++;	
 					//history_index=(history_index+1)%history_length;
 				} else if (history_index >= history_length - 1) {
-					//printf("%d\n", line_length);				
+					printf("%d\n", line_length);				
 					
 					strcpy(line_buffer, temp_line);
 					
 
 					line_length = strlen(temp_line);
 					
+					printf("%d\n", line_length);				
 
 					histArrowFlag = 0;
 				}
