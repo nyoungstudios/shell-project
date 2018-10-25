@@ -179,7 +179,6 @@ char * read_line() {
 
 				if (history_index == history_length - 1) {
 					temp_line = (char *) malloc(sizeof(line_buffer) * sizeof(char) + 1);
-					printf("...%s...\n", line_buffer);
 					strcpy(temp_line, line_buffer);
 					temp_line[strlen(temp_line) - 1] = '\0';
 				}
@@ -210,7 +209,9 @@ char * read_line() {
 				if (histArrowFlag == 0) {
 					history_index--;
 				}	
+				
 					
+				printf("...%s...\n", line_buffer);
 
 				// Copy line from history
 				if (history_index != 0) {
