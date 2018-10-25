@@ -421,9 +421,7 @@ char * read_line() {
 						line_buffer[k] = line_buffer[k+1];
 					}
 					
-					// Remove one character from buffer
-					line_length--;
-
+					
 					// Print backspaces
 					ch = 8;
 					write(1, &ch,1);
@@ -446,7 +444,10 @@ char * read_line() {
 					for (int k = line_loc - 1; k < line_length - 1; k++) {
 						line_buffer[k] = line_buffer[k+1];
 					}
-	
+
+					// Remove one character from buffer
+					line_length--;
+
 
 				}
 
