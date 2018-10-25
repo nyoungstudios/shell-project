@@ -464,11 +464,11 @@ char * read_line() {
 				}
 
 				//print space
-				char space = ' ';
+				space = ' ';
 				write(1, &space, 1);
 
 				// Print backspaces
-				int i = 0;
+				i = 0;
 				for (i =0; i < line_length - line_loc; i++) {
 					ch = 8;
 					write(1,&ch,1);
