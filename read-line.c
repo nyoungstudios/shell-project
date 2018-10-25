@@ -452,7 +452,7 @@ char * read_line() {
 				line_length--;
 				line_loc--;
 			} else {
-				printf("hi");
+				printf("hi\n");
 			}
 
 
