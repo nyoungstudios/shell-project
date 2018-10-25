@@ -281,6 +281,7 @@ char * read_line() {
 				if (history_index != 0) {
 					strcpy(line_buffer, history[history_index]);
 					line_length = strlen(line_buffer);
+					line_loc = line_length;
 					if (history_index > 1) {
 						history_index--;
 					}
@@ -328,6 +329,7 @@ char * read_line() {
 					//down arrow when in history
 					strcpy(line_buffer, history[++history_index]);
 					line_length = strlen(line_buffer);
+					line_loc = line_length;
 
 					histArrowFlag = 0;
 					//history_index++;	
@@ -338,6 +340,7 @@ char * read_line() {
 					
 
 					line_length = strlen(temp_line);
+					line_loc = line_length;
 					
 
 					histArrowFlag = -1;
