@@ -1,22 +1,22 @@
 # My Shell Project
-My shell project that I created for my Systems Programming class at Purdue. Got over 100% on this project.
+My shell project that I created for the Systems Programming class at Purdue. Got over 100% on this project.
 
 ## Features
 1. Features specified in the handout that work.  
 Everything works including:  
 Parsing and executing commands  
-File redirection  
-Pipes  
+File redirection >, >>, <, >&, and >>&  
+Pipes |  
 isatty()  
 Ctrl+C  
 Zombie Elimination  
-Exit  
-Quotes  
-Escaping  
+Exit the shell  
+Quotes "" and ''  
+Escaping special characters \\  
 Builtin Functions (printenv, setenv, unsetenv, source, cd)  
 Source .shellrc file  
 Source with environment variables  
-Subshells  
+Subshells $()  
 Process substitution  
 Environment variable expansion ${}  
 Tilde expansion (~)  
