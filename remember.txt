@@ -1,0 +1,3 @@
+line editing
+better subshell and backslash parsing
+add files/aaa to test-shell
